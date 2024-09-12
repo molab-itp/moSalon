@@ -31,6 +31,12 @@ function setup() {
 
 function draw() {
   if (!my.faces) return;
+  if (my.faces.length == 0) {
+    // id_main.
+    id_main.classList.add('hidden');
+  } else {
+    id_main.classList.remove('hidden');
+  }
 
   let str = my.photo_list.length + ' ' + my.photo_index;
   my.photo_count_span.html(str);
