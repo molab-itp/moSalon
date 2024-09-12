@@ -15,7 +15,7 @@ function my_init() {
   my.group = 'group1';
 
   my.photo_index = 0;
-  my.photo_max = 4;
+  my.photo_max = 16;
   my.photo_list = [];
 
   let scale = 0.5;

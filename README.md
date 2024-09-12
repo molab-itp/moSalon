@@ -5,8 +5,8 @@
 
 ## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=2)
 
-- [src/let-america-rewind s1](src/let-america-be?v=2&group=s1)
-- [src/let-america-rewind s2](src/let-america-be?v=2&group=s2)
+- [src/let-america-be s1](src/let-america-be?v=2&group=s1)
+- [src/let-america-be s2](src/let-america-be?v=2&group=s2)
 
 - [src/faceMesh](src/faceMesh?v=2)
 
