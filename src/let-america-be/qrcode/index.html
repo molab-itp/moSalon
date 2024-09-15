@@ -3,38 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>let-american-rewind ?v=3</title>
+    <title>let-american-rewind ?v=4</title>
   </head>
   <body>
     <div>
-      <h1 id="id_title">Welcome to let-american-rewind ?v=3</h1>
+      <h1 id="id_title">Welcome to let-american-rewind ?v=4</h1>
       By entering this site you agree to have anonymous user data stored <br />
       <h2>
-        <a href="../index.html?v=3" id="id_link">
+        <a href="../index.html?v=4" id="id_link">
           <!-- -->
-          Enter let-american-rewind
+          Enter let-american-let
         </a>
       </h2>
       Rewind poem playback <br />
       <br />
-      powered by <a href="https://github.com/molab-itp/p5moLibrary" target="moLibrary"> p5moLibrary</a> by
+      powered by <a href="https://github.com/molab-itp/moLib" target="moLib"> moLib</a> by
       <a href="https://jht1493.net" target="jht">John Henry Thompson</a> <br />
     </div>
 
     <script>
-      window.location = '../index.html';
-
       let str = window.location.search;
       if (str) {
         str = '&' + str.substring(1);
-        id_link.href += str;
-        id_title.innerHTML = id_title.innerHTML + str;
+      } else {
+        str = '';
       }
-      // examples/let-america-rewind/qrcode/index.html
-      // https://molab-itp.github.io/p5moExamples
-      // https://molab-itp.github.io/p5moExamples/examples/let-america-rewind/qrcode/index.html
-      // https://molab-itp.github.io/p5moExamples/examples/let-america-rewind/qrcode/index.html?s1
-      // https://molab-itp.github.io/p5moExamples/examples/let-america-rewind/qrcode/index.html?s2
+      id_link.href += str;
+      id_title.innerHTML = id_title.innerHTML + str;
+      id_link.innerHTML += ' ' + str;
+      // window.location = '../index.html';
+      window.location = id_link.href;
+
+      // https://molab-itp.github.io/moSalon/src/let-america-be/qrcode/index.html
+      // https://molab-itp.github.io/moSalon/src/let-america-be/qrcode/index.html?s1
+      // https://molab-itp.github.io/moSalon/src/let-america-be/qrcode/index.html?s2
+      //
     </script>
   </body>
 </html>
