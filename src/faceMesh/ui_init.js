@@ -1,6 +1,7 @@
 //
 function ui_init() {
   //
+  createSpan(my.version);
 
   my.addBtn = ui_createButton('Add');
   my.addBtn.mousePressed(add_action);
