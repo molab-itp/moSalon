@@ -2,12 +2,23 @@
 
 // !!@ flipH=true does not preview correctly
 // unless capture is sized immediately
-let flipH = true;
-// let flipH = false;
+// let flipH = true;
+let flipH = false;
 
 // Create the webcam video and hide it
 //
 function video_init(video_init_doneFunc) {
+  my.video = createCapture(VIDEO)
+  my.video.hide();
+
+  console.log('my.video.width, my.video.height', my.video.width, my.video.height);
+
+  video_maskInit();
+
+  video_init_doneFunc();
+
+}
+function video_initX(video_init_doneFunc) {
   enum_mediaDevices({}, function (capture) {
     // !!@ If multiple video devices may be called more than once
     if (my.video) {
