@@ -10,6 +10,9 @@ window.addEventListener('resize', resize_window);
 
 id_rewind_btn.addEventListener('click', rewind_action);
 id_full_read_btn.addEventListener('click', full_read_action);
+id_next_btn.addEventListener('click', next_action);
+id_previous_btn.addEventListener('click', previous_action);
+id_continue_btn.addEventListener('click', continue_action);
 
 function document_loaded() {
   console.log('document_loaded');
@@ -36,6 +39,20 @@ function app_init_completed() {
   }
 }
 
+// next | previous | continue
+function next_action() {
+  console.log('next_action');
+  dbase_issue_action('action_next');
+}
+function previous_action() {
+  console.log('previous_action');
+  dbase_issue_action('action_previous');
+}
+function continue_action() {
+  console.log('continue_action');
+  dbase_issue_action('action_continue');
+}
+
 function full_read_action() {
   console.log('full_read_action');
   dbase_issue_action('action_full_read');
@@ -59,7 +76,7 @@ function my_setup() {
 
   my.dbase_rootPath = 'm0-@r-@w-';
   my.roomName = 'm1-america';
-  my.mo_app = 'mo-america-rewind';
+  my.mo_app = 'mo-america-be';
   my.nameDevice = 'america';
 
   // set group for all devices to share item values

@@ -22,6 +22,8 @@ function my_init() {
   // let scale = 1.0;
   my.vwidth = 480 * scale;
   my.vheight = 640 * scale;
+  // my.vwidth = 640 * scale;
+  // my.vheight = 480 * scale;
   my.top_percent = 80;
 
   // my.imageQuality = 1;
