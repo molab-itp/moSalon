@@ -25,6 +25,7 @@ function my_init() {
   // my.vwidth = 640 * scale;
   // my.vheight = 480 * scale;
   my.top_percent = 80;
+  my.long = 0;
 
   // my.imageQuality = 1;
   my.imageQuality = 0.5;
@@ -38,5 +39,10 @@ function my_init() {
     my.isRemote = parseFloat(my.query.remote || my.isRemote);
     my.photo_max = parseFloat(my.query.photo_max || my.photo_max);
     my.top_percent = parseFloat(my.query.top_percent || my.top_percent);
+    my.long = parseFloat(my.query.long || my.long);
   }
+  if (my.long) {
+    [my.vwidth, my.vheight] = [my.vheight, my.vwidth];
+  }
+  console.log('my.vwidth, my.vheight', my.vwidth, my.vheight, 'my.long', my.long);
 }

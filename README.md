@@ -10,6 +10,7 @@
 - [src/let-america-be s2](src/let-america-be?v=12&group=s2)
 
 - [src/faceMesh](src/faceMesh?v=12)
+- [src/faceMesh long](src/faceMesh?v=12&long=1)
 
 ## How is data synchronized in real time in the examples?
 
