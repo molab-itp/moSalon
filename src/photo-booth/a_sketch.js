@@ -64,7 +64,7 @@ function startup_completed() {
     if (device.photo_index != undefined) {
       my.photo_index = device.photo_index;
     }
-    show_action();
+    photo_list_display();
   }
 }
 

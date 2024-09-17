@@ -32,16 +32,18 @@ function setup() {
 function draw() {
   // reset_check();
   if (!my.faces) return;
-  if (my.faces.length == 0) {
-    // id_main.
-    id_main.classList.add('hidden');
-  } else {
-    id_main.classList.remove('hidden');
-  }
 
   let str = my.photo_list.length + ' ' + my.photo_index;
   my.photo_count_span.html(str);
 
+  if (my.show_mesh) {
+    draw_mesh();
+  } else {
+    image(my.video, 0, 0);
+  }
+}
+
+function draw_mesh() {
   my.output.background(my.avg_color);
 
   // Draw all the tracked face points

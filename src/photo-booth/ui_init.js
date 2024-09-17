@@ -14,7 +14,7 @@ function ui_init() {
   my.removeBtn.mousePressed(remove_action);
 
   my.showBtn = ui_createButton('Show');
-  my.showBtn.mousePressed(show_action);
+  my.showBtn.mousePressed(photo_list_display);
 
   my.photo_count_span = createSpan('' + my.photo_list.length);
 
@@ -55,10 +55,10 @@ function find_img(index) {
   let id = 'id_img_' + index;
   let img = select('#' + id);
   if (!img) {
-    // console.log('show_action id', id);
+    // console.log('find_img id', id);
     img = createImg('', 'image');
     img.id(id);
-    // console.log('show_action createImg', img);
+    // console.log('find_img createImg', img);
 
     // Add image as first child to see most recent first
     my.gallery_div.elt.prepend(img.elt);

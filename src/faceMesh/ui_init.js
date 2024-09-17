@@ -1,8 +1,21 @@
 //
 function ui_init() {
   //
-  let ver = createSpan(my.version);
+  my.ui_container = createDiv('').id('id_top_bottoms');
+
+  let ver = ui_span(0, my.version);
   ver.elt.style.backgroundColor = 'white';
+
+  my.showBtn = ui_createButton('Show');
+  my.showBtn.mousePressed(show_action);
+
+  my.hideBtn = ui_createButton('Hide');
+  my.hideBtn.mousePressed(hide_action);
+
+  my.meshBtn = ui_createButton('Mesh');
+  my.meshBtn.mousePressed(mesh_action);
+
+  ui_break();
 
   my.addBtn = ui_createButton('Add');
   my.addBtn.mousePressed(add_action);
@@ -13,12 +26,21 @@ function ui_init() {
   my.removeBtn = ui_createButton('Remove');
   my.removeBtn.mousePressed(remove_action);
 
+  ui_break();
+
   my.resetBtn = ui_createButton('Reset');
   my.resetBtn.mousePressed(reset_action);
 
-  my.photo_count_span = createSpan('' + my.photo_list.length);
+  my.photo_count_span = ui_span(0, '' + my.photo_list.length);
   my.photo_count_span.elt.style.backgroundColor = 'white';
 
+  // Move the canvas below all the ui buttons
+  let body_elt = document.querySelector('body');
+  let main_elt = document.querySelector('main');
+  body_elt.insertBefore(main_elt, null);
+
+  // Gallery is below canvs
+  my.ui_container = null;
   my.gallery_div = ui_div_empty('igallery');
 }
 
@@ -52,10 +74,10 @@ function find_img(index) {
   let id = 'id_img_' + index;
   let img = select('#' + id);
   if (!img) {
-    // console.log('show_action id', id);
+    // console.log('find_img id', id);
     img = createImg('', 'image');
     img.id(id);
-    // console.log('show_action createImg', img);
+    // console.log('find_img createImg', img);
 
     // Add image as first child to see most recent first
     my.gallery_div.elt.prepend(img.elt);
@@ -88,3 +110,22 @@ function reset_check() {
 }
 
 let resetDelaySecs = 7;
+
+// if (my.faces.length == 0) {
+//   // id_main.
+//   id_main.classList.add('hidden');
+// } else {
+//   id_main.classList.remove('hidden');
+// }
+
+function show_action() {
+  id_main.classList.remove('hidden');
+}
+
+function hide_action() {
+  id_main.classList.add('hidden');
+}
+
+function mesh_action() {
+  my.show_mesh = !my.show_mesh;
+}

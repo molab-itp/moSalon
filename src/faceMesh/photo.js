@@ -18,7 +18,7 @@ function startup_completed() {
     if (device.photo_index != undefined) {
       my.photo_index = device.photo_index;
     }
-    show_action();
+    photo_list_display();
   }
 }
 
@@ -62,20 +62,20 @@ async function photo_list_remove_entry(entry) {
     await fstorage_remove({ path });
     remove_img_index(entry.index);
   } catch (err) {
-    console.log('show_action err', err);
+    console.log('photo_list_remove_entry err', err);
   }
 }
 
-async function show_action() {
+async function photo_list_display() {
   //
-  // console.log('show_action my.photo_list', my.photo_list);
+  // console.log('photo_list_display my.photo_list', my.photo_list);
   for (let entry of my.photo_list) {
     let path = photo_path_entry(entry);
     try {
       let url = await fstorage_download_url({ path });
       url_result(url, entry.index);
     } catch (err) {
-      console.log('show_action err', err);
+      console.log('photo_list_display err', err);
     }
   }
   function url_result(url, index) {
