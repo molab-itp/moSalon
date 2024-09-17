@@ -77,12 +77,14 @@ function reset_action() {
   setTimeout(function () {
     // video.remove();
     window.location.reload();
-  }, 5000);
+  }, resetDelaySecs * 1000);
 }
 
 function reset_check() {
   if (my.video) return;
-  if (frameCount > frameRate() * 5 && my.mediaDevices.length && !my.mediaDevices[0].stream) {
+  if (frameCount > frameRate() * resetDelaySecs && my.mediaDevices.length && !my.mediaDevices[0].stream) {
     reset_action();
   }
 }
+
+let resetDelaySecs = 7;
