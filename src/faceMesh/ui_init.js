@@ -12,8 +12,8 @@ function ui_init() {
   my.removeBtn = ui_createButton('Remove');
   my.removeBtn.mousePressed(remove_action);
 
-  // my.showBtn = ui_createButton('Show');
-  // my.showBtn.mousePressed(show_action);
+  my.resetBtn = ui_createButton('Reset');
+  my.resetBtn.mousePressed(reset_action);
 
   my.photo_count_span = createSpan('' + my.photo_list.length);
 
@@ -62,4 +62,25 @@ function find_img(index) {
     img.style('width: ' + iwidth + 'px;');
   }
   return img;
+}
+
+// Sometimes getting constrain error with createCapture with config params
+// Force video permission then reload page
+//
+function reset_action() {
+  my.video = createCapture(VIDEO, function (stream) {
+    console.log('reset_action stream', stream);
+  });
+  console.log('reset_action video', my.video);
+  setTimeout(function () {
+    // video.remove();
+    window.location.reload();
+  }, 5000);
+}
+
+function reset_check() {
+  if (my.video) return;
+  if (frameCount > frameRate() * 5 && (!my.mediaDevices.length || !my.mediaDevices[0].stream)) {
+    reset_action();
+  }
 }

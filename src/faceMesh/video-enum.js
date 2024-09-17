@@ -55,6 +55,7 @@ function enum_mediaDevices(options, doneFunc) {
         if (device.kind == 'videoinput') {
           // console.log('media_enumdevice.deviceId=' + device.deviceId);
           console.log('media_enum label=' + device.label);
+          console.log('media_enum deviceId=' + device.deviceId);
           let { label, deviceId } = device;
           if (!deviceId) {
             label = 'No-id-' + random();
@@ -88,19 +89,27 @@ function create_mediaDevices(options, doneFunc) {
       vcap.video.height = { exact: dim.height };
     }
     // console.log('create_mediaDevices dim', dim);
-    // console.log('create_mediaDevices vcap', vcap);
+    console.log('create_mediaDevices vcap', vcap);
 
     // !!@ flipH=true does not take unless capture is sized immediately
     // let capture = createCapture(VIDEO, { flipped: flipH });
     // capture.size(capture.width, capture.height);
 
+    // let capture = createCapture(VIDEO, function (stream)
+    // try {
     let capture = createCapture(vcap, { flipped: flipH }, function (stream) {
       console.log('create_mediaDevices stream', stream);
       mediaDevice.stream = stream;
       // capture.width and height now valid
       doneFunc(capture);
+      // alert('init_device_capture DONE deviceId=|' + mediaDevice.deviceId + '|');
       // livem_restore();
     });
+    // } catch (err) {
+    //   console.log('init_device_capture err', err);
+    //   alert('init_device_capture err=' + err);
+    // }
+
     capture.elt.muted = true;
     mediaDevice.capture = capture;
   }
