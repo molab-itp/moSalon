@@ -1,7 +1,8 @@
 //
 function ui_init() {
   //
-  createSpan(my.version);
+  let ver = createSpan(my.version);
+  ver.elt.style.backgroundColor = 'white';
 
   my.addBtn = ui_createButton('Add');
   my.addBtn.mousePressed(add_action);
@@ -16,6 +17,7 @@ function ui_init() {
   my.resetBtn.mousePressed(reset_action);
 
   my.photo_count_span = createSpan('' + my.photo_list.length);
+  my.photo_count_span.elt.style.backgroundColor = 'white';
 
   my.gallery_div = ui_div_empty('igallery');
 }
@@ -80,7 +82,7 @@ function reset_action() {
 
 function reset_check() {
   if (my.video) return;
-  if (frameCount > frameRate() * 5 && (!my.mediaDevices.length || !my.mediaDevices[0].stream)) {
+  if (frameCount > frameRate() * 5 && my.mediaDevices.length && !my.mediaDevices[0].stream) {
     reset_action();
   }
 }

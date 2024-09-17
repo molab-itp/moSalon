@@ -46,6 +46,9 @@ function draw() {
 
   // Draw all the tracked face points
   for (let face of my.faces) {
+    let clr = my.avg_color;
+    document.body.style.backgroundColor = `rgb(${clr[0]},${clr[1]},${clr[2]}`;
+
     draw_face_mesh(face);
     draw_mouth_shape(face);
     draw_lips_line(face);
