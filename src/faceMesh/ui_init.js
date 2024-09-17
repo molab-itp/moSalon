@@ -1,6 +1,8 @@
 //
 function ui_init() {
   //
+  ui_begin();
+
   my.ui_container = createDiv('').id('id_top_bottoms');
 
   let ver = ui_span(0, my.version);
