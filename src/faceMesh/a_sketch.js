@@ -30,7 +30,7 @@ function setup() {
 }
 
 function draw() {
-  reset_check();
+  // reset_check();
   if (!my.faces) return;
   if (my.faces.length == 0) {
     // id_main.
