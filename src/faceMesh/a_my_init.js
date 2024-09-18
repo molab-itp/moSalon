@@ -45,4 +45,6 @@ function my_init() {
     [my.vwidth, my.vheight] = [my.vheight, my.vwidth];
   }
   console.log('my.vwidth, my.vheight', my.vwidth, my.vheight, 'my.long', my.long);
+
+  my.isMobile = window.innerWidth < 600;
 }

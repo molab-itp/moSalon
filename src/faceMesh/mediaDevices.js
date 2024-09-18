@@ -1,5 +1,10 @@
 //
 
+// !!@ to lib mediaDevices.js
+// mediaDevices_preflight
+// mediaDevices_enum
+// mediaDevice_create_capture
+
 // Ask for default video to trigger video permission
 // and avoid overly constrain error
 //

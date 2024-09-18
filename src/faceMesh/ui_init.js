@@ -17,8 +17,6 @@ function ui_init() {
   my.meshBtn = ui_createButton('Mesh');
   my.meshBtn.mousePressed(mesh_action);
 
-  ui_break();
-
   my.addBtn = ui_createButton('Add');
   my.addBtn.mousePressed(add_action);
 
@@ -27,8 +25,6 @@ function ui_init() {
 
   my.removeBtn = ui_createButton('Remove');
   my.removeBtn.mousePressed(remove_action);
-
-  ui_break();
 
   my.resetBtn = ui_createButton('Reset');
   my.resetBtn.mousePressed(reset_action);
