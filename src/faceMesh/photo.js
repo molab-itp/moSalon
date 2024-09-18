@@ -30,7 +30,7 @@ function startup_completed() {
 }
 
 function set_photo_list(newList) {
-  console.log('set_photo_list newList', newList);
+  // console.log('set_photo_list newList', newList);
   // console.log('set_photo_list photo_list', my.photo_list);
   let n = newList.length;
   let diff = n != my.photo_list.length || my.photo_list[n - 1].index != newList[n - 1].index;
@@ -38,7 +38,7 @@ function set_photo_list(newList) {
   if (diff) {
     update_last_photo();
     if (n) {
-      console.log('set_photo_list newList[n - 1].index', newList[n - 1].index);
+      // console.log('set_photo_list newList[n - 1].index', newList[n - 1].index);
     }
   }
   // console.log('set_photo_list diff', diff);
@@ -205,7 +205,7 @@ function renderBlobToLayer(blob, args, resolve) {
   let ctx = args.layer.drawingContext;
   var img = new Image();
   img.onload = function () {
-    console.log('renderBlobToLayer img', img);
+    // console.log('renderBlobToLayer img', img);
     ctx.drawImage(img, 0, 0, width, height);
     URL.revokeObjectURL(img.src);
     resolve();
