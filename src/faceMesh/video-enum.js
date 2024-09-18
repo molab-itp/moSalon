@@ -38,7 +38,7 @@ function video_init_enum() {
 
       my.video.hide();
 
-      console.log('my.video.width, my.video.height', my.video.width, my.video.height);
+      console.log('video_init_enum my.video.width, my.video.height', my.video.width, my.video.height);
 
       video_maskInit();
 
@@ -116,20 +116,13 @@ function create_mediaDevices(options, doneFunc) {
     // let capture = createCapture(VIDEO, { flipped: flipH });
     // capture.size(capture.width, capture.height);
 
-    // let capture = createCapture(VIDEO, function (stream)
-    // try {
     let capture = createCapture(vcap, { flipped: flipH }, function (stream) {
       console.log('create_mediaDevices stream', stream);
       mediaDevice.stream = stream;
       // capture.width and height now valid
       doneFunc(capture);
       // alert('init_device_capture DONE deviceId=|' + mediaDevice.deviceId + '|');
-      // livem_restore();
     });
-    // } catch (err) {
-    //   console.log('init_device_capture err', err);
-    //   alert('init_device_capture err=' + err);
-    // }
 
     capture.elt.muted = true;
     mediaDevice.capture = capture;
@@ -165,3 +158,10 @@ function overlayEyesMouthFace(face, source) {
 }
 
 // image(img, dx, dy, dWidth, dHeight, sx, sy, [sWidth], [sHeight]
+
+// let capture = createCapture(VIDEO, function (stream)
+// try {
+// } catch (err) {
+//   console.log('init_device_capture err', err);
+//   alert('init_device_capture err=' + err);
+// }
