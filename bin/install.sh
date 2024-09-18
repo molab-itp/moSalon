@@ -40,5 +40,3 @@ if [ ! -e "$dest" ]; then
   exit
 fi
 
-# Begin in next branch
-# git checkout next
