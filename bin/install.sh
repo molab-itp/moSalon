@@ -10,8 +10,6 @@ cd ..
 dest=moLib
 if [ ! -e "$dest" ]; then
   git clone https://github.com/molab-itp/$dest.git $dest
-  pushd $dest > /dev/null
-  popd > /dev/null
 fi
 if [ ! -e "$dest" ]; then
   echo "fail to clone to $dest"
