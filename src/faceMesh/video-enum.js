@@ -96,6 +96,8 @@ function create_mediaDevices(options, doneFunc) {
   dim = options;
   for (let mediaDevice of my.mediaDevices) {
     init_device_capture(mediaDevice);
+    // !!@ Only one mediaDevice create_mediaDevices
+    break;
     // create_mediaDiv(mediaDevice, { live: 0 });
   }
   function init_device_capture(mediaDevice) {
