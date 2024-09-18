@@ -47,10 +47,18 @@ function draw() {
   let str = my.photo_list.length + ' ' + my.photo_index;
   my.photo_count_span.html(str);
 
+  if (my.imgLayer) {
+    let clr = my.imgLayer.get(0, 0);
+    document.body.style.backgroundColor = `rgb(${clr[0]},${clr[1]},${clr[2]}`;
+  }
+
   if (my.show_mesh) {
     draw_mesh();
   } else {
     image(my.video, 0, 0);
+    if (my.imgLayer) {
+      image(my.imgLayer, width / 2, 0);
+    }
   }
 }
 
@@ -59,9 +67,6 @@ function draw_mesh() {
 
   // Draw all the tracked face points
   for (let face of my.faces) {
-    let clr = my.avg_color;
-    document.body.style.backgroundColor = `rgb(${clr[0]},${clr[1]},${clr[2]}`;
-
     draw_face_mesh(face);
     draw_mouth_shape(face);
     draw_lips_line(face);

@@ -1,5 +1,12 @@
 //
 
+// my.photo_list = [ { } ]
+// {
+//   "index": 19,
+//   "name": "019.jpg",
+//   "uid": "DK1Lcj16BFhDPgdvGGkVP9FS3Xy2"
+// }
+
 function startup_completed() {
   //
   dbase_app_observe({ observed_item });
@@ -9,7 +16,7 @@ function startup_completed() {
     // console.log('observed_item device.photo_index', device.photo_index);
     // console.log('observed_item device.photo_list', device.photo_list);
     if (device.photo_list != undefined) {
-      my.photo_list = device.photo_list;
+      set_photo_list(device.photo_list);
     } else {
       // Removing all photos will remove all img divs
       my.photo_list = [];
@@ -22,6 +29,21 @@ function startup_completed() {
   }
 }
 
+function set_photo_list(newList) {
+  console.log('set_photo_list newList', newList);
+  // console.log('set_photo_list photo_list', my.photo_list);
+  let n = newList.length;
+  let diff = n != my.photo_list.length || my.photo_list[n - 1].index != newList[n - 1].index;
+  my.photo_list = newList;
+  if (diff) {
+    update_last_photo();
+    if (n) {
+      console.log('set_photo_list newList[n - 1].index', newList[n - 1].index);
+    }
+  }
+  // console.log('set_photo_list diff', diff);
+}
+
 function photo_name(index) {
   return index.toString().padStart(3, '0') + my.imageExt;
 }
@@ -29,7 +51,7 @@ function photo_name(index) {
 function photo_list_entry(index) {
   let name = photo_name(index);
   let uid = my.uid;
-  return { name, index, uid };
+  return { name, index, uid, width, height };
 }
 
 function photo_path_entry(entry) {
@@ -37,20 +59,20 @@ function photo_path_entry(entry) {
 }
 
 async function photo_list_add(entry) {
-  my.photo_list.push(entry);
-  if (my.photo_list.length > my.photo_max) {
-    await photo_list_trim();
+  let newList = my.photo_list.concat(entry);
+  if (newList.length > my.photo_max) {
+    await photo_list_trim(newList);
   }
 
   // Change to photo_list send to cloud
-  dbase_update_item({ photo_list: my.photo_list });
+  dbase_update_item({ photo_list: newList });
 }
 
-async function photo_list_trim() {
+async function photo_list_trim(newList) {
   //
-  // remove the first entry in photo_list
+  // remove the first entry in newList
   //
-  let first = my.photo_list.shift();
+  let first = newList.shift();
   await photo_list_remove_entry(first);
 }
 
@@ -113,20 +135,80 @@ async function take_action() {
 }
 
 async function remove_action() {
-  // console.log('remove_action photo_count', my.photo_list.length);
-  if (my.photo_list.length < 1) {
+  console.log('remove_action photo_count', my.photo_list.length);
+  let n = my.photo_list.length;
+  if (n < 1) {
     // No more images in the cloud
     //  zero out photo_index
-    // dbase_group_update({ photo_index: 0 });
     dbase_update_item({ photo_index: 0 });
     return;
   }
   //
   // remove the last entry in photo_list
   //
-  let last = my.photo_list.pop();
+  let newList = my.photo_list.slice(0, -1);
+  console.log('remove_action newList ', newList.length);
+
+  let last = my.photo_list[n - 1];
   await photo_list_remove_entry(last);
 
   // Update photo_list in the cloud
-  dbase_update_item({ photo_list: my.photo_list });
+  dbase_update_item({ photo_list: newList });
+}
+
+async function update_last_photo() {
+  //
+  console.log('update_last_photo photo_count', my.photo_list.length);
+  if (!my.photo_list.length) return;
+  if (!my.imgLayer) {
+    my.imgLayer = createGraphics(width, height);
+  }
+  let index = my.photo_list.length - 1;
+  let entry = my.photo_list[index];
+  let path = photo_path_entry(entry);
+  try {
+    let url = await fstorage_download_url({ path });
+    await fstoreage_render({ url, layer: my.imgLayer });
+  } catch (err) {
+    console.log('photo_list_display err', err);
+  }
+}
+
+// my.imgLayer = createGraphics(my.width, my.height);
+
+// !!@ to lib fstorage_render_url
+// args = { url, layer }
+//
+function fstoreage_render(args) {
+  return new Promise(function (resolve, reject) {
+    promise_render(args, resolve, reject);
+  });
+}
+
+function promise_render(args, resolve, reject) {
+  const xhr = new XMLHttpRequest();
+  xhr.responseType = 'blob';
+  xhr.onload = (event) => {
+    const blob = xhr.response;
+    // ui_log('fstorage_img_download blob ' + blob);
+    renderBlobToLayer(blob, args, resolve);
+  };
+  xhr.open('GET', args.url);
+  xhr.send();
+}
+
+function renderBlobToLayer(blob, args, resolve) {
+  // let elt = my.canvas.elt;
+  // let ctx = elt.getContext('2d');
+  // let ctx = my.canvas.drawingContext;
+  let { width, height } = args.layer;
+  let ctx = args.layer.drawingContext;
+  var img = new Image();
+  img.onload = function () {
+    console.log('renderBlobToLayer img', img);
+    ctx.drawImage(img, 0, 0, width, height);
+    URL.revokeObjectURL(img.src);
+    resolve();
+  };
+  img.src = URL.createObjectURL(blob);
 }
