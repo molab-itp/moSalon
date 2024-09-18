@@ -14,19 +14,30 @@ function setup() {
   let nh = Math.floor(windowHeight * (my.top_percent / 100));
   my.canvas = createCanvas(windowWidth, nh);
 
-  video_init(function () {
-    my.bars = new eff_bars({ width: my.video.width, height: my.video.height });
-
-    my.input = my.video;
-
-    faceMesh_init();
-
-    my.bestill = new eff_bestill({ factor: 10, input: my.output });
-  });
+  video_setup();
 
   ui_init();
 
   dbase_app_init({ completed: startup_completed });
+}
+
+async function video_setup() {
+  //
+  console.log('video_setup new video_init');
+
+  await video_preflight();
+
+  await video_init();
+
+  console.log('video_setup new eff_bars');
+
+  my.bars = new eff_bars({ width: my.video.width, height: my.video.height });
+
+  my.input = my.video;
+
+  faceMesh_init();
+
+  my.bestill = new eff_bestill({ factor: 10, input: my.output });
 }
 
 function draw() {

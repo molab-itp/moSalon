@@ -33,6 +33,9 @@ function ui_init() {
   my.resetBtn = ui_createButton('Reset');
   my.resetBtn.mousePressed(reset_action);
 
+  my.fullScreenBtn = ui_createButton('Full Screen');
+  my.fullScreenBtn.mousePressed(fullScreen_action);
+
   my.photo_count_span = ui_span(0, '' + my.photo_list.length);
   my.photo_count_span.elt.style.backgroundColor = 'white';
 
@@ -130,4 +133,22 @@ function hide_action() {
 
 function mesh_action() {
   my.show_mesh = !my.show_mesh;
+}
+
+function fullScreen_action() {
+  ui_toggleFullScreen();
+}
+
+function ui_toggleFullScreen() {
+  if (!document.documentElement.requestFullscreen) {
+    console.log('NO document.documentElement.requestFullscreen');
+    return;
+  }
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+  }
 }

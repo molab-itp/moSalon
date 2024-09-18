@@ -5,26 +5,57 @@
 let flipH = true;
 // let flipH = false;
 
-// Create the webcam video and hide it
-//
-function video_init(video_init_doneFunc) {
-  enum_mediaDevices({}, function (capture) {
-    // !!@ If multiple video devices may be called more than once
-    if (my.video) {
-      console.log('video_init !!@ done');
-      return;
-    }
-    my.video = capture;
-
-    my.video.hide();
-
-    console.log('my.video.width, my.video.height', my.video.width, my.video.height);
-
-    video_maskInit();
-
-    video_init_doneFunc();
+async function video_preflight() {
+  return new Promise(function (resolve, reject) {
+    let video = createCapture(VIDEO, function (stream) {
+      console.log('video_preflight stream', stream);
+      video.remove();
+      resolve();
+    });
   });
 }
+
+// Create the webcam video and hide it
+//
+function video_init() {
+  return new Promise(function (resolve, reject) {
+    enum_mediaDevices({}, function (capture) {
+      // !!@ If multiple video devices may be called more than once
+      if (my.video) {
+        console.log('video_init !!@ done');
+        return;
+      }
+      my.video = capture;
+
+      my.video.hide();
+
+      console.log('my.video.width, my.video.height', my.video.width, my.video.height);
+
+      video_maskInit();
+
+      resolve();
+    });
+  });
+}
+
+// function video_init_df(video_init_doneFunc) {
+//   enum_mediaDevices({}, function (capture) {
+//     // !!@ If multiple video devices may be called more than once
+//     if (my.video) {
+//       console.log('video_init !!@ done');
+//       return;
+//     }
+//     my.video = capture;
+
+//     my.video.hide();
+
+//     console.log('my.video.width, my.video.height', my.video.width, my.video.height);
+
+//     video_maskInit();
+
+//     video_init_doneFunc();
+//   });
+// }
 
 function video_maskInit() {
   let { width, height } = my.video;
