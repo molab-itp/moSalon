@@ -139,6 +139,8 @@ function fullScreen_action() {
   ui_toggleFullScreen();
 }
 
+// !!@ to lib ui_toggleFullScreen
+//
 function ui_toggleFullScreen() {
   if (!document.documentElement.requestFullscreen) {
     console.log('NO document.documentElement.requestFullscreen');
@@ -146,9 +148,20 @@ function ui_toggleFullScreen() {
   }
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen();
+    ui_remove_all();
   } else {
     if (document.exitFullscreen) {
       document.exitFullscreen();
     }
   }
+}
+
+// !!@ to lib ui_remove_all
+//
+function ui_remove_all() {
+  for (let prop in my.ui_uids) {
+    let item = my.ui_uids[prop];
+    item.remove();
+  }
+  my.ui_uids = {};
 }
