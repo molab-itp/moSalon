@@ -23,9 +23,7 @@ function setup() {
 
 async function video_setup() {
   //
-  console.log('video_setup new video_init');
-
-  await video_preflight();
+  console.log('video_setup await video_init');
 
   await video_init();
 
