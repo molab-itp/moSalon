@@ -27,7 +27,7 @@ async function video_setup() {
 
   await video_init();
 
-  console.log('video_setup new eff_bars');
+  // console.log('video_setup new eff_bars');
 
   my.bars = new eff_bars({ width: my.video.width, height: my.video.height });
 
@@ -36,6 +36,8 @@ async function video_setup() {
   faceMesh_init();
 
   my.bestill = new eff_bestill({ factor: 10, input: my.output });
+
+  console.log('video_setup return');
 }
 
 function draw() {
