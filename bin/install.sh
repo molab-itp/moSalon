@@ -11,7 +11,6 @@ dest=moLib
 if [ ! -e "$dest" ]; then
   git clone https://github.com/molab-itp/$dest.git $dest
   pushd $dest > /dev/null
-  git checkout next
   popd > /dev/null
 fi
 if [ ! -e "$dest" ]; then
@@ -19,16 +18,18 @@ if [ ! -e "$dest" ]; then
   exit
 fi
 
-# check for destination p5moRelease
-# dest=p5moRelease
-# if [ ! -e "$dest" ]; then
-#   git clone https://github.com/molab-itp/$dest.git $dest
-# fi
-# if [ ! -e "$dest" ]; then
-#   echo "fail to clone to $dest"
-#   exit
-# fi
+# moRelease
+# check for destination moRelease
+dest=moRelease
+if [ ! -e "$dest" ]; then
+  git clone https://github.com/molab-itp/$dest.git $dest
+fi
+if [ ! -e "$dest" ]; then
+  echo "fail to clone to $dest"
+  exit
+fi
 
+# moWebJam
 # check for destination moWebJam
 dest=moWebJam
 if [ ! -e "$dest" ]; then
@@ -40,4 +41,4 @@ if [ ! -e "$dest" ]; then
 fi
 
 # Begin in next branch
-git checkout next
+# git checkout next
