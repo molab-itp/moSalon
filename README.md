@@ -1,16 +1,16 @@
-# [github moSalon](https://github.com/molab-itp/moSalon) ?v=19
+# [github moSalon](https://github.com/molab-itp/moSalon) ?v=20
 
 - multi-device experiences on handheld and large screens
 - creating and updating firebase cloud data
 
-## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=19)
+## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=20)
 
-- [src/let-america-be s0](src/let-america-be?v=19&group=s0)
-- [src/let-america-be s1](src/let-america-be?v=19&group=s1)
-- [src/let-america-be s2](src/let-america-be?v=19&group=s2)
+- [src/let-america-be s0](src/let-america-be?v=20&group=s0)
+- [src/let-america-be s1](src/let-america-be?v=20&group=s1)
+- [src/let-america-be s2](src/let-america-be?v=20&group=s2)
 
-- [src/faceMesh](src/faceMesh?v=19)
-- [src/faceMesh long](src/faceMesh?v=19&long=1)
+- [src/faceMesh](src/faceMesh?v=20)
+- [src/faceMesh long](src/faceMesh?v=20&long=1)
 
 ## How is data synchronized in real time in the examples?
 
