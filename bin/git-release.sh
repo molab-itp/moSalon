@@ -8,23 +8,22 @@ quiet=--quiet
 
 # deploy to github pages
 #
-# merge branch next in to branch main
-# switch back to branch next
+# merge branch main in to branch release
 #
 
-./p5moLibrary/bin/build.sh --src ./ --files src,README.md --prod $quiet
+./moLib/bin/build.sh --src ./ --files src,README.md --prod $quiet
 
 git add . 
 git commit $quiet -m "`cat gen/build_ver.txt`"
 git push $quiet
 
-# in main
-git checkout main $quiet
-git merge next $quiet -m "`cat gen/build_ver.txt`"
+# switch to release, and merge in main
+git checkout release $quiet
+git merge main $quiet -m "`cat gen/build_ver.txt`"
 git push $quiet
 
-# in next
-git checkout next $quiet
+# switch back to main
+git checkout main $quiet
 
 echo
 echo "build `cat gen/build_ver.txt`"
