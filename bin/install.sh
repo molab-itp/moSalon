@@ -5,9 +5,9 @@ cd ${0%/*}
 
 cd ..
 
-# p5moLibrary --> moLib
-# check for destination p5moLibrary
-dest=p5moLibrary
+# moLib
+# check for destination moLib
+dest=moLib
 if [ ! -e "$dest" ]; then
   git clone https://github.com/molab-itp/$dest.git $dest
   pushd $dest > /dev/null
