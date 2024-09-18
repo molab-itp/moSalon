@@ -1,7 +1,7 @@
 //
 function my_init() {
   // updated to verify change on mobile
-  my.version = '?v=3';
+  my.version = '?v=4';
   my.isRemote = 1;
   // show detailed log
   my.logLoud = 1;
@@ -15,8 +15,8 @@ function my_init() {
   my.group = 'group1';
 
   my.photo_index = 0;
-  // my.photo_max = 16;
-  my.photo_max = 4;
+  my.photo_max = 32;
+  // my.photo_max = 4;
   my.photo_list = [];
 
   let scale = 0.5;
@@ -31,7 +31,11 @@ function my_init() {
   // my.imageQuality = 1;
   my.imageQuality = 0.5;
   my.imageExt = '.jpg';
-  my.thumbWidth = my.vwidth;
+
+  my.thumbWidth = Math.floor(windowWidth) / 6.2;
+  if (my.thumbWidth < 120) {
+    my.thumbWidth = Math.floor(windowWidth / 2.1);
+  }
 
   my.query = get_url_params();
   if (my.query) {
