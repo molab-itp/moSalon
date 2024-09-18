@@ -7,128 +7,38 @@ let flipH = true;
 
 async function video_init() {
   //
-  await video_preflight();
+  await mediaDevices_preflight();
 
-  await video_init_enum();
-}
-
-async function video_preflight() {
-  console.log('video_preflight enter');
-  return new Promise(function (resolve, reject) {
-    let video = createCapture(VIDEO, function (stream) {
-      console.log('video_preflight stream', stream);
-      video.remove();
-      resolve();
-    });
-  });
+  await video_init_capture();
 }
 
 // Create the webcam video and hide it
 //
-function video_init_enum() {
-  console.log('video_init_enum enter');
-  return new Promise(function (resolve, reject) {
-    enum_mediaDevices({}, function (capture) {
-      // !!@ If multiple video devices may be called more than once
-      if (my.video) {
-        console.log('video_init !!@ done');
-        return;
-      }
-      my.video = capture;
+async function video_init_capture() {
+  // console.log('video_init_capture enter');
+  //
+  await mediaDevices_enum();
 
-      my.video.hide();
+  if (!my.mediaDevices.length) {
+    console.log('video_init_capture No my.mediaDevices');
+    return;
+  }
 
-      console.log('video_init_enum my.video.width, my.video.height', my.video.width, my.video.height);
+  let mediaDev = my.mediaDevices[0];
 
-      video_maskInit();
+  my.video = await mediaDevice_create_capture(mediaDev, { flipped: flipH });
 
-      resolve();
-    });
-  });
+  my.video.hide();
+
+  console.log('video_init_capture my.video.width, my.video.height', my.video.width, my.video.height);
+
+  video_init_mask();
 }
 
-function video_maskInit() {
+function video_init_mask() {
   let { width, height } = my.video;
   my.videoMask = createGraphics(width, height);
   my.videoBuff = createGraphics(width, height);
-}
-
-// my.mediaDevices = [
-//    { label, deviceId, capture, stream }]
-
-// Optional: dim = { width, height} for capture size
-//
-function enum_mediaDevices(options, doneFunc) {
-  my.mediaDevices = [];
-  if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
-    console.log('enumerateDevices() not supported.');
-    return;
-  }
-  // List cameras and microphones.
-  navigator.mediaDevices
-    .enumerateDevices()
-    .then(function (devices) {
-      devices.forEach(function (device) {
-        // console.log('device', device);
-        // console.log(
-        //   device.kind + ': ' + device.label + ' id=|' + device.deviceId + '|'
-        // );
-        if (device.kind == 'videoinput') {
-          // console.log('media_enumdevice.deviceId=' + device.deviceId);
-          console.log('media_enum label=' + device.label);
-          console.log('media_enum deviceId=' + device.deviceId);
-          let { label, deviceId } = device;
-          if (!deviceId) {
-            label = 'No-id-' + random();
-          }
-          my.mediaDevices.push({ label, deviceId });
-        }
-      });
-      // console.log('a_mediaDevices', a_mediaDevices);
-      create_mediaDevices(options, doneFunc);
-    })
-    .catch(function (err) {
-      console.log(err.name + ': ' + err.message);
-    });
-}
-
-function create_mediaDevices(options, doneFunc) {
-  dim = options;
-  for (let mediaDevice of my.mediaDevices) {
-    init_device_capture(mediaDevice);
-    // !!@ Only one mediaDevice create_mediaDevices
-    break;
-    // create_mediaDiv(mediaDevice, { live: 0 });
-  }
-  function init_device_capture(mediaDevice) {
-    let vcap = {
-      audio: true,
-      video: {
-        deviceId: { exact: mediaDevice.deviceId },
-      },
-    };
-    if (dim && dim.width && dim.height) {
-      vcap.video.width = { exact: dim.width };
-      vcap.video.height = { exact: dim.height };
-    }
-    // console.log('create_mediaDevices dim', dim);
-    console.log('create_mediaDevices vcap', vcap);
-
-    // !!@ flipH=true does not take unless capture is sized immediately
-    // let capture = createCapture(VIDEO, { flipped: flipH });
-    // capture.size(capture.width, capture.height);
-
-    let capture = createCapture(vcap, { flipped: flipH }, function (stream) {
-      console.log('create_mediaDevices stream', stream);
-      mediaDevice.stream = stream;
-      // capture.width and height now valid
-      doneFunc(capture);
-      // alert('init_device_capture DONE deviceId=|' + mediaDevice.deviceId + '|');
-    });
-
-    capture.elt.muted = true;
-    mediaDevice.capture = capture;
-  }
 }
 
 function overlayEyesMouth() {

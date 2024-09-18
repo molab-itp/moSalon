@@ -46,7 +46,7 @@ function ui_init() {
 
   // Gallery is below canvs
   my.ui_container = null;
-  my.gallery_div = ui_div_empty('igallery');
+  my.gallery_div = ui_div_empty('id_gallery');
 }
 
 function img_remove_all() {
@@ -144,6 +144,9 @@ function fullScreen_action() {
 function ui_toggleFullScreen() {
   if (!document.documentElement.requestFullscreen) {
     console.log('NO document.documentElement.requestFullscreen');
+    // !!@ on mobile requestFullscreen not supported
+    // clear ui anyway
+    ui_remove_all();
     return;
   }
   if (!document.fullscreenElement) {
@@ -160,6 +163,8 @@ function ui_toggleFullScreen() {
 //
 function ui_remove_all() {
   for (let prop in my.ui_uids) {
+    // !!@ param needed
+    if (prop == 'id_gallery') continue;
     let item = my.ui_uids[prop];
     item.remove();
   }
