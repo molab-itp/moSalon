@@ -1,7 +1,7 @@
 //
 function my_init() {
   // updated to verify change on mobile
-  my.version = '?v=7';
+  my.version = '?v=8';
   my.isRemote = 1;
   // show detailed log
   my.logLoud = 1;
@@ -32,11 +32,6 @@ function my_init() {
   my.imageQuality = 0.5;
   my.imageExt = '.jpg';
 
-  my.thumbWidth = Math.floor(windowWidth) / 6.2;
-  if (my.thumbWidth < 120) {
-    my.thumbWidth = Math.floor(windowWidth / 2.1);
-  }
-
   my.query = get_url_params();
   if (my.query) {
     my.roomName = my.query.room || my.roomName;
@@ -52,4 +47,12 @@ function my_init() {
   console.log('my.vwidth, my.vheight', my.vwidth, my.vheight, 'my.long', my.long);
 
   my.isMobile = window.innerWidth < 600;
+
+  let bigN = 4.1; // 6.1
+  my.thumbWidth = Math.floor(windowWidth) / bigN;
+  if (my.thumbWidth < 120) {
+    my.thumbWidth = Math.floor(windowWidth / 2.1);
+  }
+
+  my.show_mesh = 1;
 }
