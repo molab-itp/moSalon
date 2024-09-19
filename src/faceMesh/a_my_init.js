@@ -15,7 +15,7 @@ function my_init() {
   my.group = 'group1';
 
   my.photo_index = 0;
-  my.photo_max = 32;
+  my.photo_max = 64;
   // my.photo_max = 4;
   my.photo_list = [];
 

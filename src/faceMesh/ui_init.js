@@ -9,10 +9,10 @@ function ui_init() {
   ver.elt.style.backgroundColor = 'white';
 
   my.showBtn = ui_createButton('Show');
-  my.showBtn.mousePressed(show_action);
+  my.showBtn.mousePressed(show_action_ui);
 
   my.hideBtn = ui_createButton('Hide');
-  my.hideBtn.mousePressed(hide_action);
+  my.hideBtn.mousePressed(hide_action_ui);
 
   my.meshBtn = ui_createButton('Mesh');
   my.meshBtn.mousePressed(mesh_action);
@@ -118,6 +118,16 @@ let resetDelaySecs = 7;
 // } else {
 //   id_main.classList.remove('hidden');
 // }
+
+function show_action_ui() {
+  my.show_hide_taken = 0;
+  id_main.classList.remove('hidden');
+}
+
+function hide_action_ui() {
+  my.show_hide_taken = 1;
+  id_main.classList.add('hidden');
+}
 
 function show_action() {
   id_main.classList.remove('hidden');

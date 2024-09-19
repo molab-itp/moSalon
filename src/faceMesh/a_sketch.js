@@ -44,6 +44,7 @@ function draw() {
   // reset_check();
   if (!my.faces) return;
 
+  check_show_hide();
   let str = my.photo_list.length + ' ' + my.photo_index;
   my.photo_count_span.html(str);
 
@@ -58,6 +59,31 @@ function draw() {
     image(my.video, 0, 0);
     if (my.imgLayer) {
       image(my.imgLayer, width / 2, 0);
+    }
+  }
+}
+
+// wait 0.5 seconds before showing face mesh
+// to avoid false flashes
+function check_show_hide() {
+  if (!my.show_hide_taken) {
+    if (my.faces.length == 0) {
+      hide_action();
+      my.hiden_time = Date.now() / 1000;
+    } else {
+      if (my.hiden_time) {
+        let now = Date.now() / 1000;
+        let diff = now - my.hiden_time;
+        if (diff > 0.5) {
+          my.hiden_time = 0;
+          show_action();
+        } else {
+          // console.log('hiden wait diff', diff);
+        }
+      } else {
+        my.hiden_time = 0;
+        show_action();
+      }
     }
   }
 }
