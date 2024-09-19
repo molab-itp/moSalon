@@ -45,6 +45,7 @@ function draw() {
   if (!my.faces) return;
 
   check_show_hide();
+
   let str = my.photo_list.length + ' ' + my.photo_index;
   my.photo_count_span.html(str);
 
@@ -118,6 +119,11 @@ function draw_mesh() {
 
 function trackLipsDiff() {
   //
+  if (my.face_hidden) {
+    // console.log('trackLipsDiff return face_hidden');
+    return;
+  }
+
   if (my.lipsDiff > 0.05) {
     if (my.lipsOpenState == 0) {
       my.lipsOpenCount++;

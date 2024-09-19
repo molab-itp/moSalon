@@ -121,20 +121,24 @@ let resetDelaySecs = 7;
 
 function show_action_ui() {
   my.show_hide_taken = 0;
-  id_main.classList.remove('hidden');
+  // id_main.classList.remove('hidden');
+  show_action();
 }
 
 function hide_action_ui() {
   my.show_hide_taken = 1;
-  id_main.classList.add('hidden');
+  // id_main.classList.add('hidden');
+  hide_action();
 }
 
 function show_action() {
   id_main.classList.remove('hidden');
+  my.face_hidden = 0;
 }
 
 function hide_action() {
   id_main.classList.add('hidden');
+  my.face_hidden = 1;
 }
 
 function mesh_action() {
