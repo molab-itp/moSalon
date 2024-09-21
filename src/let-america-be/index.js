@@ -63,12 +63,6 @@ function rewind_action() {
   dbase_issue_action('action_rewind');
 }
 
-// !!@ dbase_issue_action to p5moLibrary
-function dbase_issue_action(prop) {
-  console.log('dbase_issue_action', prop);
-  dbase_update_item({ [prop]: dbase_increment(1) });
-}
-
 function my_setup() {
   my.fireb_config = 'jht9629';
   // my.fireb_config = 'jht1493';
