@@ -5,7 +5,7 @@ function ui_init() {
 
   my.ui_container = createDiv('').id('id_top_bottoms');
 
-  let ver = ui_span(0, my.version);
+  let ver = ui_span(0, my.group + my.version);
   ver.elt.style.backgroundColor = 'white';
 
   my.showBtn = ui_createButton('Show');
