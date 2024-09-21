@@ -65,6 +65,9 @@ function my_init() {
     my.roomName = 'm0-facemesh';
   }
 
+  my.qrcode_url = () => {
+    return `qrcode/${my.group}.png`;
+  };
   my.showQRCode = () => {
     return window.innerWidth > 800;
   };
