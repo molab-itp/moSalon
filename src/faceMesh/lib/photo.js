@@ -135,6 +135,13 @@ async function take_action() {
 }
 
 async function remove_action() {
+  let response = confirm('remove photo ' + my.photo_index);
+  if (response) {
+    remove_action_confirmed();
+  }
+}
+
+async function remove_action_confirmed() {
   console.log('remove_action photo_count', my.photo_list.length);
   let n = my.photo_list.length;
   if (n < 1) {
@@ -154,6 +161,33 @@ async function remove_action() {
 
   // Update photo_list in the cloud
   dbase_update_item({ photo_list: newList });
+}
+
+async function remove_all_action() {
+  let response = confirm('remove all photos n=' + my.photo_list.length);
+  if (response) {
+    remove_all_action_confirmed();
+  }
+}
+
+async function remove_all_action_confirmed() {
+  //
+  let newList = my.photo_list;
+  while (newList.length > 0) {
+    let last = newList[newList.length - 1];
+
+    newList = newList.slice(0, -1);
+    console.log('remove_all_action newList.length ', newList.length);
+    console.log('remove_all_action last ', last);
+
+    await photo_list_remove_entry(last);
+  }
+
+  // Update photo_list in the cloud
+  dbase_update_item({ photo_list: newList });
+
+  //  zero out photo_index
+  dbase_update_item({ photo_index: 0 });
 }
 
 async function update_last_photo() {

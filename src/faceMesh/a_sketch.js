@@ -106,11 +106,12 @@ function draw_mesh() {
   my.bestill.prepareOutput();
   image(my.bestill.output, 0, 0);
 
-  let phase = my.lipsOpenCount % 3;
+  // let phase = my.lipsOpenCount % 3;
+  let phase = my.lipsOpenCount % 2;
   // let phase = 2;
-  if (phase == 1) {
+  if (phase == 0) {
     overlayEyesMouth();
-  } else if (phase == 2) {
+  } else if (phase == 1) {
     overlayEyesMouthBars();
   }
 

@@ -2,6 +2,7 @@
 function my_init() {
   // updated to verify change on mobile
   my.version = '?v=8';
+  my.appTitle = 'Facemesh';
   my.isRemote = 1;
   // show detailed log
   my.logLoud = 1;
@@ -10,9 +11,10 @@ function my_init() {
   // my.fireb_config = 'jht1493';
   // my.fireb_config = 'jhtitp';
   my.dbase_rootPath = 'm0-@r-@w-';
+  my.roomName = 'm1-facemesh';
   my.mo_app = 'mo-facemesh';
-  my.roomName = 'room0';
-  my.group = 'group1';
+  my.group = 's0';
+  my.nameDevice = 'facemesh';
 
   my.photo_index = 0;
   my.photo_max = 64;
@@ -46,7 +48,7 @@ function my_init() {
   }
   console.log('my.vwidth, my.vheight', my.vwidth, my.vheight, 'my.long', my.long);
 
-  my.isMobile = window.innerWidth < 600;
+  // my.isMobile = window.innerWidth < 600;
 
   let bigN = 4.1; // 6.1
   my.thumbWidth = Math.floor(windowWidth) / bigN;
@@ -55,4 +57,15 @@ function my_init() {
   }
 
   my.show_mesh = 1;
+
+  my.footerHeight = '288px';
+  my.qrCodeWidth = '25%';
+
+  if (my.group == 's0') {
+    my.roomName = 'm0-facemesh';
+  }
+
+  my.showQRCode = () => {
+    return window.innerWidth > 800;
+  };
 }

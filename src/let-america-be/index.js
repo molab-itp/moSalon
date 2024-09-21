@@ -63,28 +63,6 @@ function rewind_action() {
   dbase_issue_action('action_rewind');
 }
 
-function my_setup() {
-  my.fireb_config = 'jht9629';
-  // my.fireb_config = 'jht1493';
-  // my.fireb_config = 'jhtitp';
-
-  my.dbase_rootPath = 'm0-@r-@w-';
-  my.roomName = 'm1-america';
-  my.mo_app = 'mo-america-be';
-  my.nameDevice = 'america';
-
-  // set group for all devices to share item values
-  // my.group = 's0';
-
-  let params = get_url_params();
-  console.log('params', params);
-  my.group = params.group || 's0';
-  console.log('my.group', my.group);
-  if (my.group == 's0') {
-    my.roomName = 'm0-america';
-  }
-}
-
 function resize_window() {
   console.log('resize_window');
 }
