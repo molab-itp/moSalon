@@ -6,10 +6,9 @@
 ## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=19)
 
 - [src/let-america-be s0](src/let-america-be?v=19&group=s0)
--
 - [src/let-america-be s1](src/let-america-be?v=19&group=s1)
 - [src/let-america-be s2](src/let-america-be?v=19&group=s2)
-
+-
 - [src/faceMesh s0](src/faceMesh?v=19)
 - [src/faceMesh s1](src/faceMesh?v=19&group=s1)
 - [src/faceMesh s2](src/faceMesh?v=19&group=s2)
