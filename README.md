@@ -1,18 +1,18 @@
-# [github moSalon](https://github.com/molab-itp/moSalon) ?v=18
+# [github moSalon](https://github.com/molab-itp/moSalon) ?v=19
 
 - multi-device experiences on handheld and large screens
 - creating and updating firebase cloud data
 
-## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=18)
+## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=19)
 
-- [src/let-america-be s0](src/let-america-be?v=18&group=s0)
+- [src/let-america-be s0](src/let-america-be?v=19&group=s0)
 -
-- [src/let-america-be s1](src/let-america-be?v=18&group=s1)
-- [src/let-america-be s2](src/let-america-be?v=18&group=s2)
+- [src/let-america-be s1](src/let-america-be?v=19&group=s1)
+- [src/let-america-be s2](src/let-america-be?v=19&group=s2)
 
-- [src/faceMesh s0](src/faceMesh?v=18)
-- [src/faceMesh s1](src/faceMesh?v=18&group=s1)
-- [src/faceMesh s2](src/faceMesh?v=18&group=s2)
+- [src/faceMesh s0](src/faceMesh?v=19)
+- [src/faceMesh s1](src/faceMesh?v=19&group=s1)
+- [src/faceMesh s2](src/faceMesh?v=19&group=s2)
 
 ## How is data synchronized in real time in the examples?
 
@@ -29,4 +29,7 @@ The functions that include Firebase setup are in [moLab](https://github.com/mola
 
 ## --
 
-[![Black_Software](favicon-300x320.png)](https://en.wikipedia.org/wiki/Black_Software)
+[![Black_Software](png/power-fist-142x158.png)](https://en.wikipedia.org/wiki/Black_Software)
+
+- By Oxford University Press - https://global.oup.com/academic/product/black-software-9780190863845,
+- Fair use, https://en.wikipedia.org/w/index.php?curid=67093597
