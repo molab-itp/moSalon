@@ -17,7 +17,7 @@
 
 Data, such as shared photos, vote counts, and drawing points, is synchronized through [Firebase](firebase.google.com), which serves as a backend/server and has built-in sockets.
 
-The functions that include Firebase setup are in [p5moLibrary](https://github.com/molab-itp/p5moLibrary).
+The functions that include Firebase setup are in [moLab](https://github.com/molab-itp/moLib).
 
 - [video - What is Firebase and how to use it](https://www.youtube.com/watch?v=p9pgI3Mg-So&list=PLl-K7zZEsYLnfwBe4WgEw9ao0J0N1LYDR&index=8)
 - [docs - firebase web database](https://firebase.google.com/docs/database/web/start?hl=en&authuser=0)
@@ -25,3 +25,7 @@ The functions that include Firebase setup are in [p5moLibrary](https://github.co
 ## p5js versions of examples
 
 - TODO
+
+## --
+
+<img src="favicon-300x320.png" />
