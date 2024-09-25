@@ -13,6 +13,8 @@
 - [src/faceMesh s1](src/faceMesh/qrcode?v=21&group=s1)
 - [src/faceMesh s2](src/faceMesh/qrcode?v=21&group=s2)
 
+- [src/vote s0](src/vote/qrcode?v=21)
+
 ## How is data synchronized in real time in the examples?
 
 Data, such as shared photos, vote counts, and drawing points, is synchronized through [Firebase](firebase.google.com), which serves as a backend/server and has built-in sockets.
