@@ -1,5 +1,5 @@
 //
-function my_init() {
+function my_setup() {
   // updated to verify change on mobile
   my.version = '?v=23';
   my.isRemote = 1;
@@ -34,7 +34,28 @@ function my_init() {
     my.width = windowWidth;
     my.height = windowHeight;
   }
+}
 
-  my.colorGold = [187, 165, 61];
-  my.colors = [[255, 0, 0], [0, 255, 0], my.colorGold];
+async function setup_dbase() {
+  //
+  await dbase_app_init();
+
+  dbase_app_observe({ observed_item });
+
+  function observed_item(device) {
+    console.log('observed_item device', device);
+    // console.log('observed_item device.photo_index', device.photo_index);
+    // console.log('observed_item device.photo_list', device.photo_list);
+    if (device.photo_list != undefined) {
+      my.photo_list = device.photo_list;
+    } else {
+      // Removing all photos will remove all img divs
+      my.photo_list = [];
+      img_remove_all();
+    }
+    if (device.photo_index != undefined) {
+      my.photo_index = device.photo_index;
+    }
+    photo_list_display();
+  }
 }

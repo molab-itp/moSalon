@@ -16,7 +16,7 @@ function setup() {
 
   video_setup();
 
-  ui_init();
+  create_ui();
 
   setup_dbase();
 }

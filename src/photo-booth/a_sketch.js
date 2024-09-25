@@ -8,10 +8,8 @@
 let my = {};
 
 function setup() {
-  my_init();
-
-  // set group to share cloud data
-  // my.group = 'group1';
+  //
+  my_setup();
 
   my.photo_index = 0;
   my.photo_max = 4;
@@ -28,45 +26,25 @@ function setup() {
   // Lowest pixel density for small uploads
   pixelDensity(1);
 
+  my.colorGold = [187, 165, 61];
+  my.colors = [[255, 0, 0], [0, 255, 0], my.colorGold];
+
   my.canvas = createCanvas(my.width, my.height);
 
   my.canvas.mouseReleased(canvas_mouseReleased);
   my.canvas.touchEnded(canvas_mouseReleased);
 
-  ui_init();
+  create_ui();
 
   video_create();
 
-  // !!@ Fix photo-booth
-  dbase_app_init({ completed: startup_completed });
+  setup_dbase();
 
   // for moving circle or video scan line
   my.x = 0;
   my.y = my.height / 2;
   my.xstep = 1;
   my.radius = int(my.width / 10);
-}
-
-function startup_completed() {
-  //
-  dbase_app_observe({ observed_item });
-
-  function observed_item(device) {
-    console.log('observed_item device', device);
-    // console.log('observed_item device.photo_index', device.photo_index);
-    // console.log('observed_item device.photo_list', device.photo_list);
-    if (device.photo_list != undefined) {
-      my.photo_list = device.photo_list;
-    } else {
-      // Removing all photos will remove all img divs
-      my.photo_list = [];
-      img_remove_all();
-    }
-    if (device.photo_index != undefined) {
-      my.photo_index = device.photo_index;
-    }
-    photo_list_display();
-  }
 }
 
 function draw() {

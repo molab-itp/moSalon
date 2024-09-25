@@ -1,5 +1,5 @@
 //
-function ui_init() {
+function create_ui() {
   //
   my.effectBtn = ui_createButton('Effect');
   my.effectBtn.mousePressed(effect_action);

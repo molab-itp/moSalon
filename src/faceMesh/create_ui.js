@@ -1,5 +1,5 @@
 //
-function ui_init() {
+function create_ui() {
   //
   ui_begin();
 
