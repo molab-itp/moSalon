@@ -1,14 +1,10 @@
 //
 function my_setup() {
-  let lowerMargin = 100; // Room for buttons
-  my.width = windowWidth;
-  my.height = windowHeight - lowerMargin;
-
+  //
   // change to your firebase app
   my.fireb_config = 'jht9629';
   // my.fireb_config = 'jht1493';
   // my.fireb_config = 'jhtitp';
-
   my.dbase_rootPath = 'm0-@r-@w-';
   my.roomName = 'm1-vote';
   my.mo_app = 'mo-vote';
@@ -23,16 +19,38 @@ function my_setup() {
     my.roomName = 'm0-vote';
   }
 
-  // dbase shared values
-  //
+  // dbase  values
   my.vote_count = 0;
   my.vote_total_count = 0;
+}
 
-  my.x = 0;
-  my.y = my.height / 2;
-  my.xstep = 1;
-  my.len = my.width * 0.8;
+async function setup_dbase() {
+  //
+  await dbase_app_init();
 
-  my.colorGold = [187, 165, 61];
-  my.colors = [[255, 0, 0], [0, 255, 0], my.colorGold];
+  console.log('startup_completed');
+
+  // !!@ observed_device
+  // !!@ observed_item for group
+  //
+  // check device exists in db
+  dbase_devices_observe({ observed_key, observed_item, all: 1 });
+
+  function observed_key(key, device) {
+    // console.log('observed_a_device key', key, 'uid', my.uid, 'device', device);
+    console.log('observed_key key', key, 'device.vote_count', device && device.vote_count);
+  }
+
+  function observed_item(device) {
+    console.log('observed_device device.vote_count', device.vote_count);
+    if (device.vote_count != undefined) {
+      my.vote_count = device.vote_count;
+    }
+    // dbase_if_action({ item, prop: 'action_switch', actionFunc: switchDirection });
+
+    // !!@ group action vs. device action
+    if (dbase_actions_issued(my.uid, { action_switch: 1 })) {
+      switchDirection();
+    }
+  }
 }

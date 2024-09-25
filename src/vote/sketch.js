@@ -11,12 +11,25 @@ let my = {};
 //    individual vote
 
 function setup() {
+  //
+  let lowerMargin = 100; // Room for buttons
+  my.width = windowWidth;
+  my.height = windowHeight - lowerMargin;
+
   my_setup(); // setup firebase configuration
 
   my.canvas = createCanvas(my.width, my.height);
   // noCanvas();
 
-  dbase_app_init({ completed: startup_completed }); // callback function when app init
+  setup_dbase();
+
+  my.x = 0;
+  my.y = my.height / 2;
+  my.xstep = 1;
+  my.len = my.width * 0.8;
+
+  my.colorGold = [187, 165, 61];
+  my.colors = [[255, 0, 0], [0, 255, 0], my.colorGold];
 
   create_ui();
 }
@@ -33,57 +46,6 @@ function draw() {
   my.vote_total_count_span.html(my.vote_total_count);
 
   // dbase_poll();
-}
-
-function create_ui() {
-  createButton('Vote Up').mousePressed(voteUpAction);
-
-  createButton('Down').mousePressed(voteDownAction);
-
-  my.vote_count_span = createSpan('' + my.vote_count);
-
-  createElement('br');
-
-  createSpan('Total Votes ');
-  my.vote_total_count_span = createSpan('' + my.vote_total_count);
-
-  createElement('br');
-
-  createButton('Direction').mousePressed(switchDirectionAction);
-
-  createElement('br');
-
-  createButton('Remove App').mousePressed(removeAppAction);
-
-  // // Move the canvas below all the ui elements
-  // let body_elt = document.querySelector('body');
-  // let main_elt = document.querySelector('main');
-  // body_elt.insertBefore(main_elt, null);
-}
-
-// check device exists in db
-function startup_completed() {
-  console.log('startup_completed');
-  //
-  dbase_devices_observe({ observed_key, observed_item, all: 1 });
-
-  function observed_key(key, device) {
-    // console.log('observed_a_device key', key, 'uid', my.uid, 'device', device);
-    console.log('observed_key key', key, 'device.vote_count', device && device.vote_count);
-  }
-
-  function observed_item(device) {
-    console.log('observed_device device.vote_count', device.vote_count);
-    if (device.vote_count != undefined) {
-      my.vote_count = device.vote_count;
-    }
-    // dbase_if_action({ item, prop: 'action_switch', actionFunc: switchDirection });
-
-    // !!@ group action vs. device action
-    if (dbase_actions_issued(my.uid, { action_switch: 1 })) {
-      switchDirection();
-    }
-  }
 }
 
 function voteUpAction() {
