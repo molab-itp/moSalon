@@ -10,37 +10,6 @@ let my = {};
 // mo-vote/device/{uid}/vote
 //    individual vote
 
-function my_setup() {
-  let lowerMargin = 100; // Room for buttons
-  my.width = windowWidth;
-  my.height = windowHeight - lowerMargin;
-
-  // change to your firebase app
-  my.fireb_config = 'jht9629';
-  // my.fireb_config = 'jht1493';
-  // my.fireb_config = 'jhtitp';
-
-  my.dbase_rootPath = 'm0-@r-@w-';
-
-  // change to add a room in firebase real-time database
-  my.roomName = 'room1';
-
-  my.mo_app = 'mo-vote';
-  my.nameDevice = '';
-  //
-  my.vote_count = 0;
-  my.vote_total_count = 0;
-  // my.device_values = {};
-
-  my.x = 0;
-  my.y = my.height / 2;
-  my.xstep = 1;
-  my.len = my.width * 0.8;
-
-  my.colorGold = [187, 165, 61];
-  my.colors = [[255, 0, 0], [0, 255, 0], my.colorGold];
-}
-
 function setup() {
   my_setup(); // setup firebase configuration
 
@@ -63,10 +32,7 @@ function draw() {
   my.vote_count_span.html(my.vote_count);
   my.vote_total_count_span.html(my.vote_total_count);
 
-  if (dbase_actions_issued(my.uid, { switch_action: 1 })) {
-    switchDirection();
-  }
-  dbase_poll();
+  // dbase_poll();
 }
 
 function create_ui() {
@@ -107,9 +73,15 @@ function startup_completed() {
   }
 
   function observed_item(device) {
-    console.log('observed_item device.vote_count', device.vote_count);
+    console.log('observed_device device.vote_count', device.vote_count);
     if (device.vote_count != undefined) {
       my.vote_count = device.vote_count;
+    }
+    // dbase_if_action({ item, prop: 'action_switch', actionFunc: switchDirection });
+
+    // !!@ group action vs. device action
+    if (dbase_actions_issued(my.uid, { action_switch: 1 })) {
+      switchDirection();
     }
   }
 }
@@ -125,7 +97,8 @@ function voteDownAction() {
 }
 
 function switchDirectionAction() {
-  dbase_issue_actions({ switch_action: 1 }, { all: 1 });
+  dbase_issue_actions({ action_switch: 1 }, { all: 1 });
+  // dbase_issue_action('action_switch');
 }
 
 function removeAppAction() {

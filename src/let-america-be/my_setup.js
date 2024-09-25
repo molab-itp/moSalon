@@ -13,8 +13,6 @@ function my_setup() {
   my.nameDevice = 'america';
 
   // set group for all devices to share item values
-  // my.group = 's0';
-
   let params = get_url_params();
   console.log('params', params);
   my.group = params.group || 's0';
