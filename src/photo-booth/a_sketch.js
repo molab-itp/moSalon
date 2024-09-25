@@ -37,6 +37,7 @@ function setup() {
 
   video_create();
 
+  // !!@ Fix photo-booth
   dbase_app_init({ completed: startup_completed });
 
   // for moving circle or video scan line

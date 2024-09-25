@@ -18,7 +18,7 @@ function setup() {
 
   ui_init();
 
-  dbase_app_init({ completed: startup_completed });
+  setup_dbase();
 }
 
 async function video_setup() {
