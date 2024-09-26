@@ -13,7 +13,8 @@
 - [src/faceMesh s1](src/faceMesh/qrcode?v=23&group=s1)
 - [src/faceMesh s2](src/faceMesh/qrcode?v=23&group=s2)
 
-- [src/vote s0](src/vote/qrcode?v=23)
+- [src/photo-booth s0](src/photo-booth/?v=23)
+- [src/vote s0](src/vote/?v=23)
 
 ## How is data synchronized in real time in the examples?
 
