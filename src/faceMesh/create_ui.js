@@ -46,6 +46,7 @@ function create_ui() {
   // Gallery is below canvs
   my.ui_container = null;
   my.gallery_div = ui_div_empty('id_gallery');
+  my.gallery_div.elt.style.margin = '0px 50px';
 }
 
 function img_remove_all() {
