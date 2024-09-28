@@ -1,7 +1,7 @@
 //
 function my_init() {
   // updated to verify change on mobile
-  my.version = '?v=25';
+  my.version = '?v=26';
   my.appTitle = 'Facemesh';
   my.isRemote = 1;
   // show detailed log
@@ -50,7 +50,7 @@ function my_init() {
 
   // my.isMobile = window.innerWidth < 600;
 
-  let bigN = 4.1; // 6.1
+  let bigN = 4.5; // 6.1
   my.thumbWidth = Math.floor(windowWidth) / bigN;
   if (my.thumbWidth < 120) {
     my.thumbWidth = Math.floor(windowWidth / 2.1);
