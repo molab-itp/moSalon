@@ -4,30 +4,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
       /* Center the loader */
-      #loader {
+      #id_loader {
         position: absolute;
         left: 50%;
         top: 50%;
         z-index: 1;
-        width: 120px;
-        height: 120px;
-        margin: -76px 0 0 -76px;
-        border: 16px solid #f3f3f3;
+        /* width: 120px; */
+        /* height: 120px; */
+        width: 50%;
+        height: 50%;
+        /* margin: -76px 0 0 -76px; */
+        margin: -33% 0 0 -33%;
+        /* border: 16px solid #f3f3f3; */
         border-radius: 50%;
-        border-top: 16px solid #3498db;
-        -webkit-animation: spin 2s linear infinite;
+        border-top: 64px solid #ff0000;
+        border-bottom: 64px solid #00ff00;
+        border-left: 64px solid #dacb27;
+        border-right: 64px solid #000000;
+        /* -webkit-animation: spin 2s linear infinite; */
         animation: spin 2s linear infinite;
       }
 
-      /* @-webkit-keyframes spin {
-        0% {
-          -webkit-transform: rotate(0deg);
-        }
-        100% {
-          -webkit-transform: rotate(360deg);
-        }
-      }
- */
       @keyframes spin {
         0% {
           transform: rotate(0deg);
@@ -46,17 +43,6 @@
         animation-duration: 1s;
       }
 
-      /* @-webkit-keyframes animatebottom {
-        from {
-          bottom: -100px;
-          opacity: 0;
-        }
-        to {
-          bottom: 0px;
-          opacity: 1;
-        }
-      } */
-
       @keyframes animatebottom {
         from {
           bottom: -100px;
@@ -68,7 +54,7 @@
         }
       }
 
-      #myDiv {
+      #id_myDiv {
         /* display: none; */
         text-align: center;
       }
@@ -76,35 +62,31 @@
   </head>
   <!-- <body onload="myFunction()" style="margin: 0"> -->
   <body style="margin: 0">
-    <div id="loader"></div>
+    <!-- <div id="id_loader" style="display: none"></div> -->
+    <div id="id_loader"></div>
 
     <button type="button" onclick="startLoader()">start</button>
     <button type="button" onclick="stopLoader()">stop</button>
 
-    <div id="myDiv">
-      <!-- <div id="myDiv" class="animate-bottom"> -->
+    <div id="id_myDiv">
+      <!-- <div id="id_myDiv" class="animate-bottom"> -->
       <h2>Tada!</h2>
       <p>Some text in my newly loaded page..</p>
     </div>
 
     <script>
-      var myVar;
-
       function startLoader() {
         console.log('startLoader');
-        document.getElementById('loader').style.display = 'block';
+        id_loader.style.display = 'block';
+        id_myDiv.classList.remove('animate-bottom');
       }
       function stopLoader() {
         console.log('stopLoader');
-        document.getElementById('loader').style.display = 'none';
-      }
-      // function myFunction() {
-      //   myVar = setTimeout(showPage, 3000);
-      // }
-      function showPage() {
-        document.getElementById('loader').style.display = 'none';
-        // document.getElementById('myDiv').style.display = 'block';
+        id_loader.style.display = 'none';
+        id_myDiv.classList.add('animate-bottom');
       }
     </script>
   </body>
 </html>
+
+<!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_loader5 -->

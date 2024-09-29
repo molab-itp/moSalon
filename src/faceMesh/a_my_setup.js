@@ -1,11 +1,14 @@
 //
 function my_init() {
   // updated to verify change on mobile
-  my.version = '?v=27';
+  my.version = '?v=28';
   my.appTitle = 'Facemesh';
   my.isRemote = 1;
   // show detailed log
   my.logLoud = 1;
+
+  my.add_action_delay = 0.5;
+  my.lipsDiff = 0;
 
   my.fireb_config = 'jht9629';
   // my.fireb_config = 'jht1493';
@@ -92,6 +95,8 @@ async function setup_dbase() {
     }
     photo_list_display();
   }
+
+  stopLoader();
 }
 
 window.addEventListener('resize', () => {

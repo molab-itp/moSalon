@@ -27,3 +27,55 @@ canvas {
 * {
   font-family: monospace;
 }
+
+/* Center the loader */
+#id_loader {
+  /* position: absolute; */
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  /* width: 120px; */
+  /* height: 120px; */
+  width: 50%;
+  height: 30%;
+  /* margin: -76px 0 0 -76px; */
+  margin: -33% 0 0 -33%;
+  /* border: 16px solid #f3f3f3; */
+  border-radius: 50%;
+  border-top: 100px solid #ff0000;
+  border-bottom: 100px solid #00ff00;
+  border-left: 100px solid #dacb27;
+  border-right: 100px solid #000000;
+  /* -webkit-animation: spin 2s linear infinite; */
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s;
+}
+
+@keyframes animatebottom {
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}

@@ -19,6 +19,8 @@ function setup() {
   create_ui();
 
   setup_dbase();
+
+  add_action_block(5);
 }
 
 async function video_setup() {
@@ -121,22 +123,60 @@ function draw_mesh() {
 function trackLipsDiff() {
   //
   if (my.face_hidden) {
-    // console.log('trackLipsDiff return face_hidden');
-    return;
+    let lapse = lipsOpenLapseSecs();
+    // console.log('trackLipsDiff face_hidden lapse', lapse);
+    if (lapse < my.add_action_delay) {
+      // console.log('trackLipsDiff return lapse', lapse, 'my.lipsOpenState', my.lipsOpenState);
+      if (!lipsAreOpen()) {
+        my.lipsOpenState = 0;
+      }
+      return;
+    }
   }
 
-  if (my.lipsDiff > 0.05) {
+  if (lipsAreOpen()) {
     if (my.lipsOpenState == 0) {
+      my.lipsOpenStartTime = Date.now();
       my.lipsOpenCount++;
-      // console.log('my.lipsOpenCount', my.lipsOpenCount);
-      // add_action();
-      let delay = 0.5 * 1000;
-      setTimeout(add_action, delay);
+      console.log('my.lipsOpenCount', my.lipsOpenCount, 'my.lipsDiff', my.lipsDiff);
+      if (my.add_action_timeoutid) {
+        console.log('trackLipsDiff return add_action_timeoutid', my.add_action_timeoutid);
+        return;
+      }
+      add_action();
+      add_action_block(my.add_action_delay);
     }
     my.lipsOpenState = 1;
   } else {
+    if (my.lipsOpenState) {
+      lipsOpenLapseSecs();
+    }
     my.lipsOpenState = 0;
   }
+}
+
+function lipsAreOpen() {
+  return my.lipsDiff > 0.05;
+}
+
+function lipsOpenLapseSecs() {
+  if (!lipsAreOpen()) {
+    my.lipsOpenStartTime = Date.now();
+    return 0;
+  }
+  let lapse = (Date.now() - my.lipsOpenStartTime) / 1000;
+  // console.log('lipsOpenLapseSecs lapse', lapse);
+  return lapse;
+}
+
+function add_action_block(delay) {
+  let mdelay = delay * 1000;
+  my.add_action_timeoutid = setTimeout(add_action_unblock, mdelay);
+}
+
+function add_action_unblock() {
+  console.log('add_action_unblock add_action_timeoutid', my.add_action_timeoutid);
+  my.add_action_timeoutid = 0;
 }
 
 // https://editor.p5js.org/ml5/sketches/lCurUW1TT

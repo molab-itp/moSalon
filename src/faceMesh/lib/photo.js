@@ -86,6 +86,10 @@ async function photo_list_display() {
 }
 
 async function add_action() {
+  console.log('add_action ');
+
+  startLoader();
+
   let entry = photo_list_entry(my.photo_index + 1);
   let path = photo_path_entry(entry);
 
@@ -102,6 +106,8 @@ async function add_action() {
   } catch (err) {
     console.log('take_action err', err);
   }
+
+  stopLoader();
 }
 
 async function take_action() {
@@ -131,6 +137,8 @@ async function remove_action_confirmed() {
   //
   // remove the last entry in photo_list
   //
+  startLoader();
+
   let newList = my.photo_list.slice(0, -1);
   console.log('remove_action newList ', newList.length);
 
@@ -139,6 +147,8 @@ async function remove_action_confirmed() {
 
   // Update photo_list in the cloud
   dbase_update_item({ photo_list: newList });
+
+  stopLoader();
 }
 
 async function remove_all_action() {
@@ -150,6 +160,8 @@ async function remove_all_action() {
 
 async function remove_all_action_confirmed() {
   //
+  startLoader();
+
   let newList = my.photo_list;
   while (newList.length > 0) {
     let last = newList[newList.length - 1];
@@ -166,15 +178,21 @@ async function remove_all_action_confirmed() {
 
   //  zero out photo_index
   dbase_update_item({ photo_index: 0 });
+
+  stopLoader();
 }
 
 async function update_last_photo() {
   //
   console.log('update_last_photo photo_count', my.photo_list.length);
+
   if (!my.photo_list.length) return;
   if (!my.imgLayer) {
     my.imgLayer = createGraphics(width, height);
   }
+
+  startLoader();
+
   let index = my.photo_list.length - 1;
   let entry = my.photo_list[index];
   let path = photo_path_entry(entry);
@@ -184,12 +202,13 @@ async function update_last_photo() {
   } catch (err) {
     console.log('photo_list_display err', err);
   }
+
+  stopLoader();
 }
 
 // my.imgLayer = createGraphics(my.width, my.height);
 
 // !!@ to lib fstorage_render({ url, layer })
-// args = { url, layer }
 //
 function fstoreage_render(args) {
   return new Promise(function (resolve, reject) {
