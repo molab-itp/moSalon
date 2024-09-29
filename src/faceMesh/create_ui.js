@@ -80,15 +80,23 @@ function find_img(index) {
   let img = select('#' + id);
   if (!img) {
     // console.log('find_img id', id);
+    let span = createSpan();
+    span.id(id);
+
     img = createImg('', 'image');
-    img.id(id);
+    // img.id(id);
     // console.log('find_img createImg', img);
 
+    span.child(img);
+
     // Add image as first child to see most recent first
-    my.gallery_div.elt.prepend(img.elt);
+    // my.gallery_div.elt.prepend(img.elt);
+    my.gallery_div.elt.prepend(span.elt);
 
     let iwidth = my.thumbWidth;
     img.style('width: ' + iwidth + 'px;');
+
+    // span.style('background-color: white');
   }
   return img;
 }
@@ -109,7 +117,8 @@ function reset_action() {
 
 function reset_check() {
   if (my.video) return;
-  if (frameCount > frameRate() * resetDelaySecs && my.mediaDevices.length && !my.mediaDevices[0].stream) {
+  let resetNow = frameCount > frameRate() * resetDelaySecs;
+  if (resetNow && my.mediaDevices.length && !my.mediaDevices[0].stream) {
     reset_action();
   }
 }

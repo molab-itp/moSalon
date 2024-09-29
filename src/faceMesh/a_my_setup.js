@@ -50,12 +50,6 @@ function my_init() {
 
   // my.isMobile = window.innerWidth < 600;
 
-  let bigN = 4.4; // 6.1
-  my.thumbWidth = Math.floor(windowWidth) / bigN;
-  if (my.thumbWidth < 120) {
-    my.thumbWidth = Math.floor(windowWidth / 2.1);
-  }
-
   my.show_mesh = 1;
 
   my.footerHeight = '288px';
@@ -71,6 +65,8 @@ function my_init() {
   my.showQRCode = () => {
     return window.innerWidth > 800;
   };
+
+  window_resized();
 }
 
 async function setup_dbase() {
@@ -95,5 +91,18 @@ async function setup_dbase() {
       my.photo_index = device.photo_index;
     }
     photo_list_display();
+  }
+}
+
+window.addEventListener('resize', () => {
+  console.log('addEventListener resize');
+  window_resized();
+});
+
+function window_resized() {
+  let bigN = 4.4; // 6.1
+  my.thumbWidth = Math.floor(windowWidth) / bigN;
+  if (my.thumbWidth < 120) {
+    my.thumbWidth = Math.floor(windowWidth / 2.1);
   }
 }

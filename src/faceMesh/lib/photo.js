@@ -188,7 +188,7 @@ async function update_last_photo() {
 
 // my.imgLayer = createGraphics(my.width, my.height);
 
-// !!@ to lib fstorage_render_url
+// !!@ to lib fstorage_render({ url, layer })
 // args = { url, layer }
 //
 function fstoreage_render(args) {
