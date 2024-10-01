@@ -20,6 +20,7 @@ function setup() {
 
   setup_dbase();
 
+  // delay any photo add for 5 secs during startup
   add_action_block(5);
 }
 
@@ -43,11 +44,7 @@ async function video_setup() {
 }
 
 function draw() {
-  // reset_check();
-  if (!my.faces) return;
-
-  check_show_hide();
-
+  //
   let str = my.photo_list.length + ' ' + my.photo_index;
   my.photo_count_span.html(str);
 
@@ -55,6 +52,12 @@ function draw() {
     let clr = my.imgLayer.get(0, 0);
     document.body.style.backgroundColor = `rgb(${clr[0]},${clr[1]},${clr[2]}`;
   }
+
+  my.lipsDiff = 0;
+
+  if (!my.faces) return;
+
+  check_show_hide();
 
   if (my.show_mesh) {
     draw_mesh();
@@ -136,18 +139,37 @@ function trackLipsDiff() {
 
   if (lipsAreOpen()) {
     if (my.lipsOpenState == 0) {
+      // edge into lips opened
       my.lipsOpenStartTime = Date.now();
       my.lipsOpenCount++;
-      console.log('my.lipsOpenCount', my.lipsOpenCount, 'my.lipsDiff', my.lipsDiff);
-      if (my.add_action_timeoutid) {
-        console.log('trackLipsDiff return add_action_timeoutid', my.add_action_timeoutid);
-        return;
+      console.log('lips open my.lipsOpenCount', my.lipsOpenCount, 'my.lipsDiff', my.lipsDiff);
+      console.log('my.lipsOpenState', my.lipsOpenState, 'openSecs', lipsOpenLapseSecs());
+      // if (my.add_action_timeoutid) {
+      //   console.log('trackLipsDiff return add_action_timeoutid', my.add_action_timeoutid);
+      //   return;
+      // }
+      // add_action();
+      // add_action_block(my.add_action_delay);
+      my.lipsOpenState = 1;
+    } else if (my.lipsOpenState == 1) {
+      // lips already open
+      let lapse = lipsOpenLapseSecs();
+      if (lapse > my.add_action_delay) {
+        if (my.add_action_timeoutid) {
+          console.log('trackLipsDiff return add_action_timeoutid', my.add_action_timeoutid);
+          return;
+        }
+        console.log('lips open add_action', lipsOpenLapseSecs());
+        add_action();
+        add_action_block(my.add_action_delay);
+        my.lipsOpenState = 2;
       }
-      add_action();
-      add_action_block(my.add_action_delay);
+    } else {
+      // lips open already trigger add
+      // console.log('my.lipsOpenState', my.lipsOpenState, 'openSecs', lipsOpenLapseSecs());
     }
-    my.lipsOpenState = 1;
   } else {
+    // lips NOT open
     if (my.lipsOpenState) {
       lipsOpenLapseSecs();
     }
