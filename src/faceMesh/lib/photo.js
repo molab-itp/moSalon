@@ -83,12 +83,14 @@ async function photo_list_display() {
     let img = find_img(index);
     img.elt.src = url;
   }
+
+  add_action_stopLoader();
 }
 
 async function add_action() {
   console.log('add_action ');
 
-  startLoader();
+  add_action_startLoader();
 
   let entry = photo_list_entry(my.photo_index + 1);
   let path = photo_path_entry(entry);
@@ -107,7 +109,7 @@ async function add_action() {
     console.log('take_action err', err);
   }
 
-  stopLoader();
+  // stopLoader();
 }
 
 async function take_action() {

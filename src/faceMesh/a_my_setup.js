@@ -99,10 +99,21 @@ async function setup_dbase() {
   stopLoader();
 }
 
-window.addEventListener('resize', () => {
-  console.log('addEventListener resize');
-  window_resized();
-});
+function add_action_startLoader() {
+  startLoader();
+  my.add_action_loading = 1;
+  console.log('add_action_startLoader ', my.add_action_loading);
+}
+
+function add_action_stopLoader() {
+  if (my.add_action_loading) {
+    stopLoader();
+    my.add_action_loading = 0;
+    console.log('add_action_stopLoader ', my.add_action_loading);
+  }
+}
+
+window.addEventListener('resize', window_resized);
 
 function window_resized() {
   let bigN = 4.4; // 6.1
@@ -110,4 +121,5 @@ function window_resized() {
   if (my.thumbWidth < 120) {
     my.thumbWidth = Math.floor(windowWidth / 2.1);
   }
+  console.log('window_resized windowWidth', windowWidth, 'my.thumbWidth', my.thumbWidths);
 }
