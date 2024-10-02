@@ -101,15 +101,20 @@ async function setup_dbase() {
 
 function add_action_startLoader() {
   startLoader();
-  my.add_action_loading = 1;
+  if (!my.add_action_loading) my.add_action_loading = 0;
+  my.add_action_loading++;
+  if (my.add_action_loading == 1) {
+    my.add_action_startTime = Date.now();
+  }
   console.log('add_action_startLoader ', my.add_action_loading);
 }
 
 function add_action_stopLoader() {
   if (my.add_action_loading) {
     stopLoader();
-    my.add_action_loading = 0;
-    console.log('add_action_stopLoader ', my.add_action_loading);
+    my.add_action_loading--;
+    let lapse = (Date.now() - my.add_action_startTime) / 1000;
+    console.log('add_action_stopLoader ', my.add_action_loading, 'lapse', lapse);
   }
 }
 
