@@ -57,7 +57,9 @@ function draw() {
 
   if (!my.faces) return;
 
-  first_mesh_check();
+  if (my.faces.length > 0) {
+    first_mesh_check();
+  }
 
   check_show_hide();
 
