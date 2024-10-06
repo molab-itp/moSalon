@@ -133,12 +133,14 @@ let resetDelaySecs = 7;
 // }
 
 function show_action_ui() {
+  first_mesh_check();
   my.show_hide_taken = 0;
   // id_main.classList.remove('hidden');
   show_action();
 }
 
 function hide_action_ui() {
+  first_mesh_check();
   my.show_hide_taken = 1;
   // id_main.classList.add('hidden');
   hide_action();

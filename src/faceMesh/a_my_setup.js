@@ -1,7 +1,7 @@
 //
 function my_init() {
   // updated to verify change on mobile
-  my.version = '?v=29';
+  my.version = '?v=30';
   my.appTitle = 'Facemesh';
   my.isRemote = 1;
   // show detailed log
@@ -96,7 +96,9 @@ async function setup_dbase() {
     photo_list_display();
   }
 
-  stopLoader();
+  stopLoader(); // for init
+  my.waiting_for_first_mesh = 1;
+  startLoader();
 }
 
 function add_action_startLoader() {

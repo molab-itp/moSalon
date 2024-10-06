@@ -57,6 +57,8 @@ function draw() {
 
   if (!my.faces) return;
 
+  first_mesh_check();
+
   check_show_hide();
 
   if (my.show_mesh) {
@@ -66,6 +68,13 @@ function draw() {
     if (my.imgLayer) {
       image(my.imgLayer, width / 2, 0);
     }
+  }
+}
+
+function first_mesh_check() {
+  if (my.waiting_for_first_mesh) {
+    my.waiting_for_first_mesh = 0;
+    stopLoader();
   }
 }
 
@@ -112,13 +121,15 @@ function draw_mesh() {
   image(my.bestill.output, 0, 0);
 
   // let phase = my.lipsOpenCount % 3;
-  let phase = my.lipsOpenCount % 2;
+  // let phase = my.lipsOpenCount % 2;
   // let phase = 2;
-  if (phase == 0) {
-    overlayEyesMouth();
-  } else if (phase == 1) {
-    overlayEyesMouthBars();
-  }
+  // if (phase == 0) {
+  //   overlayEyesMouth();
+  // } else if (phase == 1) {
+  //   overlayEyesMouthBars();
+  // }
+  overlayEyesMouthBars();
+  overlayEyesMouth();
 
   trackLipsDiff();
 }
