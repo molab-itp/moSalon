@@ -123,10 +123,13 @@ function add_action_stopLoader() {
 window.addEventListener('resize', window_resized);
 
 function window_resized() {
-  let bigN = 4.4; // 6.1
-  my.thumbWidth = Math.floor(windowWidth) / bigN;
+  my.gallery_margin = '40px';
+  let perRow = 4.4; // 6.1
+  my.thumbWidth = Math.floor(windowWidth) / perRow;
   if (my.thumbWidth < 120) {
-    my.thumbWidth = Math.floor(windowWidth / 2.1);
+    // perRow = 2.1;
+    my.thumbWidth = Math.floor(windowWidth) / perRow;
+    my.gallery_margin = '5px';
   }
   console.log('window_resized windowWidth', windowWidth, 'my.thumbWidth', my.thumbWidths);
 }
