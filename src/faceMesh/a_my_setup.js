@@ -66,6 +66,7 @@ function my_init() {
     return `qrcode/${my.group}.png`;
   };
   my.showQRCode = () => {
+    // qrCode is only shown for screen width greater than 800
     return window.innerWidth > 800;
   };
 
@@ -126,10 +127,11 @@ function window_resized() {
   my.gallery_margin = '40px';
   let perRow = 4.4; // 6.1
   my.thumbWidth = Math.floor(windowWidth) / perRow;
+  console.log('window_resized my.thumbWidth', my.thumbWidth);
   if (my.thumbWidth < 120) {
-    // perRow = 2.1;
+    perRow = 4.5;
     my.thumbWidth = Math.floor(windowWidth) / perRow;
-    my.gallery_margin = '5px';
+    my.gallery_margin = '20px';
   }
-  console.log('window_resized windowWidth', windowWidth, 'my.thumbWidth', my.thumbWidths);
+  console.log('window_resized windowWidth', windowWidth, 'my.thumbWidth', my.thumbWidth);
 }
