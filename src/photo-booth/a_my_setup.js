@@ -1,7 +1,7 @@
 //
 function my_setup() {
   // updated to verify change on mobile
-  my.version = '?v=33';
+  my.version = '?v=34';
   my.isRemote = 1;
   my.videoFlag = 1;
   // show detailed log
