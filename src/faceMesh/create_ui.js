@@ -61,6 +61,7 @@ function img_remove_all() {
     }
     child.remove();
   }
+  my.gallery_imgs = {};
 }
 
 function remove_img_index(index) {
@@ -70,6 +71,9 @@ function remove_img_index(index) {
   // console.log('remove_img_index img', img);
   if (img) {
     img.remove();
+  }
+  if (my.gallery_imgs) {
+    delete my.gallery_imgs[id];
   }
 }
 
@@ -98,6 +102,10 @@ function find_img(index) {
     img.style('width: ' + iwidth + 'px;');
 
     // span.style('background-color: white');
+
+    // Remember images in my.gallery_imgs
+    if (!my.gallery_imgs) my.gallery_imgs = {};
+    my.gallery_imgs[id] = img;
   }
   return img;
 }

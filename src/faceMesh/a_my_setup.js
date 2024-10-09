@@ -78,7 +78,7 @@ async function setup_dbase() {
   await dbase_app_init();
 
   // !!@ vote uses dbase_devices_observe
-  dbase_app_observe({ observed_item });
+  dbase_app_observe({ observed_item, observed_event });
 
   function observed_item(device) {
     // console.log('observed_item device', device);
@@ -96,7 +96,9 @@ async function setup_dbase() {
     }
     photo_list_display();
   }
-
+  function observed_event(event, key, item) {
+    console.log('observed_event ', event, key, item);
+  }
   stopLoader(); // for init
   my.waiting_for_first_mesh = 1;
   startLoader();
