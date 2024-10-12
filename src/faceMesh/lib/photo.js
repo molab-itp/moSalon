@@ -88,6 +88,23 @@ async function photo_list_display() {
   add_action_stopLoader();
 }
 
+/*
+
+meta 
+  photo_index
+  photo_list  -- last n of photo_store
+    { key, uid, order, name, index, width, height }
+
+photo_store
+key 
+   { uid, order, name, index, width, height }
+
+dbase_add_key( 'photo_store' ) --> key
+
+fstorage_upload({ path: key
+?? path = order/key
+
+*/
 async function add_action() {
   console.log('add_action ');
 
@@ -185,6 +202,8 @@ async function remove_all_action_confirmed() {
   stopLoader();
 }
 
+// !!@ Not used
+// example needed for fstorage_render
 async function update_last_photo() {
   //
   console.log('update_last_photo photo_count', my.photo_list.length);
@@ -210,39 +229,3 @@ async function update_last_photo() {
 }
 
 // my.imgLayer = createGraphics(my.width, my.height);
-
-// !!@ to lib fstorage_render({ url, layer })
-//
-function fstoreage_render(args) {
-  return new Promise(function (resolve, reject) {
-    promise_render(args, resolve, reject);
-  });
-}
-
-function promise_render(args, resolve, reject) {
-  const xhr = new XMLHttpRequest();
-  xhr.responseType = 'blob';
-  xhr.onload = (event) => {
-    const blob = xhr.response;
-    // ui_log('fstorage_img_download blob ' + blob);
-    renderBlobToLayer(blob, args, resolve);
-  };
-  xhr.open('GET', args.url);
-  xhr.send();
-}
-
-function renderBlobToLayer(blob, args, resolve) {
-  // let elt = my.canvas.elt;
-  // let ctx = elt.getContext('2d');
-  // let ctx = my.canvas.drawingContext;
-  let { width, height } = args.layer;
-  let ctx = args.layer.drawingContext;
-  var img = new Image();
-  img.onload = function () {
-    // console.log('renderBlobToLayer img', img);
-    ctx.drawImage(img, 0, 0, width, height);
-    URL.revokeObjectURL(img.src);
-    resolve();
-  };
-  img.src = URL.createObjectURL(blob);
-}

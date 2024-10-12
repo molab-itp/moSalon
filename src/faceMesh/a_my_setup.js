@@ -14,7 +14,7 @@ function my_init() {
   // my.fireb_config = 'jht1493';
   // my.fireb_config = 'jhtitp';
   my.dbase_rootPath = 'm0-@r-@w-';
-  my.roomName = 'm1-facemesh';
+  my.mo_room = 'm1-facemesh';
   my.mo_app = 'mo-facemesh';
   my.group = 's0';
   my.nameDevice = 'facemesh';
@@ -39,7 +39,7 @@ function my_init() {
 
   my.query = get_url_params();
   if (my.query) {
-    my.roomName = my.query.room || my.roomName;
+    my.mo_room = my.query.room || my.mo_room;
     my.group = my.query.group || my.group;
     my.isRemote = parseFloat(my.query.remote || my.isRemote);
     my.photo_max = parseFloat(my.query.photo_max || my.photo_max);
@@ -59,7 +59,7 @@ function my_init() {
   my.qrCodeWidth = '25%';
 
   if (my.group == 's0') {
-    my.roomName = 'm0-facemesh';
+    my.mo_room = 'm0-facemesh';
   }
 
   my.qrcode_url = () => {

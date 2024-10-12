@@ -6,7 +6,7 @@ function my_setup() {
   // my.fireb_config = 'jht1493';
   // my.fireb_config = 'jhtitp';
   my.dbase_rootPath = 'm0-@r-@w-';
-  my.roomName = 'm1-vote';
+  my.mo_room = 'm1-vote';
   my.mo_app = 'mo-vote';
   my.nameDevice = 'mo-vote-device';
 
@@ -16,7 +16,7 @@ function my_setup() {
   my.group = params.group || 's0';
   console.log('my.group', my.group);
   if (my.group == 's0') {
-    my.roomName = 'm0-vote';
+    my.mo_room = 'm0-vote';
   }
 
   // dbase  values

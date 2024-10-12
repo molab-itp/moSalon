@@ -8,7 +8,7 @@ function my_setup() {
   // my.fireb_config = 'jhtitp';
 
   my.dbase_rootPath = 'm0-@r-@w-';
-  my.roomName = 'm1-america';
+  my.mo_room = 'm1-america';
   my.mo_app = 'mo-america-be';
   my.nameDevice = 'america';
 
@@ -18,7 +18,7 @@ function my_setup() {
   my.group = params.group || 's0';
   console.log('my.group', my.group);
   if (my.group == 's0') {
-    my.roomName = 'm0-america';
+    my.mo_room = 'm0-america';
   }
 
   my.footerHeight = '288px';
