@@ -13,12 +13,13 @@ function set_photo_list(newList) {
   let n = newList.length;
   let diff = n != my.photo_list.length || my.photo_list[n - 1].index != newList[n - 1].index;
   my.photo_list = newList;
-  if (diff) {
-    update_last_photo();
-    if (n) {
-      // console.log('set_photo_list newList[n - 1].index', newList[n - 1].index);
-    }
-  }
+  // !!@ diff update_last_photo
+  // if (diff) {
+  //   update_last_photo();
+  //   if (n) {
+  //     // console.log('set_photo_list newList[n - 1].index', newList[n - 1].index);
+  //   }
+  // }
   // console.log('set_photo_list diff', diff);
 }
 

@@ -51,6 +51,11 @@ function draw() {
   if (my.imgLayer) {
     let clr = my.imgLayer.get(0, 0);
     document.body.style.backgroundColor = `rgb(${clr[0]},${clr[1]},${clr[2]}`;
+  } else {
+    // let clr = [50, 50, 50];
+    // let clr = [10, 10, 10];
+    let clr = [0, 0, 0];
+    document.body.style.backgroundColor = `rgb(${clr[0]},${clr[1]},${clr[2]}`;
   }
 
   my.lipsDiff = 0;
