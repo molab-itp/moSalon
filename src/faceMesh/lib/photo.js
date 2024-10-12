@@ -8,11 +8,11 @@
 // }
 
 function set_photo_list(newList) {
-  // console.log('set_photo_list newList', newList);
+  console.log('set_photo_list newList', newList);
   // console.log('set_photo_list photo_list', my.photo_list);
   let n = newList.length;
   let diff = n != my.photo_list.length || my.photo_list[n - 1].index != newList[n - 1].index;
-  my.photo_list = newList;
+  my.photo_list = newList.concat();
   // !!@ diff update_last_photo
   // if (diff) {
   //   update_last_photo();
@@ -23,18 +23,21 @@ function set_photo_list(newList) {
   // console.log('set_photo_list diff', diff);
 }
 
-function photo_name(index) {
-  return index.toString().padStart(3, '0') + my.imageExt;
-}
+// function photo_name(index) {
+//   return index.toString().padStart(4, '0') + my.imageExt;
+// }
 
 function photo_list_entry(index) {
-  let name = photo_name(index);
+  let order = index.toString().padStart(4, '0');
+  let name = order + my.imageExt;
   let uid = my.uid;
-  return { name, index, uid, width, height };
+  return { order, uid, name, index, width, height };
 }
 
 function photo_path_entry(entry) {
-  return entry.uid + '/' + entry.name;
+  // return entry.key + '/' + entry.uid + '/' + entry.name;
+  // return `${entry.order}/${entry.key}/${entry.uid}/${entry.name}`;
+  return `${entry.key}/${entry.name}`;
 }
 
 async function photo_list_add(entry) {
@@ -44,7 +47,7 @@ async function photo_list_add(entry) {
   }
 
   // Change to photo_list send to cloud
-  dbase_update_item({ photo_list: newList });
+  dbase_update_item({ photo_list: newList }, 'meta');
 }
 
 async function photo_list_trim(newList) {
@@ -90,19 +93,19 @@ async function photo_list_display() {
 
 /*
 
-meta 
+photo_meta 
   photo_index
   photo_list  -- last n of photo_store
     { key, uid, order, name, index, width, height }
 
 photo_store
-key 
-   { uid, order, name, index, width, height }
+  key 
+    { uid, order, name, index, width, height }
 
 dbase_add_key( 'photo_store' ) --> key
 
 fstorage_upload({ path: key
-?? path = order/key
+  path = order/key/uid
 
 */
 async function add_action() {
@@ -111,16 +114,22 @@ async function add_action() {
   add_action_startLoader();
 
   let entry = photo_list_entry(my.photo_index + 1);
-  let path = photo_path_entry(entry);
 
   let layer = my.canvas;
   let imageQuality = my.imageQuality;
+
+  let key = await dbase_add_key('photo_store', entry);
+  console.log('add_action key', key);
+  // console.log('add_action result.key', result.key);
+  entry.key = key;
+  let path = photo_path_entry(entry);
+
   try {
     await fstorage_upload({ path, layer, imageQuality });
 
     await photo_list_add(entry);
 
-    dbase_update_item({ photo_index: dbase_increment(1) });
+    dbase_update_item({ photo_index: dbase_increment(1) }, 'meta');
 
     //
   } catch (err) {
@@ -166,7 +175,7 @@ async function remove_action_confirmed() {
   await photo_list_remove_entry(last);
 
   // Update photo_list in the cloud
-  dbase_update_item({ photo_list: newList });
+  dbase_update_item({ photo_list: newList }, 'meta');
 
   stopLoader();
 }
@@ -194,10 +203,8 @@ async function remove_all_action_confirmed() {
   }
 
   // Update photo_list in the cloud
-  dbase_update_item({ photo_list: newList });
-
-  //  zero out photo_index
-  dbase_update_item({ photo_index: 0 });
+  // zero out photo_index
+  dbase_update_item({ photo_list: [], photo_index: 0 }, 'meta');
 
   stopLoader();
 }

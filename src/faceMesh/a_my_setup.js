@@ -14,8 +14,8 @@ function my_init() {
   // my.fireb_config = 'jht1493';
   // my.fireb_config = 'jhtitp';
   my.dbase_rootPath = 'm0-@r-@w-';
-  my.mo_room = 'm1-facemesh';
   my.mo_app = 'mo-facemesh';
+  my.mo_room = 'm1-facemesh';
   my.group = 's0';
   my.nameDevice = 'facemesh';
 
@@ -51,8 +51,6 @@ function my_init() {
   }
   console.log('my.vwidth, my.vheight', my.vwidth, my.vheight, 'my.long', my.long);
 
-  // my.isMobile = window.innerWidth < 600;
-
   my.show_mesh = 1;
 
   my.footerHeight = '288px';
@@ -60,6 +58,7 @@ function my_init() {
 
   if (my.group == 's0') {
     my.mo_room = 'm0-facemesh';
+    my.showButtons = 1;
   }
 
   my.qrcode_url = () => {
@@ -78,30 +77,38 @@ async function setup_dbase() {
   await dbase_app_init();
 
   // !!@ vote uses dbase_devices_observe
-  dbase_app_observe({ observed_item, observed_event });
 
-  function observed_item(device) {
-    // console.log('observed_item device', device);
-    // console.log('observed_item device.photo_index', device.photo_index);
-    // console.log('observed_item device.photo_list', device.photo_list);
-    if (device.photo_list != undefined) {
-      set_photo_list(device.photo_list);
-    } else {
-      // Removing all photos will remove all img divs
-      my.photo_list = [];
-      img_remove_all();
-    }
-    if (device.photo_index != undefined) {
-      my.photo_index = device.photo_index;
-    }
-    photo_list_display();
-  }
-  function observed_event(event, key, item) {
-    console.log('observed_event ', event, key, item);
-  }
+  observe_meta();
+
+  observe_photo_store();
+
   stopLoader(); // for init
   my.waiting_for_first_mesh = 1;
   startLoader();
+}
+
+function observe_meta() {
+  dbase_app_observe({ observed_item }, 'meta');
+  function observed_item(item) {
+    // console.log('observed_item item', item);
+    // console.log('observed_item item.photo_index', item.photo_index);
+    // console.log('observed_item item.photo_list', item.photo_list);
+    if (item.photo_list != undefined) {
+      set_photo_list(item.photo_list);
+    }
+    if (item.photo_index != undefined) {
+      my.photo_index = item.photo_index;
+    }
+    photo_list_display();
+  }
+}
+
+function observe_photo_store() {
+  dbase_app_observe({ observed_event }, 'photo_store');
+
+  function observed_event(event, key, item) {
+    console.log('observed_event ', event, key, item);
+  }
 }
 
 function add_action_startLoader() {

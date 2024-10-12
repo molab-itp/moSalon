@@ -8,26 +8,28 @@ function create_ui() {
   let ver = ui_span(0, my.group + my.version);
   ver.elt.style.backgroundColor = 'white';
 
-  my.showBtn = ui_createButton('Show');
-  my.showBtn.mousePressed(show_action_ui);
+  if (my.showButtons) {
+    my.showBtn = ui_createButton('Show');
+    my.showBtn.mousePressed(show_action_ui);
 
-  my.hideBtn = ui_createButton('Hide');
-  my.hideBtn.mousePressed(hide_action_ui);
+    my.hideBtn = ui_createButton('Hide');
+    my.hideBtn.mousePressed(hide_action_ui);
 
-  my.meshBtn = ui_createButton('Mesh');
-  my.meshBtn.mousePressed(mesh_action);
+    my.meshBtn = ui_createButton('Mesh');
+    my.meshBtn.mousePressed(mesh_action);
 
-  my.addBtn = ui_createButton('Add');
-  my.addBtn.mousePressed(add_action);
+    my.addBtn = ui_createButton('Add');
+    my.addBtn.mousePressed(add_action);
 
-  my.takeBtn = ui_createButton('Take');
-  my.takeBtn.mousePressed(take_action);
+    my.takeBtn = ui_createButton('Take');
+    my.takeBtn.mousePressed(take_action);
 
-  my.removeBtn = ui_createButton('Remove 1');
-  my.removeBtn.mousePressed(remove_action);
+    my.removeBtn = ui_createButton('Remove 1');
+    my.removeBtn.mousePressed(remove_action);
 
-  my.removeBtn = ui_createButton('Remove All');
-  my.removeBtn.mousePressed(remove_all_action);
+    my.removeBtn = ui_createButton('Remove All');
+    my.removeBtn.mousePressed(remove_all_action);
+  }
 
   my.resetBtn = ui_createButton('Reset');
   my.resetBtn.mousePressed(reset_action);
