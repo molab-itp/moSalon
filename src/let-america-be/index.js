@@ -21,7 +21,7 @@ function document_loaded() {
 
   dbase_app_init({ completed: app_init_completed });
 
-  id_footer.innerHTML = my.group + ' ' + id_footer.innerHTML;
+  id_footer.innerHTML = my.mo_group + ' ' + id_footer.innerHTML;
 }
 
 function app_init_completed() {

@@ -15,9 +15,9 @@ function my_setup() {
   // set group for all devices to share item values
   let params = get_url_params();
   console.log('params', params);
-  my.group = params.group || 's0';
-  console.log('my.group', my.group);
-  if (my.group == 's0') {
+  my.mo_group = params.group || 's0';
+  console.log('my.mo_group', my.mo_group);
+  if (my.mo_group == 's0') {
     my.mo_room = 'm0-america';
   }
 

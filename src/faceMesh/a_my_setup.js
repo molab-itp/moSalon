@@ -15,8 +15,8 @@ function my_init() {
   // my.fireb_config = 'jhtitp';
   my.dbase_rootPath = 'm0-@r-@w-';
   my.mo_app = 'mo-facemesh';
-  my.mo_room = 'm1-facemesh';
-  my.group = 's0';
+  my.mo_room = 'm2-facemesh';
+  my.mo_group = 's0';
   my.nameDevice = 'facemesh';
 
   my.photo_index = 0;
@@ -40,7 +40,7 @@ function my_init() {
   my.query = get_url_params();
   if (my.query) {
     my.mo_room = my.query.room || my.mo_room;
-    my.group = my.query.group || my.group;
+    my.mo_group = my.query.group || my.mo_group;
     my.isRemote = parseFloat(my.query.remote || my.isRemote);
     my.photo_max = parseFloat(my.query.photo_max || my.photo_max);
     my.top_percent = parseFloat(my.query.top_percent || my.top_percent);
@@ -58,13 +58,13 @@ function my_init() {
   my.footerHeight = '288px';
   my.qrCodeWidth = '25%';
 
-  if (my.group == 's0') {
+  if (my.mo_group == 's0') {
     my.mo_room = 'm0-facemesh';
     my.showButtons = 1;
   }
 
   my.qrcode_url = () => {
-    return `qrcode/${my.group}.png`;
+    return `qrcode/${my.mo_group}.png`;
   };
   my.showQRCode = () => {
     // qrCode is only shown for screen width greater than 800

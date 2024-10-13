@@ -18,13 +18,13 @@ function my_setup() {
   my.dbase_rootPath = 'm0-@r-@w-';
   my.mo_app = 'mo-photo';
   my.mo_room = 'room1';
-  my.group = 'group1';
+  my.mo_group = 'group1';
 
   // my.nameDevice = '';
   my.query = get_url_params();
   if (my.query) {
     my.mo_room = my.query.room || my.mo_room;
-    my.group = my.query.group || my.group;
+    my.mo_group = my.query.group || my.mo_group;
   }
 
   if (my.isRemote) {

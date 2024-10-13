@@ -159,7 +159,7 @@ async function remove_action_confirmed() {
   startLoader();
 
   // Remove first on screen
-  let photo = my.photo_list[0];
+  let photo = my.photo_list[n - 1];
   await photo_list_remove_entry(photo);
 
   setTimeout(photo_list_prune, 2000);

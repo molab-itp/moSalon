@@ -162,4 +162,4 @@ function windowResized() {
 
 // [x] Show other photobooths
 // enabled by group settings
-//   my.group = 'group1';
+//   my.mo_group = 'group1';
