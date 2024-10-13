@@ -160,14 +160,8 @@ function trackLipsDiff() {
       // edge into lips opened
       my.lipsOpenStartTime = Date.now();
       my.lipsOpenCount++;
-      console.log('lips open my.lipsOpenCount', my.lipsOpenCount, 'my.lipsDiff', my.lipsDiff);
-      console.log('my.lipsOpenState', my.lipsOpenState, 'openSecs', lipsOpenLapseSecs());
-      // if (my.add_action_timeoutid) {
-      //   console.log('trackLipsDiff return add_action_timeoutid', my.add_action_timeoutid);
-      //   return;
-      // }
-      // add_action();
-      // add_action_block(my.add_action_delay);
+      // console.log('lips open my.lipsOpenCount', my.lipsOpenCount, 'my.lipsDiff', my.lipsDiff);
+      // console.log('my.lipsOpenState', my.lipsOpenState, 'openSecs', lipsOpenLapseSecs());
       my.lipsOpenState = 1;
     } else if (my.lipsOpenState == 1) {
       // lips already open

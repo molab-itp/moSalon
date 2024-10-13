@@ -20,8 +20,8 @@ function my_init() {
   my.nameDevice = 'facemesh';
 
   my.photo_index = 0;
-  my.photo_max = 64;
-  // my.photo_max = 4;
+  // my.photo_max = 64;
+  my.photo_max = 4;
   my.photo_list = [];
 
   let scale = 0.5;
@@ -93,21 +93,31 @@ function observe_meta() {
     // console.log('observed_item item', item);
     // console.log('observed_item item.photo_index', item.photo_index);
     // console.log('observed_item item.photo_list', item.photo_list);
-    if (item.photo_list != undefined) {
-      set_photo_list(item.photo_list);
-    }
+    // if (item.photo_list != undefined) {
+    //   set_photo_list(item.photo_list);
+    // }
     if (item.photo_index != undefined) {
       my.photo_index = item.photo_index;
     }
-    photo_list_display();
+    photo_list_update();
   }
 }
 
 function observe_photo_store() {
   dbase_app_observe({ observed_event }, 'photo_store');
-
+  my.photo_store = {};
   function observed_event(event, key, item) {
     console.log('observed_event ', event, key, item);
+    switch (event) {
+      case 'add':
+      case 'change':
+        my.photo_store[key] = item;
+        break;
+      case 'remove':
+        delete my.photo_store[key];
+        break;
+    }
+    photo_list_update();
   }
 }
 

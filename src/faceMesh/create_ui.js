@@ -66,6 +66,7 @@ function img_remove_all() {
   my.gallery_imgs = {};
 }
 
+// !!@ Not used
 function remove_img_index(index) {
   // console.log('remove_img_index index', index);
   let id = 'id_img_' + index;
@@ -82,8 +83,8 @@ function remove_img_index(index) {
 // Create image element for an index
 //  or return if already present
 //
-function find_img(index) {
-  let id = 'id_img_' + index;
+function find_img(key) {
+  let id = 'id_img_' + key;
   let img = select('#' + id);
   if (!img) {
     // console.log('find_img id', id);
@@ -107,7 +108,7 @@ function find_img(index) {
 
     // Remember images in my.gallery_imgs
     if (!my.gallery_imgs) my.gallery_imgs = {};
-    my.gallery_imgs[id] = img;
+    my.gallery_imgs[key] = span;
   }
   return img;
 }
