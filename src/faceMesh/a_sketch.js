@@ -47,6 +47,8 @@ function draw() {
   //
   photo_list_update_poll();
 
+  proto_prune_poll();
+
   let str = my.photo_list.length + ' ' + my.photo_index;
   my.photo_count_span.html(str);
 
@@ -54,8 +56,6 @@ function draw() {
     let clr = my.imgLayer.get(0, 0);
     document.body.style.backgroundColor = `rgb(${clr[0]},${clr[1]},${clr[2]}`;
   } else {
-    // let clr = [50, 50, 50];
-    // let clr = [10, 10, 10];
     let clr = [0, 0, 0];
     document.body.style.backgroundColor = `rgb(${clr[0]},${clr[1]},${clr[2]}`;
   }
@@ -77,13 +77,6 @@ function draw() {
     if (my.imgLayer) {
       image(my.imgLayer, width / 2, 0);
     }
-  }
-}
-
-function first_mesh_check() {
-  if (my.waiting_for_first_mesh) {
-    my.waiting_for_first_mesh = 0;
-    stopLoader();
   }
 }
 

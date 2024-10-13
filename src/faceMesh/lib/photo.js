@@ -95,17 +95,22 @@ async function photo_list_render() {
   add_action_stopLoader();
 }
 
+function proto_prune_poll() {
+  if (my.photo_prune_pending) {
+    my.photo_prune_pending = photo_list_prune();
+  }
+}
 function photo_list_prune() {
   let photos_present = {};
   for (let entry of my.photo_list) {
     photos_present[entry.key] = 1;
   }
-  for (let key in my.gallery_imgs) {
-    let span = my.gallery_imgs[key];
+  for (let key in my.gallery_items) {
+    let span = my.gallery_items[key];
     if (!photos_present[key]) {
-      console.log('photo_list_update remove key', KeyboardEvent);
+      console.log('photo_list_update remove key', key);
       span.remove();
-      delete my.gallery_imgs[key];
+      delete my.gallery_items[key];
     }
   }
 }
@@ -162,7 +167,7 @@ async function remove_action_confirmed() {
   let photo = my.photo_list[n - 1];
   await photo_list_remove_entry(photo);
 
-  setTimeout(photo_list_prune, 2000);
+  // setTimeout(photo_list_prune, 2000);
 
   stopLoader();
 }
@@ -181,11 +186,10 @@ async function remove_all_action_confirmed() {
   for (let photo of my.photo_list) {
     await photo_list_remove_entry(photo);
   }
-
   // zero out photo_index
   dbase_update_item({ photo_index: 0 }, 'meta');
 
   stopLoader();
 
-  setTimeout(photo_list_prune, 2000);
+  // setTimeout(photo_list_prune, 2000);
 }

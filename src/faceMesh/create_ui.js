@@ -64,21 +64,7 @@ function img_remove_all() {
     }
     child.remove();
   }
-  my.gallery_imgs = {};
-}
-
-// !!@ Not used
-function remove_img_index(index) {
-  // console.log('remove_img_index index', index);
-  let id = 'id_img_' + index;
-  let img = select('#' + id);
-  // console.log('remove_img_index img', img);
-  if (img) {
-    img.remove();
-  }
-  if (my.gallery_imgs) {
-    delete my.gallery_imgs[id];
-  }
+  my.gallery_items = {};
 }
 
 // Create image element for an index
@@ -99,7 +85,6 @@ function find_img(key) {
     span.child(img);
 
     // Add image as first child to see most recent first
-    // my.gallery_div.elt.prepend(img.elt);
     my.gallery_div.elt.prepend(span.elt);
 
     let iwidth = my.thumbWidth;
@@ -107,9 +92,9 @@ function find_img(key) {
 
     // span.style('background-color: white');
 
-    // Remember images in my.gallery_imgs
-    if (!my.gallery_imgs) my.gallery_imgs = {};
-    my.gallery_imgs[key] = span;
+    // Remember images in my.gallery_items
+    if (!my.gallery_items) my.gallery_items = {};
+    my.gallery_items[key] = span;
   }
   return img;
 }
@@ -137,13 +122,6 @@ function reset_check() {
 }
 
 let resetDelaySecs = 7;
-
-// if (my.faces.length == 0) {
-//   // id_main.
-//   id_main.classList.add('hidden');
-// } else {
-//   id_main.classList.remove('hidden');
-// }
 
 function show_action_ui() {
   first_mesh_check();
