@@ -1,20 +1,20 @@
-# [github moSalon](https://github.com/molab-itp/moSalon) ?v=40
+# [github moSalon](https://github.com/molab-itp/moSalon) ?v=41
 
 - multi-device experiences on handheld and large screens
 - creating and updating firebase cloud data
 
-## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=40)
+## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=41)
 
-- [src/let-america-be s0](src/let-america-be/qrcode?v=40&group=s0)
-- [src/let-america-be s1](src/let-america-be/qrcode?v=40&group=s1)
-- [src/let-america-be s2](src/let-america-be/qrcode?v=40&group=s2)
+- [src/let-america-be s0](src/let-america-be/qrcode?v=41&group=s0)
+- [src/let-america-be s1](src/let-america-be/qrcode?v=41&group=s1)
+- [src/let-america-be s2](src/let-america-be/qrcode?v=41&group=s2)
 -
-- [src/faceMesh s0](src/faceMesh/qrcode?v=40)
-- [src/faceMesh s1](src/faceMesh/qrcode?v=40&group=s1)
-- [src/faceMesh s2](src/faceMesh/qrcode?v=40&group=s2)
+- [src/faceMesh s0](src/faceMesh/qrcode?v=41)
+- [src/faceMesh s1](src/faceMesh/qrcode?v=41&group=s1)
+- [src/faceMesh s2](src/faceMesh/qrcode?v=41&group=s2)
 
-- [src/photo-booth s0](src/photo-booth/?v=40)
-- [src/vote s0](src/vote/?v=40)
+- [src/photo-booth s0](src/photo-booth/?v=41)
+- [src/vote s0](src/vote/?v=41)
 
 ## How is data synchronized in real time in the examples?
 
