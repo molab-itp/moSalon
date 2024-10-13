@@ -63,7 +63,9 @@ async function photo_list_render() {
   // showing most recent first
   //
   my.photo_list = [];
-  let entries = Object.entries(my.photo_store);
+  let entries = Object.entries(my.photo_store).sort((item1, item2) => {
+    return item2[0].localeCompare(item1[0]);
+  });
   let nlast = entries.length;
   let istart = nlast - my.photo_max;
   if (istart < 0) istart = 0;
