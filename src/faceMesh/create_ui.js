@@ -8,13 +8,13 @@ function create_ui() {
   let ver = ui_span(0, my.group + my.version);
   ver.elt.style.backgroundColor = 'white';
 
+  my.showBtn = ui_createButton('Show');
+  my.showBtn.mousePressed(show_action_ui);
+
+  my.hideBtn = ui_createButton('Hide');
+  my.hideBtn.mousePressed(hide_action_ui);
+
   if (my.showButtons) {
-    my.showBtn = ui_createButton('Show');
-    my.showBtn.mousePressed(show_action_ui);
-
-    my.hideBtn = ui_createButton('Hide');
-    my.hideBtn.mousePressed(hide_action_ui);
-
     my.meshBtn = ui_createButton('Mesh');
     my.meshBtn.mousePressed(mesh_action);
 
