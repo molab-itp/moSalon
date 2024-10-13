@@ -20,8 +20,8 @@ function my_init() {
   my.nameDevice = 'facemesh';
 
   my.photo_index = 0;
-  // my.photo_max = 64;
-  my.photo_max = 4;
+  my.photo_max = 64;
+  // my.photo_max = 4;
   my.photo_list = [];
 
   let scale = 0.5;
@@ -45,6 +45,8 @@ function my_init() {
     my.photo_max = parseFloat(my.query.photo_max || my.photo_max);
     my.top_percent = parseFloat(my.query.top_percent || my.top_percent);
     my.long = parseFloat(my.query.long || my.long);
+    my.showButtons = parseFloat(my.query.show_buttons || my.showButtons);
+    my.showRemove = parseFloat(my.query.show_remove || my.showRemove);
   }
   if (my.long) {
     [my.vwidth, my.vheight] = [my.vheight, my.vwidth];

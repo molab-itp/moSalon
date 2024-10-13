@@ -45,6 +45,8 @@ async function video_setup() {
 
 function draw() {
   //
+  photo_list_update_poll();
+
   let str = my.photo_list.length + ' ' + my.photo_index;
   my.photo_count_span.html(str);
 

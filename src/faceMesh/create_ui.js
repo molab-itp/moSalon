@@ -24,11 +24,13 @@ function create_ui() {
     my.takeBtn = ui_createButton('Take');
     my.takeBtn.mousePressed(take_action);
 
-    my.removeBtn = ui_createButton('Remove 1');
-    my.removeBtn.mousePressed(remove_action);
+    if (my.showRemove) {
+      my.removeBtn = ui_createButton('Remove 1');
+      my.removeBtn.mousePressed(remove_action);
 
-    my.removeBtn = ui_createButton('Remove All');
-    my.removeBtn.mousePressed(remove_all_action);
+      my.removeBtn = ui_createButton('Remove All');
+      my.removeBtn.mousePressed(remove_all_action);
+    }
   }
 
   my.resetBtn = ui_createButton('Reset');
