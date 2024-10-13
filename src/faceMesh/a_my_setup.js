@@ -61,6 +61,7 @@ function my_init() {
   if (my.mo_group == 's0') {
     my.mo_room = 'm0-facemesh';
     my.showButtons = 1;
+    my.showRemove = 1;
   }
 
   my.qrcode_url = () => {

@@ -15,14 +15,20 @@ function create_ui() {
   my.hideBtn.mousePressed(hide_action_ui);
 
   if (my.showButtons) {
-    my.meshBtn = ui_createButton('Mesh');
-    my.meshBtn.mousePressed(mesh_action);
-
     my.addBtn = ui_createButton('Add');
     my.addBtn.mousePressed(add_action);
 
     my.takeBtn = ui_createButton('Take');
     my.takeBtn.mousePressed(take_action);
+
+    my.meshBtn = ui_createButton('Mesh');
+    my.meshBtn.mousePressed(mesh_action);
+
+    my.resetBtn = ui_createButton('Reset');
+    my.resetBtn.mousePressed(reset_action);
+
+    my.fullScreenBtn = ui_createButton('Full Screen');
+    my.fullScreenBtn.mousePressed(fullScreen_action);
   }
   if (my.showRemove) {
     my.removeBtn = ui_createButton('Remove 1');
@@ -31,12 +37,6 @@ function create_ui() {
     my.removeBtn = ui_createButton('Remove All');
     my.removeBtn.mousePressed(remove_all_action);
   }
-
-  my.resetBtn = ui_createButton('Reset');
-  my.resetBtn.mousePressed(reset_action);
-
-  my.fullScreenBtn = ui_createButton('Full Screen');
-  my.fullScreenBtn.mousePressed(fullScreen_action);
 
   my.photo_count_span = ui_span(0, '' + my.photo_list.length);
   my.photo_count_span.elt.style.backgroundColor = 'white';
