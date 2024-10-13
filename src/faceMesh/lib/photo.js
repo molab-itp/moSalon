@@ -63,13 +63,11 @@ async function photo_list_render() {
   // showing most recent first
   //
   my.photo_list = [];
-  let entries = Object.entries(my.photo_store).sort((item1, item2) => {
-    return item2[0].localeCompare(item1[0]);
-  });
+  let entries = Object.entries(my.photo_store);
   let nlast = entries.length;
   let istart = nlast - my.photo_max;
   if (istart < 0) istart = 0;
-  for (let i = nlast - 1; i >= istart; i--) {
+  for (let i = istart; i < nlast; i++) {
     let ent = entries[i];
     let key = ent[0];
     let photo = ent[1];
@@ -89,6 +87,7 @@ async function photo_list_render() {
   }
   function url_result(url, key) {
     // console.log('url_result index', index, 'url', url);
+    // Images are prepended
     let img = find_img(key);
     img.elt.src = url;
   }
