@@ -8,19 +8,21 @@ function my_setup() {
   // my.fireb_config = 'jhtitp';
 
   my.dbase_rootPath = 'm0-@r-@w-';
-  my.mo_room = 'm1-america';
   my.mo_app = 'mo-america-be';
+  my.mo_room = 'm1-america';
+  my.mo_group = 's0';
   my.nameDevice = 'america';
 
   // set group for all devices to share item values
   let params = get_url_params();
   console.log('params', params);
-  my.mo_group = params.group || 's0';
-  console.log('my.mo_group', my.mo_group);
+  my.mo_group = params.group || my.mo_group;
   if (my.mo_group == 's0') {
     my.mo_room = 'm0-america';
   }
 
   my.footerHeight = '288px';
   my.qrCodeWidth = '25%';
+
+  console.log('my.mo_app', my.mo_app, 'my.mo_room', my.mo_room, 'my.mo_group', my.mo_group);
 }

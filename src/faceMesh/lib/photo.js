@@ -158,7 +158,7 @@ async function remove_action_confirmed() {
   if (n < 1) {
     // No more images in the cloud
     //  zero out photo_index
-    dbase_update_item({ photo_index: 0 });
+    dbase_update_item({ photo_index: 0 }, 'meta');
     return;
   }
   startLoader();
