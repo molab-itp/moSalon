@@ -72,7 +72,12 @@ function resize_window() {
 }
 
 function ui_log(...args) {
-  // let-america-be ver
+  // let-america-be ui_log
+  console.log(...args);
+}
+
+function ui_logv(...args) {
+  // let-america-be ui_logv
   console.log(...args);
 }
 

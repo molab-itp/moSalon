@@ -24,5 +24,5 @@ function my_setup() {
   my.footerHeight = '288px';
   my.qrCodeWidth = '25%';
 
-  console.log('my.mo_app', my.mo_app, 'my.mo_room', my.mo_room, 'my.mo_group', my.mo_group);
+  console.log('my_setup my.mo_app', my.mo_app, 'my.mo_room', my.mo_room, 'my.mo_group', my.mo_group);
 }
