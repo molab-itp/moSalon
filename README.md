@@ -1,20 +1,20 @@
-# [github moSalon](https://github.com/molab-itp/moSalon) ?v=42
+# [github moSalon](https://github.com/molab-itp/moSalon) ?v=43
 
-- multi-device experiences on handheld and large screens
+- interactive multi-screen experiences on handheld and large screens
 - creating and updating firebase cloud data
 
-## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=42)
+## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=43)
 
-- [src/let-america-be s0](src/let-america-be/qrcode?v=42&group=s0)
-- [src/let-america-be s1](src/let-america-be/qrcode?v=42&group=s1)
-- [src/let-america-be s2](src/let-america-be/qrcode?v=42&group=s2)
+- [src/let-america-be s0](src/let-america-be/qrcode?v=43&group=s0)
+- [src/let-america-be s1](src/let-america-be/qrcode?v=43&group=s1)
+- [src/let-america-be s2](src/let-america-be/qrcode?v=43&group=s2)
 -
-- [src/faceMesh s0](src/faceMesh/qrcode?v=42)
-- [src/faceMesh s1](src/faceMesh/qrcode?v=42&group=s1)
-- [src/faceMesh s2](src/faceMesh/qrcode?v=42&group=s2)
+- [src/faceMesh s0](src/faceMesh/qrcode?v=43)
+- [src/faceMesh s1](src/faceMesh/qrcode?v=43&group=s1)
+- [src/faceMesh s2](src/faceMesh/qrcode?v=43&group=s2)
 
-- [src/photo-booth s0](src/photo-booth/?v=42)
-- [src/vote s0](src/vote/?v=42)
+- [src/photo-booth s0](src/photo-booth/?v=43)
+- [src/vote s0](src/vote/?v=43)
 
 ## How is data synchronized in real time in the examples?
 
@@ -28,6 +28,10 @@ The functions that include Firebase setup are in [moLab](https://github.com/mola
 ## p5js versions of examples
 
 - TODO
+
+## the course
+
+- [Interactive multi-screen experiences](https://github.com/p5videoKit/IM-Screens-2024-03-ima)
 
 ## --
 
