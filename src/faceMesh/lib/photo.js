@@ -32,7 +32,8 @@ function photo_new_entry(index) {
   let name = order + my.imageExt;
   let uid = my.uid;
   let color = my.avg_color;
-  return { uid, name, index, width, height, color };
+  let createAt = new Date().toISOString();
+  return { uid, name, index, width, height, color, createAt };
 }
 
 async function photo_list_remove_entry(entry) {
