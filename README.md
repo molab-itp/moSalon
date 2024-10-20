@@ -1,25 +1,25 @@
-# [github moSalon](https://github.com/molab-itp/moSalon) ?v=49
+# [github moSalon](https://github.com/molab-itp/moSalon) ?v=50
 
 - interactive multi-screen experiences on handheld and large screens
 - what new interactive experiences are possible when sharing is free and easy?
-- enabled by [moLab](https://github.com/molab-itp/moLib) and [firebase cloud services](firebase.google.com)
+- enabled by [moLab](https://github.com/molab-itp/moLib) and [firebase cloud services](https://firebase.google.com)
 
-## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=49)
+## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=50)
 
-- [src/let-america-be s0](src/let-america-be/qrcode?v=49&group=s0)
-- [src/let-america-be s1](src/let-america-be/qrcode?v=49&group=s1)
-- [src/let-america-be s2](src/let-america-be/qrcode?v=49&group=s2)
+- [src/let-america-be s0](src/let-america-be/qrcode?v=50&group=s0)
+- [src/let-america-be s1](src/let-america-be/qrcode?v=50&group=s1)
+- [src/let-america-be s2](src/let-america-be/qrcode?v=50&group=s2)
 -
-- [src/faceMesh s0](src/faceMesh/qrcode?v=49)
-- [src/faceMesh s1](src/faceMesh/qrcode?v=49&group=s1)
-- [src/faceMesh s2](src/faceMesh/qrcode?v=49&group=s2)
+- [src/faceMesh s0](src/faceMesh/qrcode?v=50)
+- [src/faceMesh s1](src/faceMesh/qrcode?v=50&group=s1)
+- [src/faceMesh s2](src/faceMesh/qrcode?v=50&group=s2)
 
-- [src/photo-booth s0](src/photo-booth/?v=49)
-- [src/vote s0](src/vote/?v=49)
+- [src/photo-booth s0](src/photo-booth/?v=50)
+- [src/vote s0](src/vote/?v=50)
 
 ## How is data synchronized in real time in the examples?
 
-Data, such as shared photos, vote counts, and drawing points, is synchronized through [Firebase](firebase.google.com), which serves as a backend/server and has built-in sockets.
+Data, such as shared photos, vote counts, and drawing points, is synchronized through [Firebase](https://firebase.google.com), which serves as a backend/server and has built-in sockets.
 
 The functions that include Firebase setup are in [moLab](https://github.com/molab-itp/moLib).
 
