@@ -1,7 +1,7 @@
 //
 function my_init() {
   // updated to verify change on mobile
-  my.version = '?v=43';
+  my.version = '?v=44';
   my.appTitle = 'Facemesh';
   my.isRemote = 1;
   // show detailed log
@@ -62,6 +62,9 @@ function my_init() {
     my.mo_room = 'm0-facemesh';
     my.showButtons = 1;
     my.showRemove = 1;
+  }
+  if (my.showRemove) {
+    my.photo_max = Number.MAX_SAFE_INTEGER;
   }
 
   my.qrcode_url = () => {

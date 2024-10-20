@@ -31,7 +31,8 @@ function photo_new_entry(index) {
   let order = index.toString().padStart(4, '0');
   let name = order + my.imageExt;
   let uid = my.uid;
-  return { uid, name, index, width, height };
+  let color = my.avg_color;
+  return { uid, name, index, width, height, color };
 }
 
 async function photo_list_remove_entry(entry) {

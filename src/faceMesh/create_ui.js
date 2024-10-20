@@ -15,6 +15,9 @@ function create_ui() {
   my.hideBtn.mousePressed(hide_action_ui);
 
   if (my.showButtons) {
+    my.showAllBtn = ui_createButton('Show All');
+    my.showAllBtn.mousePressed(showAll_action);
+
     my.addBtn = ui_createButton('Add');
     my.addBtn.mousePressed(add_action);
 
@@ -97,6 +100,11 @@ function find_img(key) {
     my.gallery_items[key] = span;
   }
   return img;
+}
+
+function showAll_action() {
+  my.photo_max = Number.MAX_SAFE_INTEGER;
+  photo_list_update();
 }
 
 // Sometimes getting constrain error with createCapture with config params

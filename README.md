@@ -1,20 +1,21 @@
-# [github moSalon](https://github.com/molab-itp/moSalon) ?v=43
+# [github moSalon](https://github.com/molab-itp/moSalon) ?v=44
 
 - interactive multi-screen experiences on handheld and large screens
-- creating and updating firebase cloud data
+- what new interactive experiences are possible when sharing is free and easy?
+- enabled by [moLab](https://github.com/molab-itp/moLib) and [firebase cloud services](firebase.google.com)
 
-## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=43)
+## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=44)
 
-- [src/let-america-be s0](src/let-america-be/qrcode?v=43&group=s0)
-- [src/let-america-be s1](src/let-america-be/qrcode?v=43&group=s1)
-- [src/let-america-be s2](src/let-america-be/qrcode?v=43&group=s2)
+- [src/let-america-be s0](src/let-america-be/qrcode?v=44&group=s0)
+- [src/let-america-be s1](src/let-america-be/qrcode?v=44&group=s1)
+- [src/let-america-be s2](src/let-america-be/qrcode?v=44&group=s2)
 -
-- [src/faceMesh s0](src/faceMesh/qrcode?v=43)
-- [src/faceMesh s1](src/faceMesh/qrcode?v=43&group=s1)
-- [src/faceMesh s2](src/faceMesh/qrcode?v=43&group=s2)
+- [src/faceMesh s0](src/faceMesh/qrcode?v=44)
+- [src/faceMesh s1](src/faceMesh/qrcode?v=44&group=s1)
+- [src/faceMesh s2](src/faceMesh/qrcode?v=44&group=s2)
 
-- [src/photo-booth s0](src/photo-booth/?v=43)
-- [src/vote s0](src/vote/?v=43)
+- [src/photo-booth s0](src/photo-booth/?v=44)
+- [src/vote s0](src/vote/?v=44)
 
 ## How is data synchronized in real time in the examples?
 
@@ -34,6 +35,8 @@ The functions that include Firebase setup are in [moLab](https://github.com/mola
 - [Interactive multi-screen experiences](https://github.com/p5videoKit/IM-Screens-2024-03-ima)
 
 ## --
+
+- [how can we share our private moments free from evil corporate control?](https://github.com/jht1493/jht-site?tab=readme-ov-file#why)
 
 [![Black_Software](png/power-fist-142x158.png)](https://en.wikipedia.org/wiki/Black_Software)
 
