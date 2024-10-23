@@ -1,5 +1,5 @@
 //
-function ui_init() {
+function create_ui() {
   //
   createSpan(my.version.substring(1));
   createSpan().id('id_panX');
@@ -106,7 +106,8 @@ function focusAction() {
 }
 
 function updateAction() {
-  my.pane.updateRefEntry(my.mouseXYs);
+  my.pane0.updateRefEntry(my.mouseXYs);
+  my.pane1.copyRefEntry(0, { z: 4 });
   ui_paneUpdate();
 }
 

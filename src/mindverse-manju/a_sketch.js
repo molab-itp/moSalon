@@ -24,7 +24,7 @@ function setup() {
 
   my_setup();
 
-  my.animLoop = new Anim({ target: my, time: 15 });
+  my.animLoop = new Anim({ target: my, time: my.anim_time });
   if (my.scanFlag) {
     my.animLoop.start();
   }
