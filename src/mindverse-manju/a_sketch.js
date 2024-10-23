@@ -11,7 +11,7 @@ function preload() {
   //
   my.version = '?v=119';
 
-  my.backgImg = loadImage('../../assets/Manju.jpg');
+  my.backgImg = loadImage('../assets/Manju.jpg');
 
   // console.log('preload my.backgImg width', my.backgImg.width, my.backgImg.height);
   // my.backgImg width 1 1
