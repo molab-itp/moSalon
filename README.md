@@ -14,6 +14,8 @@
 - [src/faceMesh s1](src/faceMesh/qrcode?v=52&group=s1)
 - [src/faceMesh s2](src/faceMesh/qrcode?v=52&group=s2)
 
+- [src/mindverse-manju](src/mindverse-manju)
+
 - [src/photo-booth s0](src/photo-booth/?v=52)
 - [src/vote s0](src/vote/?v=52)
 

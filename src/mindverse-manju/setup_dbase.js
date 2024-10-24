@@ -27,6 +27,7 @@ async function setup_dbase() {
     if (refBox && !my.refBox_inited) {
       my.refBox_inited = 1;
       my.refBox.restore_refBox(refBox);
+      refIndexSync();
     }
   }
 }

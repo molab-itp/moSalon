@@ -1,6 +1,6 @@
 //
 function canvas_mousePressed() {
-  // console.log('canvas_mousePressed');
+  console.log('canvas_mousePressed');
 
   if (keyIsDown(SHIFT)) {
     saveMouseXY();
