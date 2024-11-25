@@ -1,0 +1,15 @@
+notes.txt
+
+# --
+2024-11-25 14:29:55
+
+!!@ No symbolic lines in github pages!
+
+src/image-scroller/images
+src/m5body/images
+
+# --
+
+p5moLibrary --> moLib
+examples --> src
+

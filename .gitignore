@@ -1,0 +1,12 @@
+.DS_Store
+.env
+libTest
+moLib
+moRelease
+moWebJam
+node_modules
+p5mirrorLib
+p5videoKit
+external_media
+src/image-scroller/images
+src/m5body/images
