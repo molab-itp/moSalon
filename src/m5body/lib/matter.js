@@ -61,7 +61,7 @@ class MatterMgr {
       this.boxes.splice(0, 1);
       Composite.remove(this.world, elm.body);
       full = true;
-      console.log('addBox remove n boxes', this.boxes.length, 'maxItems', this.maxItems);
+      // console.log('addBox remove n boxes', this.boxes.length, 'maxItems', this.maxItems);
     }
     return full;
   }
@@ -125,6 +125,7 @@ class Box {
     layer.stroke(this.c);
     layer.fill(fillc);
     layer.rect(0, 0, this.w, this.h);
+    // layer.ellipse(0 + this.w / 2, 0 + this.h / 2, this.w, this.h);
     layer.pop();
   }
 }

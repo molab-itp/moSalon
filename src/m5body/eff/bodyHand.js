@@ -37,6 +37,7 @@ class eff_bodyHand {
   }
   initModel() {
     ui_message('loading model...');
+    ml5.setBackend('webgl'); // !!@ webgpu issue
     // let options = { flipHorizontal: this.hflip, maxPoseDetections: this.ndetect };
     console.log('eff_bodyHand hflip', this.hflip);
     let flipped = this.hflip;
@@ -331,3 +332,6 @@ class eff_bodyHand {
 // https://github.com/tensorflow/tfjs-models/tree/master/pose-detection/src/movenet#create-a-detector
 
 // https://storage.googleapis.com/tfjs-models/demos/pose-detection/index.html?model=movenet
+
+// https://github.com/ml5js/ml5-next-gen/issues/231#issuecomment-2496490520
+// !!@ webgpu issue

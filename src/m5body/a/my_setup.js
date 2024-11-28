@@ -73,16 +73,14 @@ function my_init() {
   if (my.showRemove) {
     my.photo_max = Number.MAX_SAFE_INTEGER;
   }
-
-  if (0) {
-    my.qrcode_url = () => {
-      return `qrcode/${my.mo_group}.png`;
-    };
-    my.showQRCode = () => {
-      // qrCode is only shown for screen width greater than 800
-      return window.innerWidth > 800;
-    };
-  }
+  my.qrcode_url = () => {
+    return `qrcode/${my.mo_group}.png`;
+  };
+  my.showQRCode = (options) => {
+    options.hide_footer = 1;
+    // qrCode is only shown for screen width greater than 800
+    return window.innerWidth > 800;
+  };
 
   window_resized();
 }
