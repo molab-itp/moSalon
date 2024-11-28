@@ -25,6 +25,8 @@ function setup() {
   }
   clear();
 
+  movie_init();
+
   video_setup();
 
   create_ui();
@@ -45,6 +47,9 @@ function draw_mesh() {
     // my.output.background(0);
     my.output.clear();
   }
+  if (my.videoMovieBack) {
+    draw_videoMovieBack();
+  }
 
   my.effect.prepareOutput();
 
@@ -59,6 +64,17 @@ function draw_mesh() {
   } else {
     image(my.output, 0, 0, w, h);
   }
+}
+
+function draw_videoMovieBack() {
+  let w = my.output.width;
+  let h = my.output.width * my.input_aspect_hw;
+  // my.output.image(my.videoMovie, 0, 0, w, h);
+  my.output.push();
+  my.output.scale(-1, 1);
+  let s = 0.3;
+  my.output.image(my.videoMovie, 0, 0, -w * s, h * s);
+  my.output.pop();
 }
 
 function draw_videoBack() {

@@ -4,14 +4,15 @@ function movie_init() {
   //
 
   // my.video = wait mediaDevice_create_capture(mediaDev, { flipped: flipH });
-  my.video = createVideo(my.moviePath, function () {
+  my.videoMovie = createVideo(my.moviePath, function () {
     console.log('movie_init ready');
 
-    my.video.loop();
+    my.videoMovie.loop();
   });
 
-  my.video.hide();
-  // my.video.showControls();
+  my.videoMovie.hide();
+  // my.videoMovie.showControls();
 
-  console.log('movie_init my.video.width, my.video.height', my.video.width, my.video.height);
+  console.log('movie_init moviePath', my.moviePath);
+  console.log('movie_init my.videoMovie.width, my.video.height', my.videoMovie.width, my.videoMovie.height);
 }

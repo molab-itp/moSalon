@@ -15,7 +15,12 @@ function my_init() {
   // 2013-JHT-YR2-231n-1h-2s.mp4
   // 2023-10-18-IMG_0524-30min-silent.mov
   // JHT-2010-Ashtanga-02-silent.m4v
-  my.moviePath = '../../moRelease/media/2013-JHT-YR2-231n-1h-2s-src.mp4';
+  my.moviePath = '../../external_media/movies/Red-Green-Gold-Charles-youtube_RG8lHEHrAkk_1080x1080_h264.mp4';
+  // my.moviePath = '../../external_media/movies/nari-adjaye-mca-talk.mov';
+  // my.moviePath = '../../moRelease/media/2013-JHT-YR2-231n-1h-2s-src.mp4';
+  // ../../external_media/movies/nari-adjaye-mca-talk.mov
+  // /Users/jht2/Documents/projects/2024/Alter-Ego/Week12-2/nari-adjaye-mca-talk.mov
+  // /Users/jht2/Documents/projects/2024-moSalon/external_media/movies/nari-adjaye-mca-talk.mov
   my.appTitle = 'm5body';
   my.isRemote = 1;
   // show detailed log
@@ -63,7 +68,7 @@ function my_init() {
   my.show_mesh = 1;
 
   my.footerHeight = '288px';
-  my.qrCodeWidth = '25%';
+  my.qrCodeWidth = '15%';
 
   if (my.mo_group == 's0') {
     my.mo_room = 'm0-posenet';

@@ -9,14 +9,44 @@ function create_ui() {
   let ver = ui_span(0, my.mo_group + my.version);
   ver.elt.style.backgroundColor = 'white';
 
-  my.videoBackBtn = ui_createButton('videoBack');
-  my.videoBackBtn.mousePressed(function () {
-    my.videoBack = !my.videoBack;
+  my.rewindScrollBtn = ui_createButton('Scroll 0');
+  my.rewindScrollBtn.mousePressed(function () {
+    window.scrollTo(0, 0);
+  });
+  my.showBtn = ui_createButton('Scroll toggle');
+  my.showBtn.mousePressed(function () {
+    my.doScroll = !my.doScroll;
   });
   my.clearBtn = ui_createButton('clear');
   my.clearBtn.mousePressed(function () {
     my.effect.clear();
   });
+
+  my.videoBackBtn = ui_createButton('videoBack');
+  my.videoBackBtn.mousePressed(function () {
+    my.videoBack = !my.videoBack;
+  });
+
+  my.videoMovieBackBtn = ui_createButton('videoMovieBack');
+  my.videoMovieBackBtn.mousePressed(function () {
+    my.videoMovieBack = !my.videoMovieBack;
+    // my.videoMovie.time(435);
+  });
+  my.togglePlayBtn = ui_createButton('Toggle Play');
+  my.togglePlayBtn.mousePressed(function () {
+    my.videoMovieShouldPlay = !my.videoMovieShouldPlay;
+    if (my.videoMovieShouldPlay) {
+      my.videoMovie.play();
+    } else {
+      my.videoMovie.pause();
+    }
+  });
+  my.rewindMovieBackBtn = ui_createButton('rewind Movie');
+  my.rewindMovieBackBtn.mousePressed(function () {
+    // my.videoMovie.time(435);
+    my.videoMovie.time(0);
+  });
+
   my.blastBtn = ui_createButton('blast');
   my.blastBtn.mousePressed(function () {
     my.effect.blast();
@@ -148,10 +178,6 @@ function show_action_ui() {
   first_mesh_check();
   my.show_hide_taken = 0;
   show_action();
-
-  // !!@ show_action_ui video.play
-  my.video.play();
-  my.doScroll = !my.doScroll;
 }
 
 function hide_action_ui() {
