@@ -41,15 +41,14 @@ function setup() {
 
 function draw_mesh() {
   // my.output.background(my.avg_color);
+  // console.log('draw_mesh effTrails', my.effTrails);
   if (my.videoBack) {
     draw_videoBack();
   } else if (!my.effTrails) {
     // my.output.background(0);
     my.output.clear();
   }
-  // if (my.videoMovie.isVisible) {
   draw_videoMovieBack();
-  // }
 
   my.effect.prepareOutput();
 
@@ -93,7 +92,7 @@ function draw_videoMovie(videoMovie) {
   } else {
     let y = videoMovie.offsetY || 0;
     my.output.image(movie, 0, y, w * mscale, h * mscale);
-    if (videoMovie.scrollY && my.scrollEnabled) {
+    if (videoMovie.scrollY && videoMovie.scrollEnabled) {
       if (videoMovie.offsetY < height * (1 - 0.25)) {
         videoMovie.offsetY = videoMovie.offsetY + 1;
       }

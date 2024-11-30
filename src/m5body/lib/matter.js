@@ -2,13 +2,6 @@
 
 // https://thecodingtrain.com/tracks/the-nature-of-code-2/noc/6-physics-libraries/1-matterjs-introduction
 // https://brm.io/matter-js/
-// https://editor.p5js.org/codingtrain/sketches/dian0t-5j
-// 5.17 Matter.js tutorial
-
-// https://editor.p5js.org/jht9629-nyu/sketches/LdXXFo6gn
-// 5.17 Matter.js tutorial
-
-// <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
 
 const { Engine, World, Bodies, Composite, Body } = Matter;
 
@@ -166,3 +159,18 @@ class Box {
 //     pop();
 //   }
 // }
+
+// https://editor.p5js.org/codingtrain/sketches/dian0t-5j
+// 5.17 Matter.js tutorial
+
+// https://editor.p5js.org/jht9629-nyu/sketches/LdXXFo6gn
+// 5.17 Matter.js tutorial
+
+// <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+
+// https://editor.p5js.org/jht9629-nyu/sketches/R-BDJJkkR
+// 2024-11-30-Matter Triangle
+
+// I want a triangle!
+// https://github.com/liabru/matter-js/blob/master/examples/mixed.js
+// https://brm.io/matter-js/demo/#mixed

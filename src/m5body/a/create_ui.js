@@ -43,6 +43,11 @@ function create_ui() {
     my.videoMovie = my.videoMovies[2];
     my.videoMovie.isVisible = !my.videoMovie.isVisible;
   });
+  my.toggleActionBtn = ui_createButton('Action ~');
+  my.toggleActionBtn.mousePressed(function () {
+    let videoMovie = my.videoMovies[0];
+    videoMovie.scrollEnabled = !videoMovie.scrollEnabled;
+  });
   my.togglePlayBtn = ui_createButton('Play ~');
   my.togglePlayBtn.mousePressed(function () {
     my.videoMovie.shouldPlay = !my.videoMovie.shouldPlay;
@@ -69,16 +74,22 @@ function create_ui() {
     my.videoMovie.offsetY = 0;
   });
 
-  my.blastBtn = ui_createButton('blast');
+  my.blastBtn = ui_createButton('Blast');
   my.blastBtn.mousePressed(function () {
     my.effect.blast();
   });
+  my.toggleTrailsBtn = ui_createButton('Trails ~');
+  my.toggleTrailsBtn.mousePressed(function () {
+    my.effTrails = !my.effTrails;
+    // console.log('toggleTrailsBtn effTrails', my.effTrails);
+    my.toggleTrailsBtn.html(my.effTrails ? 'Trails ON' : 'Trails OFF');
+  });
 
-  my.showBtn = ui_createButton('Show');
-  my.showBtn.mousePressed(show_action_ui);
+  // my.showBtn = ui_createButton('Show');
+  // my.showBtn.mousePressed(show_action_ui);
 
-  my.hideBtn = ui_createButton('Hide');
-  my.hideBtn.mousePressed(hide_action_ui);
+  // my.hideBtn = ui_createButton('Hide');
+  // my.hideBtn.mousePressed(hide_action_ui);
 
   if (my.showButtons && 0) {
     my.showAllBtn = ui_createButton('Show All');
