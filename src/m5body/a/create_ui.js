@@ -38,6 +38,11 @@ function create_ui() {
     my.videoMovie = my.videoMovies[1];
     my.videoMovie.isVisible = !my.videoMovie.isVisible;
   });
+  my.videoMovieSelect2Btn = ui_createButton('movie2');
+  my.videoMovieSelect2Btn.mousePressed(function () {
+    my.videoMovie = my.videoMovies[2];
+    my.videoMovie.isVisible = !my.videoMovie.isVisible;
+  });
   my.togglePlayBtn = ui_createButton('Play ~');
   my.togglePlayBtn.mousePressed(function () {
     my.videoMovie.shouldPlay = !my.videoMovie.shouldPlay;
@@ -47,10 +52,21 @@ function create_ui() {
       my.videoMovie.movie.pause();
     }
   });
+  my.toggleVolumeBtn = ui_createButton('Sound ~');
+  my.toggleVolumeBtn.mousePressed(function () {
+    my.videoMovie.shouldPlay = !my.videoMovie.shouldPlay;
+    let movie = my.videoMovie.movie;
+    if (movie.volume() != 0) {
+      movie.volume(0);
+    } else {
+      movie.volume(1);
+    }
+  });
   my.rewindMovieBackBtn = ui_createButton('Rewind');
   my.rewindMovieBackBtn.mousePressed(function () {
     // my.videoMovie.time(435);
     my.videoMovie.movie.time(0);
+    my.videoMovie.offsetY = 0;
   });
 
   my.blastBtn = ui_createButton('blast');

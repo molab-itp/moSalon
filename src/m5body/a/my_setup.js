@@ -32,12 +32,22 @@ function my_init() {
       scrollY: 1,
     },
     {
+      moviePath: '../../external_media/movies/marching-Zeshan-B.mp4',
+      scale: 0.5,
+      isVisible: 1,
+      shouldPlay: 0,
+      // flipH: 1,
+      // offsetX: 1,
+      volume: 0,
+    },
+    {
       moviePath: '../../external_media/movies/Red-Green-Gold-Charles.mp4',
       scale: 0.3,
       isVisible: 1,
       shouldPlay: 1,
       // flipH: 1,
       offsetX: 1,
+      volume: 1,
     },
   ];
   // my.moviePath = '../../external_media/movies/Red-Green-Gold-Charles-youtube_RG8lHEHrAkk_1080x1080_h264.mp4';

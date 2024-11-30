@@ -29,6 +29,12 @@ async function movie_create(spec) {
       console.log('movie_create width height', movie.width, movie.height);
       movie.loop();
       movie.hide();
+      if (!spec.shouldPlay) {
+        movie.pause();
+      }
+      if (spec.volume !== undefined) {
+        movie.volume(spec.volume);
+      }
     });
     let offsetY = 0;
     spec.movie = movie;
