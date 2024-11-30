@@ -1,12 +1,12 @@
 //
 
 function scroller_init() {
-  my.doScroll = 0;
+  my.scrollEnabled = 0;
   my.stallMaxTime = 10.0;
   my.rwidth = 1920;
   my.scrollSpeed = 1;
   my.scrollBy = 4;
-  my.nscrollImages = 87;
+  my.nscrollImages = 99;
 
   let images = [];
   let n = my.nscrollImages;
@@ -24,7 +24,7 @@ function scroller_update() {
   // calcTotalHeight();
   // console.log('draw');
 
-  if (!my.doScroll) return;
+  if (!my.scrollEnabled) return;
 
   let now = millis() / 1000.0;
   if (!my.scrollDelayTime) my.scrollDelayTime = now;
@@ -36,14 +36,17 @@ function scroller_update() {
     // let nlimit = scrollLimit || rarr.length;
     // if (window.scrollY >= scrollYmax) {
     if (scrollingStalled()) {
-      window.scrollTo(0, 0);
-      my.lastY = 0;
-      my.scrollStartTime = 0;
-      my.scrollDelayTime = 0;
+      my.scrollEnabled = 0;
     }
   }
 }
 
+function scroller_reset() {
+  window.scrollTo(0, 0);
+  my.lastY = 0;
+  my.scrollStartTime = 0;
+  my.scrollDelayTime = 0;
+}
 function scrollingStalled() {
   let now = millis() / 1000.0;
   if (!my.scrollStartTime) my.scrollStartTime = now;

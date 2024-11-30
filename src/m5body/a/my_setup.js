@@ -3,6 +3,8 @@ function my_init() {
   // updated to verify change on mobile
   my.version = '?v=74';
 
+  my.matter_strokeWeight = 10;
+
   my.effects_init_map = {
     seg: bodySeg_init,
     pose: bodyPose_init,
@@ -15,7 +17,30 @@ function my_init() {
   // 2013-JHT-YR2-231n-1h-2s.mp4
   // 2023-10-18-IMG_0524-30min-silent.mov
   // JHT-2010-Ashtanga-02-silent.m4v
-  my.moviePath = '../../external_media/movies/Red-Green-Gold-Charles-youtube_RG8lHEHrAkk_1080x1080_h264.mp4';
+  // my.moviePaths = [
+  //   '../../external_media/movies/Flaring-Black-Hole-V404-Cygni.mp4',
+  //   '../../external_media/movies/Red-Green-Gold-Charles.mp4',
+  // ];
+  let isVisible = false;
+  let shouldPlay = false;
+  my.movieSpecs = [
+    {
+      moviePath: '../../external_media/movies/Flaring-Black-Hole-V404-Cygni.mp4',
+      scale: 1.0,
+      isVisible: 1,
+      shouldPlay: 1,
+      scrollY: 1,
+    },
+    {
+      moviePath: '../../external_media/movies/Red-Green-Gold-Charles.mp4',
+      scale: 0.3,
+      isVisible: 1,
+      shouldPlay: 1,
+      // flipH: 1,
+      offsetX: 1,
+    },
+  ];
+  // my.moviePath = '../../external_media/movies/Red-Green-Gold-Charles-youtube_RG8lHEHrAkk_1080x1080_h264.mp4';
   // my.moviePath = '../../external_media/movies/nari-adjaye-mca-talk.mov';
   // my.moviePath = '../../moRelease/media/2013-JHT-YR2-231n-1h-2s-src.mp4';
   // ../../external_media/movies/nari-adjaye-mca-talk.mov

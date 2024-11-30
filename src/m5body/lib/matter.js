@@ -120,7 +120,7 @@ class Box {
     layer.translate(pos.x, pos.y);
     layer.rotate(angle);
     layer.rectMode(CENTER);
-    layer.strokeWeight(1);
+    layer.strokeWeight(my.matter_strokeWeight);
     // layer.stroke(255); !!@ matter white box
     layer.stroke(this.c);
     layer.fill(fillc);

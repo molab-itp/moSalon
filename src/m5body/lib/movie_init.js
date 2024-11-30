@@ -1,18 +1,41 @@
 //
 
-function movie_init() {
+// my.moviePaths = [
+//   '../../external_media/movies/Flaring-Black-Hole-V404-Cygni.mp4',
+//   '../../external_media/movies/Red-Green-Gold-Charles.mp4',
+// ];
+
+//   { movie, isVisible, shouldPlay }
+
+async function movie_init() {
   //
+  my.videoMovies = [];
+  for (let spec of my.movieSpecs) {
+    let movie = await movie_create(spec);
+    my.videoMovies.push(movie);
+  }
+  // my.videoMovies[0].scale = 1.0;
+  // my.videoMovies[1].scale = 0.3;
+  my.videoMovie = my.videoMovies[0];
+}
 
-  // my.video = wait mediaDevice_create_capture(mediaDev, { flipped: flipH });
-  my.videoMovie = createVideo(my.moviePath, function () {
-    console.log('movie_init ready');
+async function movie_create(spec) {
+  // console.log('video_preflight enter');
 
-    my.videoMovie.loop();
+  return new Promise(function (resolve, reject) {
+    let movie = createVideo(spec.moviePath, function () {
+      console.log('movie_create ready');
+      console.log('movie_create moviePath', spec.moviePath);
+      console.log('movie_create width height', movie.width, movie.height);
+      movie.loop();
+      movie.hide();
+    });
+    let offsetY = 0;
+    spec.movie = movie;
+    spec.offsetY = offsetY;
+    resolve(spec);
+    // let isVisible = false;
+    // let shouldPlay = false;
+    // resolve({ movie, isVisible, shouldPlay, moviePath });
   });
-
-  my.videoMovie.hide();
-  // my.videoMovie.showControls();
-
-  console.log('movie_init moviePath', my.moviePath);
-  console.log('movie_init my.videoMovie.width, my.video.height', my.videoMovie.width, my.videoMovie.height);
 }

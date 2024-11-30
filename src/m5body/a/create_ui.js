@@ -9,17 +9,17 @@ function create_ui() {
   let ver = ui_span(0, my.mo_group + my.version);
   ver.elt.style.backgroundColor = 'white';
 
-  my.rewindScrollBtn = ui_createButton('Scroll 0');
-  my.rewindScrollBtn.mousePressed(function () {
-    window.scrollTo(0, 0);
-  });
-  my.showBtn = ui_createButton('Scroll toggle');
-  my.showBtn.mousePressed(function () {
-    my.doScroll = !my.doScroll;
-  });
-  my.clearBtn = ui_createButton('clear');
+  my.clearBtn = ui_createButton('Clear');
   my.clearBtn.mousePressed(function () {
     my.effect.clear();
+  });
+  my.rewindScrollBtn = ui_createButton('Scroll 0');
+  my.rewindScrollBtn.mousePressed(function () {
+    scroller_reset();
+  });
+  my.showBtn = ui_createButton('Scroll ~');
+  my.showBtn.mousePressed(function () {
+    my.scrollEnabled = !my.scrollEnabled;
   });
 
   my.videoBackBtn = ui_createButton('videoBack');
@@ -27,24 +27,30 @@ function create_ui() {
     my.videoBack = !my.videoBack;
   });
 
-  my.videoMovieBackBtn = ui_createButton('videoMovieBack');
-  my.videoMovieBackBtn.mousePressed(function () {
-    my.videoMovieBack = !my.videoMovieBack;
-    // my.videoMovie.time(435);
+  my.videoMovieSelect0Btn = ui_createButton('movie0');
+  my.videoMovieSelect0Btn.mousePressed(function () {
+    my.videoMovie = my.videoMovies[0];
+    my.videoMovie.isVisible = !my.videoMovie.isVisible;
+    // my.videoMovie.offsetY = 0;
   });
-  my.togglePlayBtn = ui_createButton('Toggle Play');
+  my.videoMovieSelect1Btn = ui_createButton('movie1');
+  my.videoMovieSelect1Btn.mousePressed(function () {
+    my.videoMovie = my.videoMovies[1];
+    my.videoMovie.isVisible = !my.videoMovie.isVisible;
+  });
+  my.togglePlayBtn = ui_createButton('Play ~');
   my.togglePlayBtn.mousePressed(function () {
-    my.videoMovieShouldPlay = !my.videoMovieShouldPlay;
-    if (my.videoMovieShouldPlay) {
-      my.videoMovie.play();
+    my.videoMovie.shouldPlay = !my.videoMovie.shouldPlay;
+    if (my.videoMovie.shouldPlay) {
+      my.videoMovie.movie.play();
     } else {
-      my.videoMovie.pause();
+      my.videoMovie.movie.pause();
     }
   });
-  my.rewindMovieBackBtn = ui_createButton('rewind Movie');
+  my.rewindMovieBackBtn = ui_createButton('Rewind');
   my.rewindMovieBackBtn.mousePressed(function () {
     // my.videoMovie.time(435);
-    my.videoMovie.time(0);
+    my.videoMovie.movie.time(0);
   });
 
   my.blastBtn = ui_createButton('blast');

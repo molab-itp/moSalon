@@ -47,9 +47,9 @@ function draw_mesh() {
     // my.output.background(0);
     my.output.clear();
   }
-  if (my.videoMovieBack) {
-    draw_videoMovieBack();
-  }
+  // if (my.videoMovie.isVisible) {
+  draw_videoMovieBack();
+  // }
 
   my.effect.prepareOutput();
 
@@ -67,14 +67,38 @@ function draw_mesh() {
 }
 
 function draw_videoMovieBack() {
+  for (let spec of my.videoMovies) {
+    if (spec.isVisible) {
+      draw_videoMovie(spec);
+    }
+  }
+}
+
+function draw_videoMovie(videoMovie) {
+  let mscale = videoMovie.scale;
+  let movie = videoMovie.movie;
+  let aspect_hw = movie.height / movie.width;
   let w = my.output.width;
-  let h = my.output.width * my.input_aspect_hw;
-  // my.output.image(my.videoMovie, 0, 0, w, h);
-  my.output.push();
-  my.output.scale(-1, 1);
-  let s = 0.3;
-  my.output.image(my.videoMovie, 0, 0, -w * s, h * s);
-  my.output.pop();
+  let h = my.output.width * aspect_hw;
+  // my.output.image(videoMovie.movie, 0, 0, w, h);
+  if (videoMovie.flipH) {
+    my.output.push();
+    my.output.scale(-1, 1);
+    let x = 0;
+    my.output.image(movie, x, 0, -w * mscale, h * mscale);
+    my.output.pop();
+  } else if (videoMovie.offsetX) {
+    let x = (width - width * mscale) * 0.5;
+    my.output.image(movie, x, 0, w * mscale, h * mscale);
+  } else {
+    let y = videoMovie.offsetY || 0;
+    my.output.image(movie, 0, y, w * mscale, h * mscale);
+    if (videoMovie.scrollY && my.scrollEnabled) {
+      if (videoMovie.offsetY < height * (1 - 0.25)) {
+        videoMovie.offsetY = videoMovie.offsetY + 1;
+      }
+    }
+  }
 }
 
 function draw_videoBack() {
@@ -145,15 +169,17 @@ function draw() {
   let str = 'fps:' + frameRate().toFixed(1);
   let time = millis() / 1000;
   if (my.video && my.video.time) {
-    // let time = my.video.time().toFixed(2);
     time = my.video.time();
+  }
+  if (my.videoMovie && my.videoMovie.movie && my.videoMovie.movie.time) {
+    time = my.videoMovie.movie.time();
   }
   time = formatSeconds(time);
   str = 'time: ' + time + ' ' + str;
   if (my.reportMaxPoints) {
     str += ' n:' + (my.reportMaxPoints + 1) + ' of:' + my.reportMaxPointLimit;
   }
-  dbase_report_status({ msg: str + ' ' + my.moviePath });
+  dbase_report_status({ msg: str + ' ' + my.videoMovie.moviePath });
   my.photo_count_span.html(str);
 
   my.teventOpenDiff = 0;
