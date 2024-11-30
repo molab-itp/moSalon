@@ -88,7 +88,8 @@ function draw_videoMovie(videoMovie) {
     my.output.pop();
   } else if (videoMovie.centerX) {
     let x = (width - width * mscale) * 0.5;
-    my.output.image(movie, x, 0, w * mscale, h * mscale);
+    let y = videoMovie.offsetY || 0;
+    my.output.image(movie, x, y, w * mscale, h * mscale);
   } else {
     let y = videoMovie.offsetY || 0;
     my.output.image(movie, 0, y, w * mscale, h * mscale);

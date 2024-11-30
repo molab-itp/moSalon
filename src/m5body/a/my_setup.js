@@ -40,6 +40,7 @@ function my_init() {
       shouldPlay: 0,
       // flipH: 1,
       // offsetX: 1,
+      centerX: 1,
       offsetY: 40,
       volume: 1,
     },
