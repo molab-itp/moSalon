@@ -29,7 +29,7 @@ function bodyHand_init() {
     // ndetect: 1,
     penScale: 0.5,
     penPointsMax: 50,
-    stroke_weight: 0.2,
+    stroke_weight: 0.1,
   };
   my.effect = new eff_bodyHand(props);
 

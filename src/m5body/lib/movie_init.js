@@ -27,8 +27,11 @@ async function movie_create(spec) {
       console.log('movie_create ready');
       console.log('movie_create moviePath', spec.moviePath);
       console.log('movie_create width height', movie.width, movie.height);
-      movie.loop();
       movie.hide();
+      movie.play();
+      if (spec.loop) {
+        movie.loop();
+      }
       if (!spec.shouldPlay) {
         movie.pause();
       }
@@ -36,9 +39,10 @@ async function movie_create(spec) {
         movie.volume(spec.volume);
       }
     });
-    let offsetY = 0;
+    // let offsetY = 0;
     spec.movie = movie;
-    spec.offsetY = offsetY;
+    if (!spec.offsetY) spec.offsetY = 0;
+    // spec.offsetY = offsetY;
     resolve(spec);
     // let isVisible = false;
     // let shouldPlay = false;

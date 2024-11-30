@@ -3,7 +3,7 @@ function my_init() {
   // updated to verify change on mobile
   my.version = '?v=74';
 
-  my.matter_strokeWeight = 10;
+  my.matter_strokeWeight = 5;
 
   my.effects_init_map = {
     seg: bodySeg_init,
@@ -30,15 +30,18 @@ function my_init() {
       isVisible: 1,
       shouldPlay: 1,
       scrollY: 1,
+      loop: 1,
     },
     {
       moviePath: '../../external_media/movies/marching-Zeshan-B.mp4',
+      // scale: 0.333,
       scale: 0.5,
       isVisible: 1,
       shouldPlay: 0,
       // flipH: 1,
       // offsetX: 1,
-      volume: 0,
+      offsetY: 40,
+      volume: 1,
     },
     {
       moviePath: '../../external_media/movies/Red-Green-Gold-Charles.mp4',
@@ -46,8 +49,9 @@ function my_init() {
       isVisible: 1,
       shouldPlay: 1,
       // flipH: 1,
-      offsetX: 1,
+      centerX: 1,
       volume: 1,
+      loop: 1,
     },
   ];
   // my.moviePath = '../../external_media/movies/Red-Green-Gold-Charles-youtube_RG8lHEHrAkk_1080x1080_h264.mp4';

@@ -87,7 +87,7 @@ function draw_videoMovie(videoMovie) {
     let x = 0;
     my.output.image(movie, x, 0, -w * mscale, h * mscale);
     my.output.pop();
-  } else if (videoMovie.offsetX) {
+  } else if (videoMovie.centerX) {
     let x = (width - width * mscale) * 0.5;
     my.output.image(movie, x, 0, w * mscale, h * mscale);
   } else {
@@ -165,22 +165,7 @@ function draw() {
 
   proto_prune_poll();
 
-  // let str = my.photo_list.length + ' ' + my.photo_index;
-  let str = 'fps:' + frameRate().toFixed(1);
-  let time = millis() / 1000;
-  if (my.video && my.video.time) {
-    time = my.video.time();
-  }
-  if (my.videoMovie && my.videoMovie.movie && my.videoMovie.movie.time) {
-    time = my.videoMovie.movie.time();
-  }
-  time = formatSeconds(time);
-  str = 'time: ' + time + ' ' + str;
-  if (my.reportMaxPoints) {
-    str += ' n:' + (my.reportMaxPoints + 1) + ' of:' + my.reportMaxPointLimit;
-  }
-  dbase_report_status({ msg: str + ' ' + my.videoMovie.moviePath });
-  my.photo_count_span.html(str);
+  draw_report_time();
 
   my.teventOpenDiff = 0;
 
@@ -196,6 +181,33 @@ function draw() {
     draw_mesh();
   } else {
     draw_video();
+  }
+}
+
+function draw_report_time() {
+  // let str = my.photo_list.length + ' ' + my.photo_index;
+  let time = millis() / 1000;
+  let videoTime = time;
+  if (my.video && my.video.time) {
+    videoTime = my.video.time();
+  }
+  if (my.videoMovie && my.videoMovie.movie && my.videoMovie.movie.time) {
+    videoTime = my.videoMovie.movie.time();
+  }
+  time = formatSeconds(time);
+  videoTime = formatSeconds(videoTime);
+
+  {
+    let str = 'fps:' + frameRate().toFixed(1);
+    str = 'time: ' + time + ' ' + str;
+    if (my.reportMaxPoints) {
+      str += ' n:' + (my.reportMaxPoints + 1) + ' of:' + my.reportMaxPointLimit;
+    }
+    my.photo_count_span.html(str);
+  }
+  {
+    let str = 'time: ' + videoTime + ' ';
+    dbase_report_status({ msg: str + ' ' + my.videoMovie.moviePath });
   }
 }
 
