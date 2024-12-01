@@ -25,8 +25,6 @@ function bodySeg_init(input) {
     invert: my.invert,
   };
   return new eff_bodySeg(props);
-  // my.effect = new eff_bodySeg(props);
-  // my.output = my.effect.output;
 }
 
 // http://127.0.0.1:5502/src/m5body/index.html?camera=1&fliph=0&invert=0&effect=seg&flipcanvas=1

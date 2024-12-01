@@ -1,9 +1,6 @@
 //
 
 function bodyHand_init(input) {
-  // my.output = createGraphics(width, height);
-  // // my.output.noStroke();
-  // my.output.clear();
   let eff_spec = {
     eff_label: 'bodyPose',
     urect: {
@@ -32,8 +29,6 @@ function bodyHand_init(input) {
     stroke_weight: 0.1,
   };
   return new eff_bodyHand(props);
-  // my.effect = new eff_bodyHand(props);
-  // my.output = my.effect.output;
 }
 
 // https://storage.googleapis.com/tfjs-models/demos/pose-detection/index.html?model=movenet

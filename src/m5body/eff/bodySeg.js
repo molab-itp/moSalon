@@ -125,6 +125,6 @@ segmentBodyParts
 flipHorizontal
 maxDetections
 
-my.effect.bodySeg.RIGHT_HAND
+my. effect.bodySeg.RIGHT_HAND
 
 */

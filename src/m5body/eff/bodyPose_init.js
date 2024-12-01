@@ -1,9 +1,6 @@
 //
 
 function bodyPose_init(input) {
-  // my.output = createGraphics(width, height);
-  // // my.output.noStroke();
-  // my.output.clear();
   let eff_spec = {
     eff_label: 'bodyPose',
     urect: {
@@ -32,8 +29,6 @@ function bodyPose_init(input) {
     ndetect: 1,
   };
   return new eff_bodyPose(props);
-  // my.effect = new eff_bodyPose(props);
-  // my.output = my.effect.output;
 }
 
 // http://127.0.0.1:5502/src/m5body/index.html?camera=1&fliph=0&invert=0&effect=pose

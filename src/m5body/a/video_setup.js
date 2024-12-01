@@ -19,11 +19,16 @@ async function video_setup() {
   //   hand: bodyHand_init,
   // };
   let init = my.effects_init_map[my.effectParam];
-  if (init) {
-    my.effect = init(my.input);
-    my.output = my.effect.output;
-  } else {
+  if (!init) {
     console.log('no effect', my.effectParam);
+    return;
+  }
+  my.effects = [];
+  for (let video of my.videos) {
+    let effect = init(video);
+    my.effects.push(effect);
+
+    my.effect = effect;
   }
   //   my.bestill = new eff_bestill({ factor: 10, input: my.output });
   console.log('video_setup return');
@@ -32,40 +37,54 @@ async function video_setup() {
 // { effect, output, videoBack, video}
 //
 function draw_video_effects() {
-  // my.output.background(my.avg_color);
   // console.log('draw_video_effects effTrails', my.effTrails);
-  if (my.videoBack) {
-    draw_videoBack();
-  } else if (!my.effTrails) {
-    // my.output.background(0);
-    my.output.clear();
-  }
-  draw_videoMovieBack();
 
-  my.effect.prepareOutput();
-
-  // let aspect = my.video.height / my.video.width;
-  let w = my.output.width;
-  let h = my.output.width * my.input_aspect_hw;
-  if (my.flipcanvas) {
-    // push();
-    scale(-1, 1);
-    image(my.output, -w, 0);
-    // pop();
-  } else {
-    image(my.output, 0, 0, w, h);
+  for (let index = 0; index < my.effects.length; index++) {
+    let effect = my.effects[index];
+    let videoMovieBack = index == 0;
+    let videoBack = my.videoBack;
+    if (!videoMovieBack) videoBack = null;
+    let output = effect.output;
+    let video = effect.input;
+    draw_video_effect({ effect, output, videoBack, video, videoMovieBack });
   }
 }
 
-function draw_videoBack() {
+function draw_video_effect({ effect, output, videoBack, video, videoMovieBack }) {
+  if (videoBack) {
+    draw_videoBack({ output, video });
+  } else if (!my.effTrails) {
+    // my.output.background(0);
+    output.clear();
+  }
+  if (videoMovieBack) {
+    draw_videoMovieBack(output);
+  }
+
+  effect.prepareOutput();
+
   // let aspect = my.video.height / my.video.width;
-  let w = my.output.width;
-  let h = my.output.width * my.input_aspect_hw;
-  // my.output.image(my.video, 0, 0, w, h);
-  my.output.push();
-  my.output.scale(-1, 1);
-  my.output.image(my.video, 0, 0, -w, h);
-  my.output.pop();
+  let w = output.width;
+  let h = output.width * my.input_aspect_hw;
+  if (my.flipcanvas) {
+    // push();
+    scale(-1, 1);
+    image(output, -w, 0);
+    // pop();
+  } else {
+    image(output, 0, 0, w, h);
+  }
+}
+
+function draw_videoBack({ output, video }) {
+  // let aspect = my.video.height / my.video.width;
+  let w = output.width;
+  let h = output.width * my.input_aspect_hw;
+  // output.image(my.video, 0, 0, w, h);
+  output.push();
+  output.scale(-1, 1);
+  output.image(video, 0, 0, -w, h);
+  output.pop();
 }
 
 function draw_video() {

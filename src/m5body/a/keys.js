@@ -100,7 +100,9 @@ function fullScreen_action() {
 }
 
 function clear_action() {
-  my.effect.clear();
+  for (let effect of my.effects) {
+    effect.clear();
+  }
 }
 
 function videoBack1_action() {
