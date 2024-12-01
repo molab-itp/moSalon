@@ -7,19 +7,20 @@ function init_keyActions() {
     1: [movie1_action],
     2: [movie2_action],
     3: [movie3_action],
-    4: [clear_action],
-    5: [videoBack_action],
+    4: [videoBack_action],
+    5: [clear_action],
 
     q: [movie1_scroll_action],
     w: [scroll_toggle_action],
-    e: [scroll_reset_action],
-    r: [clear_action],
+    e: [scroll_faster_action, scroll_normal_action],
+    r: [scroll_reverse_action, scroll_normal_action],
+    t: [scroll_reset_action],
+    y: [clear_action],
 
-    a: [scroll_faster_action, scroll_normal],
-    s: [toggle_play_action],
-    d: [toggle_sound_action],
-    f: [rewind_action],
-    g: [clear_action],
+    a: [toggle_play_action],
+    s: [toggle_sound_action],
+    d: [rewind_action],
+    f: [clear_action],
 
     z: [fullScreen_action],
     x: [toggle_tails_action],
@@ -42,6 +43,24 @@ function rewind_action() {
   // my.videoMovie.time(435);
   my.videoMovie.movie.time(0);
   my.videoMovie.offsetY = 0;
+}
+
+function scroll_normal_action() {
+  scroll_normal();
+}
+
+function scroll_reverse_action() {
+  my.scrollEnabled = 1;
+  scroll_faster(-1);
+}
+
+function scroll_faster_action() {
+  my.scrollEnabled = 1;
+  scroll_faster();
+}
+
+function scroll_reset_action() {
+  scroller_reset();
 }
 
 function toggle_sound_action() {
@@ -70,14 +89,6 @@ function scroll_toggle_action() {
 function movie1_scroll_action() {
   let videoMovie = my.videoMovies[0];
   videoMovie.scrollEnabled = !videoMovie.scrollEnabled;
-}
-
-function scroll_reset_action() {
-  scroller_reset();
-}
-function scroll_faster_action() {
-  my.scrollEnabled = 1;
-  scroll_faster();
 }
 
 function fullScreen_action() {

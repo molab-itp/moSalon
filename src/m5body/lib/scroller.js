@@ -17,8 +17,13 @@ function scroller_init() {
   received_gallery(my.images);
 }
 
-function scroll_faster() {
-  my.scrollBy = Math.max(my.scrollByFaster, my.scrollBy + 1);
+function scroll_faster(neg) {
+  if (neg) {
+    if (my.scrollBy > 0) my.scrollBy *= -1;
+    my.scrollBy = Math.min(-my.scrollByFaster, my.scrollBy - 1);
+  } else {
+    my.scrollBy = Math.max(my.scrollByFaster, my.scrollBy + 1);
+  }
 }
 
 function scroll_normal() {
