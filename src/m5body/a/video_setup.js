@@ -23,6 +23,11 @@ async function video_setup() {
     console.log('no effect', my.effectParam);
     return;
   }
+
+  if (my.reverseEffectOrder) {
+    my.videos.reverse();
+  }
+
   my.effects = [];
   let index = 0;
   for (let video of my.videos) {
@@ -30,7 +35,8 @@ async function video_setup() {
     my.effects.push(effect);
 
     my.effect = effect;
-    index++;
+    // Disable triangle box shape
+    // index++;
   }
   //   my.bestill = new eff_bestill({ factor: 10, input: my.output });
   console.log('video_setup return');
@@ -78,6 +84,8 @@ function draw_video_effect({ effect, output, videoBack, video, videoMovieBack })
   }
 }
 
+// show my.video
+//
 function draw_videoBack({ output, video }) {
   // let aspect = my.video.height / my.video.width;
   let w = output.width;
@@ -85,7 +93,8 @@ function draw_videoBack({ output, video }) {
   // output.image(my.video, 0, 0, w, h);
   output.push();
   output.scale(-1, 1);
-  output.image(video, 0, 0, -w, h);
+  // output.image(video, 0, 0, -w, h);
+  output.image(my.video, 0, 0, -w, h);
   output.pop();
 }
 

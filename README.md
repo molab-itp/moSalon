@@ -16,10 +16,12 @@
 
 - [src/mindverse-manju](src/mindverse-manju)
 - [src/vote-no-fascism](src/vote-no-fascism/?v=74)
-- [src/m5body](src/m5body/?v=74)
 
 - [src/photo-booth s0](src/photo-booth/?v=74)
 - [src/vote s0](src/vote/?v=74)
+
+- [src/m5body](src/m5body/?v=74)
+- [src/m5body faceMesh qrcode](src/m5body/qrcode/?v=74&app=mo-m5body)
 
 ## How is data synchronized in real time in the examples?
 

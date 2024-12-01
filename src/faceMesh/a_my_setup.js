@@ -39,10 +39,18 @@ function my_init() {
 
   my.query = get_url_params();
   if (my.query) {
+    if (my.query.app) {
+      my.mo_app = my.query.app;
+      // mo-m5body --> m5body
+      my.nameDevice = my.mo_app.substring(3);
+    }
     if (my.query.room) {
-      my.mo_room = my.query.room + '-facemesh';
+      // my.mo_room = my.query.room + '-facemesh';
+      // mo-m5body --> -m5body
+      my.mo_room = my.query.room + my.mo_app.substring(2);
     } else {
-      my.mo_room = 'm3-facemesh'; // 2024-11-06 default
+      my.mo_room = 'm4' + my.mo_app.substring(2); // 2024-12-01 default
+      // my.mo_room = 'm3-facemesh'; // 2024-11-06 default
       // my.mo_room = 'm2-facemesh'; // 2024-11-05 default
     }
     if (my.query.group) {
