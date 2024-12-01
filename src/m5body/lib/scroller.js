@@ -4,9 +4,6 @@ function scroller_init() {
   my.scrollEnabled = 0;
   my.stallMaxTime = 10.0;
   my.rwidth = 1920;
-  my.scrollSpeed = 1;
-  my.scrollBy = 4;
-  my.nscrollImages = 99;
 
   let images = [];
   let n = my.nscrollImages;
@@ -20,21 +17,23 @@ function scroller_init() {
   received_gallery(my.images);
 }
 
-function scroller_update() {
-  // calcTotalHeight();
-  // console.log('draw');
+function scroll_faster() {
+  my.scrollBy = Math.max(my.scrollByFaster, my.scrollBy + 1);
+}
 
+function scroll_normal() {
+  my.scrollBy = my.scrollByNormal;
+}
+
+function scroller_update() {
   if (!my.scrollEnabled) return;
 
   let now = millis() / 1000.0;
   if (!my.scrollDelayTime) my.scrollDelayTime = now;
   let lapse = now - my.scrollDelayTime;
-  if (lapse > 0.03) {
+  if (lapse > my.scroller_rate) {
     my.scrollDelayTime = now;
-    // window.scrollBy({ top: window.scrollY + 1, behavior: 'smooth' });
     window.scrollBy(0, my.scrollBy); // 1
-    // let nlimit = scrollLimit || rarr.length;
-    // if (window.scrollY >= scrollYmax) {
     if (scrollingStalled()) {
       my.scrollEnabled = 0;
     }
@@ -47,6 +46,7 @@ function scroller_reset() {
   my.scrollStartTime = 0;
   my.scrollDelayTime = 0;
 }
+
 function scrollingStalled() {
   let now = millis() / 1000.0;
   if (!my.scrollStartTime) my.scrollStartTime = now;

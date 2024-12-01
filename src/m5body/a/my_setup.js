@@ -3,6 +3,13 @@ function my_init() {
   // updated to verify change on mobile
   my.version = '?v=74';
 
+  my.scroller_rate = 0.03;
+  my.nscrollImages = 99;
+  my.scrollByFaster = 200;
+  my.scrollByNormal = 1;
+  my.scrollBy = my.scrollByNormal;
+
+  my.dim = { width: 1920, height: 1080 };
   my.matter_strokeWeight = 5;
 
   my.effects_init_map = {

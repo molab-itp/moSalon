@@ -2,99 +2,78 @@
 function create_ui() {
   //
   ui_begin();
-
   my.ui_container = createDiv('').id('id_top_bottoms');
   my.ui_container.style('position: fixed; z-index: 100');
 
+  // z
   // let ver = ui_span(0, my.mo_group + my.version);
   let ver = ui_createButton(my.mo_group + my.version);
   ver.elt.style.backgroundColor = 'white';
-  ver.mousePressed(function () {
-    ui_toggleFullScreen();
-  });
+  ver.mousePressed(fullScreen_action);
+
+  // 1-2-3-4
+  my.videoMovieSelect0Btn = ui_createButton('movie1');
+  my.videoMovieSelect0Btn.mousePressed(movie1_action);
+
+  my.videoMovieSelect1Btn = ui_createButton('movie2');
+  my.videoMovieSelect1Btn.mousePressed(movie2_action);
+
+  my.videoMovieSelect2Btn = ui_createButton('movie3');
+  my.videoMovieSelect2Btn.mousePressed(movie3_action);
 
   my.clearBtn = ui_createButton('Clear');
-  my.clearBtn.mousePressed(function () {
-    my.effect.clear();
-  });
-  my.rewindScrollBtn = ui_createButton('Scroll 0');
-  my.rewindScrollBtn.mousePressed(function () {
-    scroller_reset();
-  });
-  my.showBtn = ui_createButton('Scroll ~');
-  my.showBtn.mousePressed(function () {
-    my.scrollEnabled = !my.scrollEnabled;
-  });
+  my.clearBtn.mousePressed(clear_action);
 
   my.videoBackBtn = ui_createButton('videoBack');
-  my.videoBackBtn.mousePressed(function () {
-    my.videoBack = !my.videoBack;
-  });
+  my.videoBackBtn.mousePressed(videoBack_action);
 
-  my.videoMovieSelect0Btn = ui_createButton('movie0');
-  my.videoMovieSelect0Btn.mousePressed(function () {
-    my.videoMovie = my.videoMovies[0];
-    my.videoMovie.isVisible = !my.videoMovie.isVisible;
-    // my.videoMovie.offsetY = 0;
-  });
-  my.videoMovieSelect1Btn = ui_createButton('movie1');
-  my.videoMovieSelect1Btn.mousePressed(function () {
-    my.videoMovie = my.videoMovies[1];
-    my.videoMovie.isVisible = !my.videoMovie.isVisible;
-  });
-  my.videoMovieSelect2Btn = ui_createButton('movie2');
-  my.videoMovieSelect2Btn.mousePressed(function () {
-    my.videoMovie = my.videoMovies[2];
-    my.videoMovie.isVisible = !my.videoMovie.isVisible;
-  });
-  my.toggleActionBtn = ui_createButton('Action ~');
-  my.toggleActionBtn.mousePressed(function () {
-    let videoMovie = my.videoMovies[0];
-    videoMovie.scrollEnabled = !videoMovie.scrollEnabled;
-  });
+  // q-w-e-r
+  my.toggleActionBtn = ui_createButton('movie1 scroll');
+  my.toggleActionBtn.mousePressed(movie1_scroll_action);
+
+  my.showBtn = ui_createButton('Scroll ~');
+  my.showBtn.mousePressed(scroll_toggle_action);
+
+  my.rewindScrollBtn = ui_createButton('Scroll 0');
+  my.rewindScrollBtn.mousePressed(scroll_reset_action);
+
+  // a-s-d-f
   my.togglePlayBtn = ui_createButton('Play ~');
-  my.togglePlayBtn.mousePressed(function () {
-    my.videoMovie.shouldPlay = !my.videoMovie.shouldPlay;
-    if (my.videoMovie.shouldPlay) {
-      my.videoMovie.movie.play();
-    } else {
-      my.videoMovie.movie.pause();
-    }
-  });
+  my.togglePlayBtn.mousePressed(toggle_play_action);
+
   my.toggleVolumeBtn = ui_createButton('Sound ~');
-  my.toggleVolumeBtn.mousePressed(function () {
-    my.videoMovie.shouldPlay = !my.videoMovie.shouldPlay;
-    let movie = my.videoMovie.movie;
-    if (movie.volume() != 0) {
-      movie.volume(0);
-    } else {
-      movie.volume(1);
-    }
-  });
+  my.toggleVolumeBtn.mousePressed(toggle_sound_action);
+
   my.rewindMovieBackBtn = ui_createButton('Rewind');
-  my.rewindMovieBackBtn.mousePressed(function () {
-    // my.videoMovie.time(435);
-    my.videoMovie.movie.time(0);
-    my.videoMovie.offsetY = 0;
-  });
+  my.rewindMovieBackBtn.mousePressed(rewind_action);
+
+  // z-x-c-v
+  my.toggleTrailsBtn = ui_createButton('Trails ~');
+  my.toggleTrailsBtn.mousePressed(toggle_tails_action);
 
   my.blastBtn = ui_createButton('Blast');
-  my.blastBtn.mousePressed(function () {
-    my.effect.blast();
-  });
-  my.toggleTrailsBtn = ui_createButton('Trails ~');
-  my.toggleTrailsBtn.mousePressed(function () {
-    my.effTrails = !my.effTrails;
-    // console.log('toggleTrailsBtn effTrails', my.effTrails);
-    my.toggleTrailsBtn.html(my.effTrails ? 'Trails ON' : 'Trails OFF');
-  });
+  my.blastBtn.mousePressed(blast_action);
 
+  my.photo_count_span = ui_span(0, '' + my.photo_list.length);
+  my.photo_count_span.elt.style.backgroundColor = 'white';
+
+  // Move the canvas below all the ui buttons
+  let body_elt = document.querySelector('body');
+  let main_elt = document.querySelector('main');
+  body_elt.insertBefore(main_elt, null);
+
+  // Gallery is below canvas
+  my.ui_container = null;
+  my.gallery_div = ui_div_empty('id_gallery2');
+  // my.gallery_div.elt.style.margin = '0px 40px';
+  my.gallery_div.elt.style.margin = `0px ${my.gallery_margin}`;
+}
+
+function unused_create_ui_1() {
   // my.showBtn = ui_createButton('Show');
   // my.showBtn.mousePressed(show_action_ui);
-
   // my.hideBtn = ui_createButton('Hide');
   // my.hideBtn.mousePressed(hide_action_ui);
-
   if (my.showButtons && 0) {
     my.showAllBtn = ui_createButton('Show All');
     my.showAllBtn.mousePressed(showAll_action);
@@ -121,19 +100,6 @@ function create_ui() {
     my.removeBtn = ui_createButton('Remove All');
     my.removeBtn.mousePressed(remove_all_action);
   }
-  my.photo_count_span = ui_span(0, '' + my.photo_list.length);
-  my.photo_count_span.elt.style.backgroundColor = 'white';
-
-  // Move the canvas below all the ui buttons
-  let body_elt = document.querySelector('body');
-  let main_elt = document.querySelector('main');
-  body_elt.insertBefore(main_elt, null);
-
-  // Gallery is below canvas
-  my.ui_container = null;
-  my.gallery_div = ui_div_empty('id_gallery2');
-  // my.gallery_div.elt.style.margin = '0px 40px';
-  my.gallery_div.elt.style.margin = `0px ${my.gallery_margin}`;
 }
 
 function img_remove_all() {
@@ -268,6 +234,7 @@ function ui_toggleFullScreen() {
 // !!@ to lib ui_remove_all
 //
 function ui_remove_all() {
+  return;
   for (let prop in my.ui_uids) {
     // !!@ param needed
     if (prop == 'id_gallery') continue;

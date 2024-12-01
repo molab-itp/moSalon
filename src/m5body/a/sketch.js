@@ -13,6 +13,8 @@ function setup() {
 
   pixelDensity(1);
 
+  init_keyActions();
+
   my_init();
 
   if (my.dim) {
