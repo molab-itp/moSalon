@@ -7,8 +7,9 @@ function init_keyActions() {
     1: [movie1_action],
     2: [movie2_action],
     3: [movie3_action],
-    4: [videoBack_action],
-    5: [clear_action],
+    4: [videoBack1_action],
+    5: [videoBack2_action],
+    6: [clear_action],
 
     q: [movie1_scroll_action],
     w: [scroll_toggle_action],
@@ -102,8 +103,14 @@ function clear_action() {
   my.effect.clear();
 }
 
-function videoBack_action() {
+function videoBack1_action() {
   my.videoBack = !my.videoBack;
+  my.video = my.videos[0];
+}
+
+function videoBack2_action() {
+  my.videoBack = !my.videoBack;
+  my.video = my.videos[1];
 }
 
 function movie1_action() {

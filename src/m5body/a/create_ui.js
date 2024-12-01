@@ -15,8 +15,11 @@ function create_ui() {
   my.clearBtn.mousePressed(clear_action);
 
   // 1-2-3-4
-  my.videoMovieSelect0Btn = ui_createButton('movie1');
+  my.videoMovieSelect0Btn = ui_createButton('[movie1');
   my.videoMovieSelect0Btn.mousePressed(movie1_action);
+
+  my.toggleActionBtn = ui_createButton('scroll]');
+  my.toggleActionBtn.mousePressed(movie1_scroll_action);
 
   my.videoMovieSelect1Btn = ui_createButton('movie2');
   my.videoMovieSelect1Btn.mousePressed(movie2_action);
@@ -24,12 +27,15 @@ function create_ui() {
   my.videoMovieSelect2Btn = ui_createButton('movie3');
   my.videoMovieSelect2Btn.mousePressed(movie3_action);
 
-  my.videoBackBtn = ui_createButton('videoBack');
-  my.videoBackBtn.mousePressed(videoBack_action);
+  my.videoBackBtn = ui_createButton('video1');
+  my.videoBackBtn.mousePressed(videoBack1_action);
+
+  my.videoBackBtn = ui_createButton('video2');
+  my.videoBackBtn.mousePressed(videoBack2_action);
 
   // q-w-e-r
-  my.toggleActionBtn = ui_createButton('movie1 scroll');
-  my.toggleActionBtn.mousePressed(movie1_scroll_action);
+  // my.toggleActionBtn = ui_createButton('movie1 scroll');
+  // my.toggleActionBtn.mousePressed(movie1_scroll_action);
 
   my.showBtn = ui_createButton('Scroll ~');
   my.showBtn.mousePressed(scroll_toggle_action);

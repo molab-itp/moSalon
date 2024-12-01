@@ -20,7 +20,8 @@ async function video_setup() {
   // };
   let init = my.effects_init_map[my.effectParam];
   if (init) {
-    init();
+    my.effect = init();
+    my.output = my.effect.output;
   } else {
     console.log('no effect', my.effectParam);
   }

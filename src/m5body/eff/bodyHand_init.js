@@ -31,9 +31,9 @@ function bodyHand_init() {
     penPointsMax: 50,
     stroke_weight: 0.1,
   };
-  my.effect = new eff_bodyHand(props);
-
-  my.output = my.effect.output;
+  return new eff_bodyHand(props);
+  // my.effect = new eff_bodyHand(props);
+  // my.output = my.effect.output;
 }
 
 // https://storage.googleapis.com/tfjs-models/demos/pose-detection/index.html?model=movenet

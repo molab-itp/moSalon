@@ -31,9 +31,9 @@ function bodyPose_init() {
     show_head: 1,
     ndetect: 1,
   };
-  my.effect = new eff_bodyPose(props);
-
-  my.output = my.effect.output;
+  return new eff_bodyPose(props);
+  // my.effect = new eff_bodyPose(props);
+  // my.output = my.effect.output;
 }
 
 // http://127.0.0.1:5502/src/m5body/index.html?camera=1&fliph=0&invert=0&effect=pose
