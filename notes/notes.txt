@@ -1,6 +1,17 @@
 notes.txt
 
 # --
+2024-12-01 08:59:19
+
+pwd
+/Users/jht2/Documents/projects/2024-moSalon
+
+cp -a /Volumes/BlackDen/Documents/projects/2024-moSalon/external_media .
+
+jht2@Mac 2024-moSalon % cd src/m5body 
+jht2@Mac m5body % ln -s ../../external_media/images .
+
+# --
 2024-11-25 14:29:55
 
 !!@ No symbolic lines in github pages!

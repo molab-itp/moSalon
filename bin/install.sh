@@ -1,8 +1,8 @@
 #!/bin/bash
 cd ${0%/*}
 
-# clone moWebJam
-
+# begin at root of repo
+#
 cd ..
 
 # moLib

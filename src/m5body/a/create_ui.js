@@ -6,8 +6,12 @@ function create_ui() {
   my.ui_container = createDiv('').id('id_top_bottoms');
   my.ui_container.style('position: fixed; z-index: 100');
 
-  let ver = ui_span(0, my.mo_group + my.version);
+  // let ver = ui_span(0, my.mo_group + my.version);
+  let ver = ui_createButton(my.mo_group + my.version);
   ver.elt.style.backgroundColor = 'white';
+  ver.mousePressed(function () {
+    ui_toggleFullScreen();
+  });
 
   my.clearBtn = ui_createButton('Clear');
   my.clearBtn.mousePressed(function () {
