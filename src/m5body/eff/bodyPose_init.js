@@ -1,6 +1,6 @@
 //
 
-function bodyPose_init() {
+function bodyPose_init(input) {
   // my.output = createGraphics(width, height);
   // // my.output.noStroke();
   // my.output.clear();
@@ -15,7 +15,7 @@ function bodyPose_init() {
   };
   let props = {
     eff_spec,
-    input: my.video,
+    input, // : my.video,
     hi_rez: 1,
     alpha: 255,
     figure_color: 1,

@@ -7,7 +7,7 @@ async function video_setup() {
   if (my.showCamera) {
     await video_init();
   } else {
-    movie_init();
+    await movie_init();
   }
   // console.log('video_setup new eff_bars');
   //   my.bars = new eff_bars({ width: my.video.width, height: my.video.height });
@@ -20,7 +20,7 @@ async function video_setup() {
   // };
   let init = my.effects_init_map[my.effectParam];
   if (init) {
-    my.effect = init();
+    my.effect = init(my.input);
     my.output = my.effect.output;
   } else {
     console.log('no effect', my.effectParam);
@@ -29,24 +29,8 @@ async function video_setup() {
   console.log('video_setup return');
 }
 
-function draw_videoBack() {
-  // let aspect = my.video.height / my.video.width;
-  let w = my.output.width;
-  let h = my.output.width * my.input_aspect_hw;
-  // my.output.image(my.video, 0, 0, w, h);
-  my.output.push();
-  my.output.scale(-1, 1);
-  my.output.image(my.video, 0, 0, -w, h);
-  my.output.pop();
-}
-
-function draw_video() {
-  // let aspect = my.video.height / my.video.width;
-  let w = my.output.width;
-  let h = my.output.width * my.input_aspect_hw;
-  image(my.video, 0, 0, w, h);
-}
-
+// { effect, output, videoBack, video}
+//
 function draw_video_effects() {
   // my.output.background(my.avg_color);
   // console.log('draw_video_effects effTrails', my.effTrails);
@@ -71,4 +55,22 @@ function draw_video_effects() {
   } else {
     image(my.output, 0, 0, w, h);
   }
+}
+
+function draw_videoBack() {
+  // let aspect = my.video.height / my.video.width;
+  let w = my.output.width;
+  let h = my.output.width * my.input_aspect_hw;
+  // my.output.image(my.video, 0, 0, w, h);
+  my.output.push();
+  my.output.scale(-1, 1);
+  my.output.image(my.video, 0, 0, -w, h);
+  my.output.pop();
+}
+
+function draw_video() {
+  // let aspect = my.video.height / my.video.width;
+  let w = my.output.width;
+  let h = my.output.width * my.input_aspect_hw;
+  image(my.video, 0, 0, w, h);
 }

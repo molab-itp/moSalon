@@ -1,6 +1,6 @@
 //
 
-function bodySeg_init() {
+function bodySeg_init(input) {
   let eff_spec = {
     eff_label: 'bodySeg',
     urect: {
@@ -16,7 +16,7 @@ function bodySeg_init() {
   //    maskType: background | person,
   let props = {
     eff_spec,
-    input: my.video,
+    input, //: my.video,
     hi_rez: 1,
     modelName: my.seg_model, // 'BodyPix',
     maskType: my.seg_mask, // 'background',

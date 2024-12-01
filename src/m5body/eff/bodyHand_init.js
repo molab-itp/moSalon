@@ -1,6 +1,6 @@
 //
 
-function bodyHand_init() {
+function bodyHand_init(input) {
   // my.output = createGraphics(width, height);
   // // my.output.noStroke();
   // my.output.clear();
@@ -16,7 +16,7 @@ function bodyHand_init() {
   };
   let props = {
     eff_spec,
-    input: my.video,
+    input, // : my.video,
     // input: my.videoMovie,
     hi_rez: 1,
     alpha: 255,
