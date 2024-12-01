@@ -194,7 +194,7 @@ class eff_bodyHand {
         points.push({ x: x1, y: y1 });
         let yForce = this.getyForce();
         // console.log('draw_part matter_addBox yForce', yForce);
-        if (this.addBox_allow(partIndex, yForce)) {
+        if (this.addBox_allow(partIndex)) {
           let elm = points[points.length - 1];
           this.matter_addBox(elm, ew, partIndex, yForce);
         }
@@ -221,7 +221,7 @@ class eff_bodyHand {
     // let ne = [ew, 2 * ew, 2 * ew][partIndex];
     let ne = ew * 0.5;
     let colr = dot_colors[partIndex];
-    let full = this.matterMgr.addBox(x, y - ne, w, h, colr, yForce);
+    let full = this.matterMgr.addBox(x, y - ne, w, h, colr, yForce, this.shapeIndex);
     // console.log('draw_part matter_addBox full', full);
     return full;
   }

@@ -1,6 +1,6 @@
 //
 
-function bodyHand_init(input) {
+function bodyHand_init(input, shapeIndex) {
   let eff_spec = {
     eff_label: 'bodyPose',
     urect: {
@@ -27,6 +27,7 @@ function bodyHand_init(input) {
     penScale: 0.5,
     penPointsMax: 50,
     stroke_weight: 0.1,
+    shapeIndex,
   };
   return new eff_bodyHand(props);
 }

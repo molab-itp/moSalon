@@ -3,7 +3,7 @@
 // https://thecodingtrain.com/tracks/the-nature-of-code-2/noc/6-physics-libraries/1-matterjs-introduction
 // https://brm.io/matter-js/
 
-const { Engine, World, Bodies, Composite, Body } = Matter;
+const { Engine, World, Bodies, Composite, Body, Vertices } = Matter;
 
 class MatterMgr {
   constructor(output, maxItems, width, height) {
@@ -36,9 +36,9 @@ class MatterMgr {
     // Composite.remove(this.world, this.boxes);
     this.boxes = [];
   }
-  addBox(x, y, w, h, c, yForce) {
+  addBox(x, y, w, h, c, yForce, shapeIndex) {
     // mousePressed() {
-    let box = new Box(this, x, y, w, h, c);
+    let box = new Box(this, x, y, w, h, c, shapeIndex);
     // Apply an initial force upwards
     {
       let body = box.body;
@@ -84,20 +84,39 @@ class MatterMgr {
 }
 
 class Box {
-  constructor(parent, x, y, w, h, c) {
+  constructor(parent, x, y, w, h, c, shapeIndex) {
     this.parent = parent;
     this.x = x;
     this.y = y;
     this.w = w;
     this.h = h;
     this.c = c;
+    this.shapeIndex = shapeIndex;
     let options = {
       friction: 0.3,
       restitution: 0.6,
     };
-    this.body = Bodies.rectangle(this.x, this.y, this.w, this.h, options);
-
+    if (this.shapeIndex) {
+      this.body = this.triangleBody(options);
+    } else {
+      this.body = Bodies.rectangle(this.x, this.y, this.w, this.h, options);
+    }
     Composite.add(this.parent.world, this.body);
+  }
+
+  triangleBody(options) {
+    // Define the triangle vertices
+    this.w = this.w * 0.5;
+    let triangleVertices = Vertices.create(
+      [
+        { x: 0, y: 0 }, // Vertex 1
+        { x: this.w, y: this.h }, // Vertex 2
+        { x: -this.w, y: this.h }, // Vertex 3
+      ],
+      null
+    );
+    // Create the triangle body
+    return Bodies.fromVertices(this.x, this.y, triangleVertices);
   }
 
   show() {
@@ -112,12 +131,25 @@ class Box {
     layer.push();
     layer.translate(pos.x, pos.y);
     layer.rotate(angle);
-    layer.rectMode(CENTER);
+
     layer.strokeWeight(my.matter_strokeWeight);
     // layer.stroke(255); !!@ matter white box
     layer.stroke(this.c);
     layer.fill(fillc);
-    layer.rect(0, 0, this.w, this.h);
+
+    if (this.shapeIndex) {
+      let x0 = 0;
+      let y0 = 0;
+      let x1 = this.w;
+      let y1 = this.h;
+      let x2 = -this.w;
+      let y2 = this.h;
+      layer.triangle(x0, y0, x1, y1, x2, y2);
+    } else {
+      layer.rectMode(CENTER);
+      layer.rect(0, 0, this.w, this.h);
+    }
+
     // layer.ellipse(0 + this.w / 2, 0 + this.h / 2, this.w, this.h);
     layer.pop();
   }

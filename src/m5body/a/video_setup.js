@@ -24,11 +24,13 @@ async function video_setup() {
     return;
   }
   my.effects = [];
+  let index = 0;
   for (let video of my.videos) {
-    let effect = init(video);
+    let effect = init(video, index);
     my.effects.push(effect);
 
     my.effect = effect;
+    index++;
   }
   //   my.bestill = new eff_bestill({ factor: 10, input: my.output });
   console.log('video_setup return');

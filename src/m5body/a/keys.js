@@ -105,6 +105,14 @@ function clear_action() {
   }
 }
 
+function clear1_action() {
+  my.effects[0].clear();
+}
+
+function clear2_action() {
+  my.effects[1].clear();
+}
+
 function videoBack1_action() {
   my.videoBack = !my.videoBack;
   my.video = my.videos[0];

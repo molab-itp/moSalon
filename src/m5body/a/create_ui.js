@@ -14,6 +14,12 @@ function create_ui() {
   my.clearBtn = ui_createButton('Clear');
   my.clearBtn.mousePressed(clear_action);
 
+  my.clear1Btn = ui_createButton('1');
+  my.clear1Btn.mousePressed(clear1_action);
+
+  my.clear2Btn = ui_createButton('2');
+  my.clear2Btn.mousePressed(clear2_action);
+
   // 1-2-3-4
   my.videoMovieSelect0Btn = ui_createButton('[movie1');
   my.videoMovieSelect0Btn.mousePressed(movie1_action);
