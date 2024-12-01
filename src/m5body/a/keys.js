@@ -22,8 +22,8 @@ function init_keyActions() {
     d: [rewind_action],
     f: [clear_action],
 
-    z: [fullScreen_action],
-    x: [clear_action],
+    z: [clear_action],
+    x: [fullScreen_action],
     c: [toggle_tails_action],
     v: [blast_action],
   };

@@ -41,122 +41,6 @@ function setup() {
   scroller_init();
 }
 
-function draw_mesh() {
-  // my.output.background(my.avg_color);
-  // console.log('draw_mesh effTrails', my.effTrails);
-  if (my.videoBack) {
-    draw_videoBack();
-  } else if (!my.effTrails) {
-    // my.output.background(0);
-    my.output.clear();
-  }
-  draw_videoMovieBack();
-
-  my.effect.prepareOutput();
-
-  // let aspect = my.video.height / my.video.width;
-  let w = my.output.width;
-  let h = my.output.width * my.input_aspect_hw;
-  if (my.flipcanvas) {
-    // push();
-    scale(-1, 1);
-    image(my.output, -w, 0);
-    // pop();
-  } else {
-    image(my.output, 0, 0, w, h);
-  }
-}
-
-function draw_videoMovieBack() {
-  for (let spec of my.videoMovies) {
-    if (spec.isVisible) {
-      draw_videoMovie(spec);
-    }
-  }
-}
-
-function draw_videoMovie(videoMovie) {
-  let mscale = videoMovie.scale;
-  let movie = videoMovie.movie;
-  let aspect_hw = movie.height / movie.width;
-  let w = my.output.width;
-  let h = my.output.width * aspect_hw;
-  // my.output.image(videoMovie.movie, 0, 0, w, h);
-  if (videoMovie.flipH) {
-    my.output.push();
-    my.output.scale(-1, 1);
-    let x = 0;
-    my.output.image(movie, x, 0, -w * mscale, h * mscale);
-    my.output.pop();
-  } else if (videoMovie.centerX) {
-    let x = (width - width * mscale) * 0.5;
-    let y = videoMovie.offsetY || 0;
-    my.output.image(movie, x, y, w * mscale, h * mscale);
-  } else {
-    let y = videoMovie.offsetY || 0;
-    my.output.image(movie, 0, y, w * mscale, h * mscale);
-    if (videoMovie.scrollY && videoMovie.scrollEnabled) {
-      if (videoMovie.offsetY < height * (1 - 0.25)) {
-        videoMovie.offsetY = videoMovie.offsetY + 1;
-      }
-    }
-  }
-}
-
-function draw_videoBack() {
-  // let aspect = my.video.height / my.video.width;
-  let w = my.output.width;
-  let h = my.output.width * my.input_aspect_hw;
-  // my.output.image(my.video, 0, 0, w, h);
-  my.output.push();
-  my.output.scale(-1, 1);
-  my.output.image(my.video, 0, 0, -w, h);
-  my.output.pop();
-}
-
-function draw_video() {
-  // let aspect = my.video.height / my.video.width;
-  let w = my.output.width;
-  let h = my.output.width * my.input_aspect_hw;
-  image(my.video, 0, 0, w, h);
-}
-
-async function video_setup() {
-  //
-  console.log('video_setup await video_init');
-
-  // my.video is set by video_init or movie_init
-  //
-  if (my.showCamera) {
-    await video_init();
-  } else {
-    movie_init();
-  }
-
-  // console.log('video_setup new eff_bars');
-
-  my.bars = new eff_bars({ width: my.video.width, height: my.video.height });
-
-  my.input = my.video;
-  my.input_aspect_hw = my.video.height / my.video.width;
-
-  // my.effects_init_map = {
-  //   seg: bodySeg_init,
-  //   pose: bodyPose_init,
-  //   hand: bodyHand_init,
-  // };
-  let init = my.effects_init_map[my.effectParam];
-  if (init) {
-    init();
-  } else {
-    console.log('no effect', my.effectParam);
-  }
-
-  my.bestill = new eff_bestill({ factor: 10, input: my.output });
-
-  console.log('video_setup return');
-}
-
 function draw() {
   //
   clear();
@@ -180,7 +64,7 @@ function draw() {
   check_show_hide();
 
   if (my.show_mesh) {
-    draw_mesh();
+    draw_video_effects();
   } else {
     draw_video();
   }

@@ -24,19 +24,26 @@ async function video_init_capture() {
     return;
   }
 
+  my.videos = [];
+  for (let mediaDev of my.mediaDevices) {
+    let video = await mediaDevice_create_capture(mediaDev, { flipped: my.flipH });
+    video.hide();
+
+    my.videos.push(video);
+    my.video = video;
+
+    console.log('video_init_capture mediaDev.label', mediaDev.label);
+    console.log('video_init_capture video.width, video.height', video.width, video.height);
+  }
+
   // Select the last camera
-  let n = my.mediaDevices.length;
-  let index = n - 1;
-  if (index < 0 || index >= n) index = 0;
-  let mediaDev = my.mediaDevices[index];
-
-  // my.flipH = true;
-  my.video = await mediaDevice_create_capture(mediaDev, { flipped: my.flipH });
-
-  my.video.hide();
-
-  console.log('video_init_capture my.video.width, my.video.height', my.video.width, my.video.height);
-
+  // let n = my.mediaDevices.length;
+  // let index = n - 1;
+  // if (index < 0 || index >= n) index = 0;
+  // let mediaDev = my.mediaDevices[index];
+  // // my.flipH = true;
+  // my.video = await mediaDevice_create_capture(mediaDev, { flipped: my.flipH });
+  // my.video.hide();
   // video_init_mask();
 }
 

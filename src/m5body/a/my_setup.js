@@ -55,7 +55,7 @@ function my_init() {
       moviePath: '../../external_media/movies/Red-Green-Gold-Charles.mp4',
       scale: 0.3,
       isVisible: 1,
-      shouldPlay: 1,
+      shouldPlay: 0,
       // flipH: 1,
       centerX: 1,
       volume: 1,
