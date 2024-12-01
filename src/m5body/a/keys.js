@@ -23,9 +23,9 @@ function init_keyActions() {
     f: [clear_action],
 
     z: [fullScreen_action],
-    x: [toggle_tails_action],
-    c: [blast_action],
-    v: [clear_action],
+    x: [clear_action],
+    c: [toggle_tails_action],
+    v: [blast_action],
   };
 }
 

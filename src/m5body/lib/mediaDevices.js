@@ -5,7 +5,7 @@
 // mediaDevices_enum
 // mediaDevice_create_capture
 
-// Ask for default video to tevent video permission
+// Ask for default video to prevent video permission
 // and avoid overly constrain error
 //
 async function mediaDevices_preflight() {

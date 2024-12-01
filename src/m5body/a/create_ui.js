@@ -11,6 +11,9 @@ function create_ui() {
   ver.elt.style.backgroundColor = 'white';
   ver.mousePressed(fullScreen_action);
 
+  my.clearBtn = ui_createButton('Clear');
+  my.clearBtn.mousePressed(clear_action);
+
   // 1-2-3-4
   my.videoMovieSelect0Btn = ui_createButton('movie1');
   my.videoMovieSelect0Btn.mousePressed(movie1_action);
@@ -20,9 +23,6 @@ function create_ui() {
 
   my.videoMovieSelect2Btn = ui_createButton('movie3');
   my.videoMovieSelect2Btn.mousePressed(movie3_action);
-
-  my.clearBtn = ui_createButton('Clear');
-  my.clearBtn.mousePressed(clear_action);
 
   my.videoBackBtn = ui_createButton('videoBack');
   my.videoBackBtn.mousePressed(videoBack_action);
