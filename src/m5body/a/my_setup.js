@@ -5,7 +5,7 @@ function my_init() {
 
   my.reverseEffectOrder = 1;
   my.scroller_rate = 0.03;
-  my.nscrollImages = 99;
+  my.nscrollImages = 65;
   my.scrollByFaster = 15;
   my.scrollByNormal = 1;
   my.scrollBy = my.scrollByNormal;
@@ -51,6 +51,7 @@ function my_init() {
       centerX: 1,
       offsetY: 40,
       volume: 1,
+      loop: 1,
     },
     {
       moviePath: '../../external_media/movies/Red-Green-Gold-Charles.mp4',
