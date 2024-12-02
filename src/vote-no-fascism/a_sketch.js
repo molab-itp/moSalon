@@ -32,7 +32,7 @@ let my = {};
 
 function setup() {
   noCanvas();
-  my.version = '?v=74';
+  my.version = '?v=75';
   my.debugMode = displayWidth > 1080;
   // my.footerHeight = '288px';
   my.qrCodeWidth = '25%';
@@ -51,8 +51,8 @@ function setup() {
   create_ui();
 
   my.qrcode_url = () => {
-    // return `./qrcode/qrcode_heathercoxrichardson.substack.com.png?v=74`;
-    return `./qrcode/qrcode.png?v=74`;
+    // return `./qrcode/qrcode_heathercoxrichardson.substack.com.png?v=75`;
+    return `./qrcode/qrcode.png?v=75`;
   };
   my.showQRCode = () => {
     // qrCode is only shown for screen width greater than 800
@@ -296,10 +296,10 @@ function params_query(query) {
 // https://editor.p5js.org/jht1493/sketches/2OYRyVuhx
 // firebase mo-gallery-1
 
-// https://molab-itp.github.io/p5moLibrary/src/demo/mo-gallery-1/?v=74
+// https://molab-itp.github.io/p5moLibrary/src/demo/mo-gallery-1/?v=75
 
 // https://editor.p5js.org/jht9629-nyu/sketches/VtqUmOlGB
 
 // https://heathercoxrichardson.substack.com/p/october-26-2024
 
-// https://molab-itp.github.io/moSalon/src/vote-no-fascism/?v=74
+// https://molab-itp.github.io/moSalon/src/vote-no-fascism/?v=75
