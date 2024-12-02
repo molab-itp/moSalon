@@ -1,7 +1,7 @@
 //
 function my_init() {
   // updated to verify change on mobile
-  my.version = '?v=79';
+  my.version = '?v=80';
   my.appTitle = 'Facemesh';
   my.isRemote = 1;
   // show detailed log
@@ -49,7 +49,7 @@ function my_init() {
       // mo-m5body --> -m5body
       my.mo_room = my.query.room + my.mo_app.substring(2);
     } else {
-      my.mo_room = 'm4' + my.mo_app.substring(2); // 2024-12-01 default
+      my.mo_room = 'm3' + my.mo_app.substring(2); // 2024-12-02 default
       // my.mo_room = 'm3-facemesh'; // 2024-11-06 default
       // my.mo_room = 'm2-facemesh'; // 2024-11-05 default
     }
