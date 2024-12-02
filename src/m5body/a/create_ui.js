@@ -66,6 +66,9 @@ function create_ui() {
   my.blastBtn = ui_createButton('Blast');
   my.blastBtn.mousePressed(blast_action);
 
+  my.reloadBtn = ui_createButton('Reload');
+  my.reloadBtn.mousePressed(reload_action);
+
   my.photo_count_span = ui_span(0, '' + my.photo_list.length);
   my.photo_count_span.elt.style.backgroundColor = 'white';
 
@@ -236,10 +239,12 @@ function ui_toggleFullScreen() {
   if (!document.fullscreenElement) {
     document.documentElement.requestFullscreen();
     ui_remove_all();
+    document.body.style.overflow = 'hidden';
   } else {
     if (document.exitFullscreen) {
       document.exitFullscreen();
     }
+    document.body.style.overflow = '';
   }
 }
 

@@ -33,16 +33,28 @@ function scroll_normal() {
 function scroller_update() {
   if (!my.scrollEnabled) return;
 
-  let now = millis() / 1000.0;
-  if (!my.scrollDelayTime) my.scrollDelayTime = now;
-  let lapse = now - my.scrollDelayTime;
-  if (lapse > my.scroller_rate) {
-    my.scrollDelayTime = now;
-    window.scrollBy(0, my.scrollBy); // 1
-    if (scrollingStalled()) {
-      my.scrollEnabled = 0;
-    }
+  // let f = 60 / frameRate();
+  // let scrollBy = Math.floor(my.scrollBy * f);
+
+  let f = 60 / frameRate();
+  let scrollBy = Math.round(my.scrollBy * f);
+
+  window.scrollBy(0, scrollBy);
+
+  if (scrollingStalled()) {
+    my.scrollEnabled = 0;
   }
+
+  // let now = millis() / 1000.0;
+  // if (!my.scrollDelayTime) my.scrollDelayTime = now;
+  // let lapse = now - my.scrollDelayTime;
+  // if (lapse > my.scroller_rate) {
+  //   my.scrollDelayTime = now;
+  //   window.scrollBy(0, my.scrollBy); // 1
+  //   if (scrollingStalled()) {
+  //     my.scrollEnabled = 0;
+  //   }
+  // }
 }
 
 function scroller_reset() {

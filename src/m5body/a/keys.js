@@ -4,30 +4,36 @@ let keyActions;
 
 function init_keyActions() {
   keyActions = {
-    1: [movie1_action],
-    2: [movie2_action],
-    3: [movie3_action],
-    4: [videoBack1_action],
-    5: [videoBack2_action],
-    6: [clear_action],
+    1: movie1_action,
+    2: movie2_action,
+    3: movie3_action,
+    4: videoBack1_action,
+    5: videoBack2_action,
+    6: clear_action,
 
-    q: [movie1_scroll_action],
-    w: [scroll_toggle_action],
-    e: [scroll_faster_action, scroll_normal_action],
-    r: [scroll_reverse_action, scroll_normal_action],
-    t: [scroll_reset_action],
-    y: [clear_action],
+    q: movie1_scroll_action,
+    w: scroll_toggle_action,
+    e: scroll_faster_action,
+    r: scroll_reverse_action,
+    t: scroll_reset_action,
+    y: clear_action,
 
-    a: [toggle_play_action],
-    s: [toggle_sound_action],
-    d: [rewind_action],
-    f: [clear_action],
+    a: toggle_play_action,
+    s: toggle_sound_action,
+    d: rewind_action,
+    f: clear_action,
 
-    z: [clear_action],
-    x: [fullScreen_action],
-    c: [toggle_tails_action],
-    v: [blast_action],
+    z: clear_action,
+    x: fullScreen_action,
+    c: toggle_tails_action,
+    v: blast_action,
+
+    '/': reload_action,
   };
+}
+
+function reload_action() {
+  window.location.reload();
 }
 
 function toggle_tails_action() {
@@ -51,13 +57,23 @@ function scroll_normal_action() {
 }
 
 function scroll_reverse_action() {
-  my.scrollEnabled = 1;
-  scroll_faster(-1);
+  my.scrollingFaster = !my.scrollingFaster;
+  if (my.scrollingFaster) {
+    my.scrollEnabled = 1;
+    scroll_faster(-1);
+  } else {
+    scroll_normal();
+  }
 }
 
 function scroll_faster_action() {
-  my.scrollEnabled = 1;
-  scroll_faster();
+  my.scrollingFaster = !my.scrollingFaster;
+  if (my.scrollingFaster) {
+    my.scrollEnabled = 1;
+    scroll_faster();
+  } else {
+    scroll_normal();
+  }
 }
 
 function scroll_reset_action() {
@@ -140,17 +156,16 @@ function movie3_action() {
 }
 
 function keyPressed() {
-  // if (key === 'a') {
-  //   scroll_faster();
-  // }
   let spec = keyActions[key];
-  if (spec && spec[0]) spec[0]();
+  if (spec) spec();
 }
 
-function keyReleased() {
-  // if (key === 'a') {
-  //   scroll_normal();
-  // }
-  let spec = keyActions[key];
-  if (spec && spec[1]) spec[1]();
-}
+// function keyPressed() {
+//   let spec = keyActions[key];
+//   if (spec && spec[0]) spec[0]();
+// }
+
+// function keyReleased() {
+//   let spec = keyActions[key];
+//   if (spec && spec[1]) spec[1]();
+// }

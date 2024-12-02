@@ -6,7 +6,7 @@ function my_init() {
   my.reverseEffectOrder = 1;
   my.scroller_rate = 0.03;
   my.nscrollImages = 99;
-  my.scrollByFaster = 50;
+  my.scrollByFaster = 15;
   my.scrollByNormal = 1;
   my.scrollBy = my.scrollByNormal;
 
