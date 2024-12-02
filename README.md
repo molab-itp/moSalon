@@ -1,27 +1,27 @@
-# [github moSalon](https://github.com/molab-itp/moSalon) ?v=76
+# [github moSalon](https://github.com/molab-itp/moSalon) ?v=77
 
 - interactive multi-screen experiences on handheld and large screens
 - what new interactive experiences are possible when sharing is free and easy?
 - enabled by [moLab](https://github.com/molab-itp/moLib) and [firebase cloud services](https://firebase.google.com)
 
-## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=76)
+## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=77)
 
-- [src/let-america-be s0](src/let-america-be/qrcode?v=76&group=s0)
-- [src/let-america-be s1](src/let-america-be/qrcode?v=76&group=s1)
-- [src/let-america-be s2](src/let-america-be/qrcode?v=76&group=s2)
+- [src/let-america-be s0](src/let-america-be/qrcode?v=77&group=s0)
+- [src/let-america-be s1](src/let-america-be/qrcode?v=77&group=s1)
+- [src/let-america-be s2](src/let-america-be/qrcode?v=77&group=s2)
 
-- [src/faceMesh s0](src/faceMesh/qrcode?v=76)
-- [src/faceMesh s1](src/faceMesh/qrcode?v=76&group=s1)
-- [src/faceMesh s2](src/faceMesh/qrcode?v=76&group=s2)
+- [src/faceMesh s0](src/faceMesh/qrcode?v=77)
+- [src/faceMesh s1](src/faceMesh/qrcode?v=77&group=s1)
+- [src/faceMesh s2](src/faceMesh/qrcode?v=77&group=s2)
 
 - [src/mindverse-manju](src/mindverse-manju)
-- [src/vote-no-fascism](src/vote-no-fascism/?v=76)
+- [src/vote-no-fascism](src/vote-no-fascism/?v=77)
 
-- [src/photo-booth s0](src/photo-booth/?v=76)
-- [src/vote s0](src/vote/?v=76)
+- [src/photo-booth s0](src/photo-booth/?v=77)
+- [src/vote s0](src/vote/?v=77)
 
-- [src/m5body](src/m5body/?v=76)
-- [src/m5body faceMesh qrcode](src/m5body/qrcode/?v=76&app=mo-m5body)
+- [src/m5body](src/m5body/?v=77)
+- [src/m5body faceMesh qrcode](src/m5body/qrcode/?v=77&app=mo-m5body&group=m5body)
 
 ## How is data synchronized in real time in the examples?
 
