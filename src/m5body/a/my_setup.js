@@ -1,12 +1,12 @@
 //
 function my_init() {
   // updated to verify change on mobile
-  my.version = '?v=75';
+  my.version = '?v=76';
 
   my.reverseEffectOrder = 1;
   my.scroller_rate = 0.03;
   my.nscrollImages = 99;
-  my.scrollByFaster = 200;
+  my.scrollByFaster = 50;
   my.scrollByNormal = 1;
   my.scrollBy = my.scrollByNormal;
 
