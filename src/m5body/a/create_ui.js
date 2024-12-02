@@ -3,7 +3,11 @@ function create_ui() {
   //
   ui_begin();
   my.ui_container = createDiv('').id('id_top_bottoms');
-  my.ui_container.style('position: fixed; z-index: 100');
+  my.ui_container.style('position: fixed; z-index: 100; bottom: 14px');
+  // my.statusElement.style.position = 'fixed';
+  // my.statusElement.style.bottom = '0';
+  // my.statusElement.style.left = `${x}px`;
+  // my.statusElement.style.width = `100%`;
 
   // z
   // let ver = ui_span(0, my.mo_group + my.version);

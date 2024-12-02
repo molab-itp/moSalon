@@ -86,8 +86,8 @@ function draw_report_time() {
   {
     let str = 'fps:' + frameRate().toFixed(1);
     str = 'time: ' + time + ' ' + str;
-    if (my.reportMaxPoints) {
-      str += ' n:' + (my.reportMaxPoints + 1) + ' of:' + my.reportMaxPointLimit;
+    if (my.effect && my.effect.reportMaxPoints) {
+      str += ' n:' + (my.effect.reportMaxPoints + 1) + ' of:' + my.effect.reportMaxPointLimit;
     }
     my.photo_count_span.html(str);
   }

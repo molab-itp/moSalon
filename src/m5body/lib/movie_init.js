@@ -10,13 +10,12 @@
 async function movie_init() {
   //
   my.videoMovies = [];
+  let movie;
   for (let spec of my.movieSpecs) {
-    let movie = await movie_create(spec);
+    movie = await movie_create(spec);
     my.videoMovies.push(movie);
   }
-  // my.videoMovies[0].scale = 1.0;
-  // my.videoMovies[1].scale = 0.3;
-  my.videoMovie = my.videoMovies[0];
+  my.videoMovie = movie;
 }
 
 async function movie_create(spec) {

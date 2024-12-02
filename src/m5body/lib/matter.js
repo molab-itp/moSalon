@@ -36,9 +36,9 @@ class MatterMgr {
     // Composite.remove(this.world, this.boxes);
     this.boxes = [];
   }
-  addBox(x, y, w, h, c, yForce, shapeIndex) {
+  addBox(x, y, w, h, c, yForce, shapeIndex, outline) {
     // mousePressed() {
-    let box = new Box(this, x, y, w, h, c, shapeIndex);
+    let box = new Box(this, x, y, w, h, c, shapeIndex, outline);
     // Apply an initial force upwards
     {
       let body = box.body;
@@ -84,7 +84,7 @@ class MatterMgr {
 }
 
 class Box {
-  constructor(parent, x, y, w, h, c, shapeIndex) {
+  constructor(parent, x, y, w, h, c, shapeIndex, outline) {
     this.parent = parent;
     this.x = x;
     this.y = y;
@@ -92,6 +92,7 @@ class Box {
     this.h = h;
     this.c = c;
     this.shapeIndex = shapeIndex;
+    this.outline = outline;
     let options = {
       friction: 0.3,
       restitution: 0.6,
@@ -135,7 +136,11 @@ class Box {
     layer.strokeWeight(my.matter_strokeWeight);
     // layer.stroke(255); !!@ matter white box
     layer.stroke(this.c);
-    layer.fill(fillc);
+    if (this.outline) {
+      layer.noFill();
+    } else {
+      layer.fill(fillc);
+    }
 
     if (this.shapeIndex) {
       let x0 = 0;

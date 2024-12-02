@@ -19,8 +19,8 @@ function init_keyActions() {
     y: clear_action,
 
     a: toggle_play_action,
-    s: toggle_sound_action,
-    d: rewind_action,
+    s: rewind_action,
+    d: toggle_sound_action,
     f: clear_action,
 
     z: clear_action,

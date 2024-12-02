@@ -7,6 +7,7 @@ class eff_bodyHand {
     hflip: [1, 0],
     show_head: [1, 0],
   };
+  // { shapeIndex, outline }
   constructor(props) {
     // console.log('eff_pose_net init');
     Object.assign(this, props);
@@ -217,11 +218,11 @@ class eff_bodyHand {
     let w = ew;
     let h = ew;
     if (!this.matterMgr) this.matter_init(ew);
-    my.reportMaxPoints = this.matterMgr.boxes.length;
+    this.reportMaxPoints = this.matterMgr.boxes.length;
     // let ne = [ew, 2 * ew, 2 * ew][partIndex];
     let ne = ew * 0.5;
     let colr = dot_colors[partIndex];
-    let full = this.matterMgr.addBox(x, y - ne, w, h, colr, yForce, this.shapeIndex);
+    let full = this.matterMgr.addBox(x, y - ne, w, h, colr, yForce, this.shapeIndex, this.outline);
     // console.log('draw_part matter_addBox full', full);
     return full;
   }
@@ -232,7 +233,7 @@ class eff_bodyHand {
     // let maxItems = this.penPointsMax * 10;
     let maxItems = Math.trunc((this.output.width / ew) * (this.output.height / ew));
     maxItems = maxItems * 2;
-    my.reportMaxPointLimit = maxItems;
+    this.reportMaxPointLimit = maxItems;
     console.log('matter_amatter_initddBox maxItems', maxItems, 'penPointsMax', this.penPointsMax);
     this.matterMgr = new MatterMgr(this.output, maxItems, w, h);
     this.matterMgr.getColor = (pos) => {

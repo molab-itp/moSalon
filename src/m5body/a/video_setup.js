@@ -30,13 +30,15 @@ async function video_setup() {
 
   my.effects = [];
   let index = 0;
+  let outline = 0;
   for (let video of my.videos) {
-    let effect = init(video, index);
+    let effect = init(video, index, outline);
     my.effects.push(effect);
 
     my.effect = effect;
     // Disable triangle box shape
     // index++;
+    outline = 1;
   }
   //   my.bestill = new eff_bestill({ factor: 10, input: my.output });
   console.log('video_setup return');
