@@ -24,31 +24,21 @@ async function video_init_capture() {
     return;
   }
 
-  my.videos = [];
+  my.videoCaptures = [];
   for (let mediaDev of my.mediaDevices) {
     let video = await mediaDevice_create_capture(mediaDev, { flipped: my.flipH });
-    video.hide();
+    video.capture.hide();
 
-    my.videos.push(video);
-    my.video = video;
+    my.videoCaptures.push(video);
+    my.videoCapture = video;
 
     console.log('video_init_capture mediaDev.label', mediaDev.label);
     console.log('video_init_capture video.width, video.height', video.width, video.height);
   }
-
-  // Select the last camera
-  // let n = my.mediaDevices.length;
-  // let index = n - 1;
-  // if (index < 0 || index >= n) index = 0;
-  // let mediaDev = my.mediaDevices[index];
-  // // my.flipH = true;
-  // my.video = await mediaDevice_create_capture(mediaDev, { flipped: my.flipH });
-  // my.video.hide();
-  // video_init_mask();
 }
 
 function video_init_mask() {
-  let { width, height } = my.video;
+  let { width, height } = my.videoCapture.capture;
   my.videoMask = createGraphics(width, height);
   my.videoBuff = createGraphics(width, height);
 }

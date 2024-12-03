@@ -16,7 +16,7 @@ function bodySeg_init(input) {
   //    maskType: background | person,
   let props = {
     eff_spec,
-    input, //: my.video,
+    input, //: my.videoCapture.capture,
     hi_rez: 1,
     modelName: my.seg_model, // 'BodyPix',
     maskType: my.seg_mask, // 'background',

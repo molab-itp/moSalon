@@ -83,7 +83,7 @@ class eff_bodyPose {
     this.ux0 = urect.x0;
     this.uy0 = urect.y0;
 
-    // let aspect = my.video.height / my.video.width;
+    // let aspect = my.videoCapture.capture.height / my.videoCapture.capture.width;
     // let w = my.output.width;
     // let h = my.output.width * aspect;
 

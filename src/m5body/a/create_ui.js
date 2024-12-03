@@ -176,10 +176,10 @@ function showAll_action() {
 // Force video permission then reload page
 //
 function reset_action() {
-  my.video = createCapture(VIDEO, function (stream) {
+  let video = createCapture(VIDEO, function (stream) {
     console.log('reset_action stream', stream);
   });
-  console.log('reset_action video', my.video);
+  console.log('reset_action video', video);
   setTimeout(function () {
     // video.remove();
     window.location.reload();
@@ -187,7 +187,7 @@ function reset_action() {
 }
 
 function reset_check() {
-  if (my.video) return;
+  if (my.videoCapture) return;
   let resetNow = frameCount > frameRate() * resetDelaySecs;
   if (resetNow && my.mediaDevices.length && !my.mediaDevices[0].stream) {
     reset_action();

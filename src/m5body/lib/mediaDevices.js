@@ -1,5 +1,9 @@
 //
 
+// mediaDev
+// my.mediaDevices = [
+//    { label, deviceId, capture, stream }]
+
 // !!@ to lib mediaDevices.js
 // mediaDevices_preflight
 // mediaDevices_enum
@@ -18,9 +22,6 @@ async function mediaDevices_preflight() {
     });
   });
 }
-
-// my.mediaDevices = [
-//    { label, deviceId, capture, stream }]
 
 // Optional: dim = { width, height} for capture size
 //
@@ -104,7 +105,8 @@ function create_capture_promise(mediaDev, options, resolve, reject) {
     // console.log('create_mediaDevices capture.width', capture.width);
     // console.log('create_mediaDevices capture.elt.width', capture.elt.width);
     // capture.width and height now valid
-    resolve(capture);
+    // resolve(capture);
+    resolve(mediaDev);
     // alert('init_device_capture DONE deviceId=|' + mediaDevice.deviceId + '|');
   });
 

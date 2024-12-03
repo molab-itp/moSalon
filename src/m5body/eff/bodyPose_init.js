@@ -12,7 +12,7 @@ function bodyPose_init(input) {
   };
   let props = {
     eff_spec,
-    input, // : my.video,
+    input, // : my.videoCapture.capture,
     hi_rez: 1,
     alpha: 255,
     figure_color: 1,

@@ -131,12 +131,12 @@ function clear2_action() {
 
 function videoBack1_action() {
   my.videoBack = !my.videoBack;
-  my.video = my.videos[0];
+  my.videoCapture = my.videoCaptures[0];
 }
 
 function videoBack2_action() {
   my.videoBack = !my.videoBack;
-  my.video = my.videos[1] ?? my.video;
+  my.videoCapture = my.videoCaptures[1] ?? my.videoCapture;
 }
 
 function movie1_action() {

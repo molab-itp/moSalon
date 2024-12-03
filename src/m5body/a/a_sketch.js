@@ -74,11 +74,13 @@ function draw_report_time() {
   // let str = my.photo_list.length + ' ' + my.photo_index;
   let time = millis() / 1000;
   let videoTime = time;
-  if (my.video && my.video.time) {
-    videoTime = my.video.time();
+  let video = my.videoCapture?.capture;
+  if (video?.time) {
+    videoTime = video.time();
   }
-  if (my.videoMovie && my.videoMovie.movie && my.videoMovie.movie.time) {
-    videoTime = my.videoMovie.movie.time();
+  video = my.videoMovie?.movie;
+  if (video?.time) {
+    videoTime = video.time();
   }
   time = formatSeconds(time);
   videoTime = formatSeconds(videoTime);

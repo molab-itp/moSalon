@@ -11,8 +11,8 @@ async function video_setup() {
   }
   // console.log('video_setup new eff_bars');
   //   my.bars = new eff_bars({ width: my.video.width, height: my.video.height });
-  my.input = my.video;
-  my.input_aspect_hw = my.video.height / my.video.width;
+  my.input = my.videoCapture.capture;
+  my.input_aspect_hw = my.videoCapture.capture.height / my.videoCapture.capture.width;
   // my.effects_init_map = {
   //   seg: bodySeg_init,
   //   pose: bodyPose_init,
@@ -25,14 +25,14 @@ async function video_setup() {
   }
 
   if (my.reverseEffectOrder) {
-    my.videos.reverse();
+    my.videoCaptures.reverse();
   }
 
   my.effects = [];
   let index = 0;
   let outline = 0;
-  for (let video of my.videos) {
-    let effect = init(video, index, outline);
+  for (let video of my.videoCaptures) {
+    let effect = init(video.capture, index, outline);
     my.effects.push(effect);
 
     my.effect = effect;
@@ -86,23 +86,20 @@ function draw_video_effect({ effect, output, videoBack, video, videoMovieBack })
   }
 }
 
-// show my.video
+// show my.videoCapture.capture
 //
 function draw_videoBack({ output, video }) {
   // let aspect = my.video.height / my.video.width;
   let w = output.width;
   let h = output.width * my.input_aspect_hw;
-  // output.image(my.video, 0, 0, w, h);
   output.push();
   output.scale(-1, 1);
-  // output.image(video, 0, 0, -w, h);
-  output.image(my.video, 0, 0, -w, h);
+  output.image(my.videoCapture.capture, 0, 0, -w, h);
   output.pop();
 }
 
 function draw_video() {
-  // let aspect = my.video.height / my.video.width;
   let w = my.output.width;
   let h = my.output.width * my.input_aspect_hw;
-  image(my.video, 0, 0, w, h);
+  image(my.videoCapture.capture, 0, 0, w, h);
 }

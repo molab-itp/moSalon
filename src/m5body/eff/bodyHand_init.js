@@ -13,7 +13,7 @@ function bodyHand_init(input, shapeIndex, outline) {
   };
   let props = {
     eff_spec,
-    input, // : my.video,
+    input, // : my.videoCapture.capture,
     // input: my.videoMovie,
     hi_rez: 1,
     alpha: 255,
