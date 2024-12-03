@@ -5,8 +5,8 @@ let keyActions;
 function init_keyActions() {
   keyActions = {
     1: movie1_action,
-    2: movie2_action,
-    3: movie3_action,
+    2: movie3_action,
+    3: movie2_action,
     4: videoBack1_action,
     5: videoBack2_action,
     6: clear_action,
@@ -20,8 +20,8 @@ function init_keyActions() {
 
     a: toggle_play_action,
     s: rewind_action,
-    d: toggle_sound_action,
-    f: clear_action,
+    // d: toggle_sound_action,
+    // f: clear_action,
 
     z: clear_action,
     x: fullScreen_action,
@@ -136,7 +136,7 @@ function videoBack1_action() {
 
 function videoBack2_action() {
   my.videoBack = !my.videoBack;
-  my.video = my.videos[1];
+  my.video = my.videos[1] ?? my.video;
 }
 
 function movie1_action() {
