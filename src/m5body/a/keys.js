@@ -9,21 +9,21 @@ function init_keyActions() {
     3: movie3_action,
     4: videoBack1_action,
     5: videoBack2_action,
-    6: clear_action,
+    6: toggle_showEffects_action,
 
-    q: movie1_scroll_action,
-    w: scroll_toggle_action,
-    e: scroll_faster_action,
-    r: scroll_reverse_action,
-    t: scroll_reset_action,
-    y: clear_action,
+    // q: movie1_scroll_action,
+    q: scroll_toggle_action,
+    w: scroll_faster_action,
+    e: scroll_reverse_action,
+    r: scroll_reset_action,
+    t: toggle_showEffects_action,
 
     a: toggle_play_action,
     s: rewind_action,
     // d: toggle_sound_action,
     // f: clear_action,
 
-    z: toggle_clear_action,
+    z: toggle_showEffects_action,
     x: fullScreen_action,
     c: toggle_tails_action,
     v: clear_action,
@@ -112,7 +112,7 @@ function fullScreen_action() {
   // }, 3000);
 }
 
-function toggle_clear_action() {
+function toggle_showEffects_action() {
   my.showEffectsEnabled = !my.showEffectsEnabled;
 }
 

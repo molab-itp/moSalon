@@ -31,6 +31,7 @@ function my_init() {
       shouldPlay: 1,
       scrollY: 1,
       loop: 1,
+      scrollEnabled: 1,
     },
     {
       moviePath: '../../external_media/movies/Red-Green-Gold-Charles.mp4',
