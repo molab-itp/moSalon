@@ -10,24 +10,44 @@ function init_keyActions() {
     4: videoBack1_action,
     5: videoBack2_action,
 
-    q: scroll_toggle_action,
-    w: scroll_faster_action,
+    q: scroll_faster_action,
+    w: scroll_next_action,
     e: scroll_reverse_action,
-    r: scroll_reset_action,
+    r: scroll_previous_action,
+    t: scroll_reset_action,
 
     a: toggle_play_action,
     s: rewind_action,
     d: toggle_sound_action,
 
     z: toggle_showEffect1_action,
-    x: toggle_showEffect2_action,
-    c: clear_effect1_action,
+    x: clear_effect1_action,
+    c: toggle_showEffect2_action,
     v: clear_effect2_action,
     b: blast_action,
 
     '.': fullScreen_action,
     '/': reload_action,
   };
+}
+
+function scroll_next_action() {
+  scroll_next(1);
+}
+function scroll_previous_action() {
+  scroll_next(-1);
+}
+
+function scroll_faster_action() {
+  scroll_faster(1);
+}
+
+function scroll_reverse_action() {
+  scroll_faster(-1);
+}
+
+function scroll_reset_action() {
+  scroller_reset();
 }
 
 function reload_action() {
@@ -46,42 +66,10 @@ function rewind_action() {
   my.videoMovie.offsetY = 0;
 }
 
-function scroll_normal_action() {
-  scroll_normal();
-}
-
-function scroll_reverse_action() {
-  my.scrollingFaster = !my.scrollingFaster;
-  if (my.scrollingFaster) {
-    my.scrollEnabled = 1;
-    scroll_faster(-1);
-  } else {
-    scroll_normal();
-  }
-}
-
-function scroll_faster_action() {
-  my.scrollingFaster = !my.scrollingFaster;
-  if (my.scrollingFaster) {
-    my.scrollEnabled = 1;
-    scroll_faster();
-  } else {
-    scroll_normal();
-  }
-}
-
-function scroll_reset_action() {
-  scroller_reset();
-}
-
-function scroll_toggle_action() {
-  my.scrollEnabled = !my.scrollEnabled;
-}
-
 function toggle_sound_action() {
   let movie = my.videoMovie.movie;
-  if (movie.volume() == 1) {
-    movie.volume(0.5);
+  if (movie.volume() >= 1) {
+    movie.volume(0.05);
   } else {
     movie.volume(1);
   }
@@ -153,19 +141,28 @@ function videoBack2_action() {
 }
 
 function movie1_action() {
-  my.videoMovie = my.videoMovies[0];
+  movie_select(0);
+}
+
+function movie_select(index) {
+  my.videoMovie = my.videoMovies[index];
   my.videoMovie.isVisible = !my.videoMovie.isVisible;
-  // my.videoMovie.offsetY = 0;
+  // Movie movie to the end
+  let oindex = my.videoMoviesOrder.indexOf(my.videoMovie);
+  my.videoMoviesOrder.splice(oindex, 1);
+  my.videoMoviesOrder.push(my.videoMovie);
 }
 
 function movie2_action() {
-  my.videoMovie = my.videoMovies[1];
-  my.videoMovie.isVisible = !my.videoMovie.isVisible;
+  movie_select(1);
+  // my.videoMovie = my.videoMovies[1];
+  // my.videoMovie.isVisible = !my.videoMovie.isVisible;
 }
 
 function movie3_action() {
-  my.videoMovie = my.videoMovies[2];
-  my.videoMovie.isVisible = !my.videoMovie.isVisible;
+  movie_select(2);
+  // my.videoMovie = my.videoMovies[2];
+  // my.videoMovie.isVisible = !my.videoMovie.isVisible;
 }
 
 function keyPressed() {

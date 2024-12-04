@@ -47,8 +47,8 @@ function create_ui() {
   // my.toggleActionBtn = ui_createButton('movie1 scroll');
   // my.toggleActionBtn.mousePressed(movie1_scroll_action);
 
-  my.showBtn = ui_createButton('Scroll ~');
-  my.showBtn.mousePressed(scroll_toggle_action);
+  // my.showBtn = ui_createButton('Scroll ~');
+  // my.showBtn.mousePressed(scroll_toggle_action);
 
   my.rewindScrollBtn = ui_createButton('Scroll 0');
   my.rewindScrollBtn.mousePressed(scroll_reset_action);

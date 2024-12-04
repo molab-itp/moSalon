@@ -1,8 +1,15 @@
 //
 
 function scroller_init() {
-  my.scrollEnabled = 0;
+  //
+  my.scrollIndex = 0;
+  my.scrollSpeeds = [0, 1, 8, 16, 8, 1];
+  my.scrollDirection = 1;
+  my.scrollBy = 0;
+
+  // my.scrollEnabled = 0;
   my.stallMaxTime = 10.0;
+
   my.rwidth = 1920;
 
   let images = [];
@@ -17,29 +24,50 @@ function scroller_init() {
   received_gallery(my.images);
 }
 
-function scroll_faster(neg) {
-  if (neg) {
-    if (my.scrollBy > 0) my.scrollBy *= -1;
-    my.scrollBy = Math.min(-my.scrollByFaster, my.scrollBy - 1);
-  } else {
-    my.scrollBy = Math.max(my.scrollByFaster, my.scrollBy + 1);
-  }
+function scroll_next(dir) {
+  my.scrollDirection = dir;
+  my.scrollByPrior = my.scrollBy;
+  my.scrollBy = 1080 * dir;
+  my.scrollRestorePending = 1;
+  // console.log('scroll_faster scrollBy', my.scrollBy);
 }
 
-function scroll_normal() {
-  my.scrollBy = my.scrollByNormal;
+function scroll_faster(dir) {
+  my.scrollDirection = dir;
+  my.scrollIndex = (my.scrollIndex + 1) % my.scrollSpeeds.length;
+  my.scrollBy = my.scrollSpeeds[my.scrollIndex];
+  // console.log('scroll_faster dir', my.scrollDirection, 'scrollIndex', my.scrollIndex, 'scrollBy', my.scrollBy);
 }
 
 function scroller_update() {
-  if (!my.scrollEnabled) return;
+  // console.log(
+  //   'scroller_update scrollBy',
+  //   my.scrollBy,
+  //   'scrollDirection',
+  //   my.scrollDirection,
+  //   'scrollRestorePending',
+  //   my.scrollRestorePending
+  // );
+  //
+
+  if (my.scrollBy == 0) return;
 
   let f = 60 / frameRate();
-  let scrollBy = Math.round(my.scrollBy * f);
+  let scrollBy = my.scrollBy;
+  if (!my.scrollRestorePending) {
+    scrollBy = Math.round(scrollBy * f) * my.scrollDirection;
+  }
 
   window.scrollBy(0, scrollBy);
 
   if (scrollingStalled()) {
-    my.scrollEnabled = 0;
+    // my.scrollEnabled = 0;
+    my.scrollIndex = 0;
+  }
+
+  if (my.scrollRestorePending) {
+    my.scrollRestorePending = 0;
+    my.scrollBy = my.scrollByPrior;
   }
 }
 
@@ -48,6 +76,7 @@ function scroller_reset() {
   my.lastY = 0;
   my.scrollStartTime = 0;
   my.scrollDelayTime = 0;
+  my.scrollIndex = 0;
 }
 
 function scrollingStalled() {

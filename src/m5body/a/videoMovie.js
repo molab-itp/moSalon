@@ -1,7 +1,7 @@
 //
 
 function draw_videoMovieBack(output) {
-  for (let spec of my.videoMovies) {
+  for (let spec of my.videoMoviesOrder) {
     if (spec.isVisible) {
       draw_videoMovie(spec, output);
     }

@@ -15,6 +15,7 @@ async function movie_init() {
     movie = await movie_create(spec);
     my.videoMovies.push(movie);
   }
+  my.videoMoviesOrder = my.videoMovies.slice();
   my.videoMovie = movie;
 }
 
