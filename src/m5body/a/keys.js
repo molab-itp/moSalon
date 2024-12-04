@@ -23,10 +23,11 @@ function init_keyActions() {
     // d: toggle_sound_action,
     // f: clear_action,
 
-    z: clear_action,
+    z: toggle_clear_action,
     x: fullScreen_action,
     c: toggle_tails_action,
-    v: blast_action,
+    v: clear_action,
+    b: blast_action,
 
     '/': reload_action,
   };
@@ -40,10 +41,6 @@ function toggle_tails_action() {
   my.effTrails = !my.effTrails;
   // console.log('toggleTrailsBtn effTrails', my.effTrails);
   my.toggleTrailsBtn.html(my.effTrails ? 'Trails ON' : 'Trails OFF');
-}
-
-function blast_action() {
-  my.effect.blast();
 }
 
 function rewind_action() {
@@ -115,7 +112,18 @@ function fullScreen_action() {
   // }, 3000);
 }
 
+function toggle_clear_action() {
+  my.showEffectsEnabled = !my.showEffectsEnabled;
+}
+
+function blast_action() {
+  for (let effect of my.effects) {
+    effect.blast();
+  }
+}
+
 function clear_action() {
+  my.effTrails = 0;
   for (let effect of my.effects) {
     effect.clear();
   }

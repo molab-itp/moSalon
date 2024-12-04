@@ -71,7 +71,9 @@ function draw_video_effect({ effect, output, videoBack, video, videoMovieBack })
     draw_videoMovieBack(output);
   }
 
-  effect.prepareOutput();
+  if (my.showEffectsEnabled) {
+    effect.prepareOutput();
+  }
 
   // let aspect = my.video.height / my.video.width;
   let w = output.width;

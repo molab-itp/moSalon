@@ -3,6 +3,7 @@ function my_init() {
   // updated to verify change on mobile
   my.version = '?v=81';
 
+  my.showEffectsEnabled = 1;
   my.reverseEffectOrder = 1;
   my.scroller_rate = 0.03;
   my.nscrollImages = 65;
