@@ -138,6 +138,7 @@ class Box {
     layer.stroke(this.c);
     if (this.outline) {
       layer.noFill();
+      layer.stroke(0);
     } else {
       layer.fill(fillc);
     }

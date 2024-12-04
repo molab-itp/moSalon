@@ -5,8 +5,8 @@ let keyActions;
 function init_keyActions() {
   keyActions = {
     1: movie1_action,
-    2: movie3_action,
-    3: movie2_action,
+    2: movie2_action,
+    3: movie3_action,
     4: videoBack1_action,
     5: videoBack2_action,
     6: clear_action,
@@ -80,6 +80,10 @@ function scroll_reset_action() {
   scroller_reset();
 }
 
+function scroll_toggle_action() {
+  my.scrollEnabled = !my.scrollEnabled;
+}
+
 function toggle_sound_action() {
   my.videoMovie.shouldPlay = !my.videoMovie.shouldPlay;
   let movie = my.videoMovie.movie;
@@ -97,10 +101,6 @@ function toggle_play_action() {
   } else {
     my.videoMovie.movie.pause();
   }
-}
-
-function scroll_toggle_action() {
-  my.scrollEnabled = !my.scrollEnabled;
 }
 
 function movie1_scroll_action() {

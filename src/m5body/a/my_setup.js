@@ -21,16 +21,7 @@ function my_init() {
 
   my.showCamera = 1;
   my.effTrails = 0;
-  // 2013-JHT-YR2-231n-15s.mov
-  // 2013-JHT-YR2-231n-1h-2s.mp4
-  // 2023-10-18-IMG_0524-30min-silent.mov
-  // JHT-2010-Ashtanga-02-silent.m4v
-  // my.moviePaths = [
-  //   '../../external_media/movies/Flaring-Black-Hole-V404-Cygni.mp4',
-  //   '../../external_media/movies/Red-Green-Gold-Charles.mp4',
-  // ];
-  let isVisible = false;
-  let shouldPlay = false;
+
   my.movieSpecs = [
     {
       moviePath: '../../external_media/movies/Flaring-Black-Hole-V404-Cygni.mp4',
@@ -38,6 +29,16 @@ function my_init() {
       isVisible: 1,
       shouldPlay: 1,
       scrollY: 1,
+      loop: 1,
+    },
+    {
+      moviePath: '../../external_media/movies/Red-Green-Gold-Charles.mp4',
+      scale: 0.3,
+      isVisible: 1,
+      shouldPlay: 0,
+      // flipH: 1,
+      centerX: 1,
+      volume: 1,
       loop: 1,
     },
     {
@@ -53,23 +54,7 @@ function my_init() {
       volume: 1,
       loop: 1,
     },
-    {
-      moviePath: '../../external_media/movies/Red-Green-Gold-Charles.mp4',
-      scale: 0.3,
-      isVisible: 1,
-      shouldPlay: 0,
-      // flipH: 1,
-      centerX: 1,
-      volume: 1,
-      loop: 1,
-    },
   ];
-  // my.moviePath = '../../external_media/movies/Red-Green-Gold-Charles-youtube_RG8lHEHrAkk_1080x1080_h264.mp4';
-  // my.moviePath = '../../external_media/movies/nari-adjaye-mca-talk.mov';
-  // my.moviePath = '../../moRelease/media/2013-JHT-YR2-231n-1h-2s-src.mp4';
-  // ../../external_media/movies/nari-adjaye-mca-talk.mov
-  // /Users/jht2/Documents/projects/2024/Alter-Ego/Week12-2/nari-adjaye-mca-talk.mov
-  // /Users/jht2/Documents/projects/2024-moSalon/external_media/movies/nari-adjaye-mca-talk.mov
   my.appTitle = 'm5body';
   my.isRemote = 1;
   // show detailed log
