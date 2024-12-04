@@ -13,6 +13,9 @@ class eff_bodyHand {
     Object.assign(this, props);
     this.init();
   }
+  toggleEnabled() {
+    this.enabled = !this.enabled;
+  }
   clear() {
     this.points = [];
     this.lerpPoints = [];

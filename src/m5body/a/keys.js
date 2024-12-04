@@ -9,26 +9,23 @@ function init_keyActions() {
     3: movie3_action,
     4: videoBack1_action,
     5: videoBack2_action,
-    6: toggle_showEffects_action,
 
-    // q: movie1_scroll_action,
     q: scroll_toggle_action,
     w: scroll_faster_action,
     e: scroll_reverse_action,
     r: scroll_reset_action,
-    t: toggle_showEffects_action,
 
     a: toggle_play_action,
     s: rewind_action,
-    // d: toggle_sound_action,
-    // f: clear_action,
+    d: toggle_sound_action,
 
-    z: toggle_showEffects_action,
-    x: fullScreen_action,
-    c: toggle_tails_action,
-    v: clear_action,
+    z: toggle_showEffect1_action,
+    x: toggle_showEffect2_action,
+    c: clear_effect1_action,
+    v: clear_effect2_action,
     b: blast_action,
 
+    '.': fullScreen_action,
     '/': reload_action,
   };
 }
@@ -82,10 +79,9 @@ function scroll_toggle_action() {
 }
 
 function toggle_sound_action() {
-  my.videoMovie.shouldPlay = !my.videoMovie.shouldPlay;
   let movie = my.videoMovie.movie;
-  if (movie.volume() != 0) {
-    movie.volume(0);
+  if (movie.volume() == 1) {
+    movie.volume(0.5);
   } else {
     movie.volume(1);
   }
@@ -112,14 +108,25 @@ function fullScreen_action() {
   // }, 3000);
 }
 
-function toggle_showEffects_action() {
-  my.showEffectsEnabled = !my.showEffectsEnabled;
+// z: toggle_showEffect1_action,
+// x: toggle_showEffect1_action,
+// c: clear_effect1_action,
+// v: clear_effect2_action,
+
+function toggle_showEffect1_action() {
+  my.effects[0].toggleEnabled();
 }
 
-function blast_action() {
-  for (let effect of my.effects) {
-    effect.blast();
-  }
+function toggle_showEffect2_action() {
+  my.effects[1].toggleEnabled();
+}
+
+function clear_effect1_action() {
+  my.effects[0].clear();
+}
+
+function clear_effect2_action() {
+  my.effects[1].clear();
 }
 
 function clear_action() {
@@ -129,12 +136,10 @@ function clear_action() {
   }
 }
 
-function clear1_action() {
-  my.effects[0].clear();
-}
-
-function clear2_action() {
-  my.effects[1].clear();
+function blast_action() {
+  for (let effect of my.effects) {
+    effect.blast();
+  }
 }
 
 function videoBack1_action() {

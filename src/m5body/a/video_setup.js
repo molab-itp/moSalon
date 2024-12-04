@@ -71,7 +71,7 @@ function draw_video_effect({ effect, output, videoBack, video, videoMovieBack })
     draw_videoMovieBack(output);
   }
 
-  if (my.showEffectsEnabled) {
+  if (effect.enabled) {
     effect.prepareOutput();
   }
 
