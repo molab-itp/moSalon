@@ -145,12 +145,22 @@ function movie1_action() {
 }
 
 function movie_select(index) {
-  my.videoMovie = my.videoMovies[index];
-  my.videoMovie.isVisible = !my.videoMovie.isVisible;
-  // Movie movie to the end
-  let oindex = my.videoMoviesOrder.indexOf(my.videoMovie);
+  let videoMovie = my.videoMovies[index];
+  videoMovie.isVisible = !videoMovie.isVisible;
+  let oindex = my.videoMoviesOrder.indexOf(videoMovie);
+  // Remove select movie before its moved to new location
   my.videoMoviesOrder.splice(oindex, 1);
-  my.videoMoviesOrder.push(my.videoMovie);
+  if (!videoMovie.isVisible) {
+    // Not visible: Move to back
+    my.videoMoviesOrder.splice(0, 0, videoMovie);
+    // Select top most movie
+    videoMovie = my.videoMoviesOrder[my.videoMoviesOrder.length - 1];
+  } else {
+    // visible: Move to the end of display order array
+    my.videoMoviesOrder.push(videoMovie);
+  }
+  // top most movie is selected
+  my.videoMovie = videoMovie;
 }
 
 function movie2_action() {
