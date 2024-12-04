@@ -1,12 +1,12 @@
 //
 function my_init() {
   // updated to verify change on mobile
-  my.version = '?v=81';
+  my.version = '?v=82';
 
-  my.showEffectsEnabled = 1;
+  my.showEffectsEnabled = 0;
   my.reverseEffectOrder = 1;
   my.scroller_rate = 0.03;
-  my.nscrollImages = 65;
+  my.nscrollImages = 69;
   my.scrollByFaster = 15;
   my.scrollByNormal = 1;
   my.scrollBy = my.scrollByNormal;
@@ -27,7 +27,7 @@ function my_init() {
     {
       moviePath: '../../external_media/movies/Flaring-Black-Hole-V404-Cygni.mp4',
       scale: 1.0,
-      isVisible: 1,
+      isVisible: 0,
       shouldPlay: 1,
       scrollY: 1,
       loop: 1,
@@ -36,7 +36,7 @@ function my_init() {
     {
       moviePath: '../../external_media/movies/Red-Green-Gold-Charles.mp4',
       scale: 0.3,
-      isVisible: 1,
+      isVisible: 0,
       shouldPlay: 0,
       // flipH: 1,
       centerX: 1,
@@ -47,7 +47,7 @@ function my_init() {
       moviePath: '../../external_media/movies/marching-Zeshan-B.mp4',
       // scale: 0.333,
       scale: 0.5,
-      isVisible: 1,
+      isVisible: 0,
       shouldPlay: 0,
       // flipH: 1,
       // offsetX: 1,
