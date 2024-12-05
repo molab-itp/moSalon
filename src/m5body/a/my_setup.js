@@ -5,7 +5,7 @@ function my_init() {
 
   my.reverseEffectOrder = 1;
   my.scroller_rate = 0.03;
-  my.nscrollImages = 69;
+  my.nscrollImages = 68;
 
   // my.scrollByFaster = 15;
   // my.scrollByNormal = 1;

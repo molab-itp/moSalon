@@ -48,9 +48,9 @@ function scroller_update() {
   //   'scrollRestorePending',
   //   my.scrollRestorePending
   // );
-  //
 
   if (my.scrollBy == 0) return;
+  console.log('scrollBy not zero');
 
   let f = 60 / frameRate();
   let scrollBy = my.scrollBy;
@@ -59,6 +59,7 @@ function scroller_update() {
   }
 
   window.scrollBy(0, scrollBy);
+  // console.log('scroller_update scrollBy ', scrollBy);
 
   if (scrollingStalled()) {
     // my.scrollEnabled = 0;

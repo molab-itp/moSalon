@@ -14,7 +14,6 @@ function init_keyActions() {
     w: scroll_next_action,
     e: scroll_reverse_action,
     r: scroll_previous_action,
-    t: scroll_reset_action,
 
     a: toggle_play_action,
     s: rewind_action,
@@ -28,7 +27,25 @@ function init_keyActions() {
 
     '.': fullScreen_action,
     '/': reload_action,
+
+    '[': scroll_profile_jump,
+    ']': scroll_sacrifice_jump,
+    '\\': scroll_reset_action,
   };
+}
+
+function scroll_profile_jump() {
+  window.scrollTo(0, 69874);
+  my.scrollBy = 0;
+}
+function scroll_sacrifice_jump() {
+  // Thich Quang Duc
+  window.scrollTo(0, 114831);
+  my.scrollBy = 0;
+}
+
+function scroll_reset_action() {
+  scroller_reset();
 }
 
 function scroll_next_action() {
@@ -44,10 +61,6 @@ function scroll_faster_action() {
 
 function scroll_reverse_action() {
   scroll_faster(-1);
-}
-
-function scroll_reset_action() {
-  scroller_reset();
 }
 
 function reload_action() {
@@ -178,6 +191,7 @@ function movie3_action() {
 function keyPressed() {
   let spec = keyActions[key];
   if (spec) spec();
+  return false;
 }
 
 // function keyPressed() {
