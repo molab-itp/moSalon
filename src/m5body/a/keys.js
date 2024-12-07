@@ -14,6 +14,7 @@ function init_keyActions() {
     w: scroll_next_action,
     e: scroll_reverse_action,
     r: scroll_previous_action,
+    t: scroll_reset_action,
 
     a: toggle_play_action,
     s: rewind_action,

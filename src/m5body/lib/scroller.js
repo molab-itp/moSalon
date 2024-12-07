@@ -50,7 +50,7 @@ function scroller_update() {
   // );
 
   if (my.scrollBy == 0) return;
-  console.log('scrollBy not zero');
+  // console.log('scroller_update scrollBy not zero', my.scrollBy);
 
   let f = 60 / frameRate();
   let scrollBy = my.scrollBy;
@@ -63,7 +63,14 @@ function scroller_update() {
 
   if (scrollingStalled()) {
     // my.scrollEnabled = 0;
-    my.scrollIndex = 0;
+    // my.scrollIndex = 0;
+    if (!my.scrollResetPending) {
+      my.scrollResetPending = 1;
+      setTimeout(function () {
+        scroller_reset();
+        my.scrollResetPending = 0;
+      }, 5000);
+    }
   }
 
   if (my.scrollRestorePending) {
@@ -78,6 +85,7 @@ function scroller_reset() {
   my.scrollStartTime = 0;
   my.scrollDelayTime = 0;
   my.scrollIndex = 0;
+  my.scrollBy = 1;
 }
 
 function scrollingStalled() {
