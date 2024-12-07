@@ -3,7 +3,7 @@
 function scroller_init() {
   //
   my.scrollIndex = 0;
-  my.scrollSpeeds = [0, 1, 8, 16, 8, 1];
+  my.scrollSpeeds = [0, 1, 8, 16, 32, 1];
   my.scrollDirection = 1;
   my.scrollBy = 0;
 
