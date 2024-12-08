@@ -10,11 +10,18 @@ function init_keyActions() {
     4: videoBack1_action,
     5: videoBack2_action,
 
+    '-': fullScreen_action,
+    '=': reload_action,
+
     q: scroll_faster_action,
     w: scroll_next_action,
     e: scroll_reverse_action,
     r: scroll_previous_action,
     t: scroll_reset_action,
+
+    '[': scroll_profile_jump,
+    ']': scroll_sacrifice_jump,
+    '\\': scroll_reset_action,
 
     a: toggle_play_action,
     s: rewind_action,
@@ -22,16 +29,11 @@ function init_keyActions() {
 
     z: toggle_showEffect1_action,
     x: clear_effect1_action,
-    c: toggle_showEffect2_action,
-    v: clear_effect2_action,
+
     b: blast_action,
 
-    '.': fullScreen_action,
-    '/': reload_action,
-
-    '[': scroll_profile_jump,
-    ']': scroll_sacrifice_jump,
-    '\\': scroll_reset_action,
+    '.': toggle_showEffect2_action,
+    '/': clear_effect2_action,
   };
 }
 

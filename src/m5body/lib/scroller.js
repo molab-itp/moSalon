@@ -62,8 +62,8 @@ function scroller_update() {
   // console.log('scroller_update scrollBy ', scrollBy);
 
   if (scrollingStalled()) {
-    // my.scrollEnabled = 0;
-    // my.scrollIndex = 0;
+    // when scroll reaches end wait 5 seconds then restart
+    //
     if (!my.scrollResetPending) {
       my.scrollResetPending = 1;
       setTimeout(function () {
@@ -84,7 +84,7 @@ function scroller_reset() {
   my.lastY = 0;
   my.scrollStartTime = 0;
   my.scrollDelayTime = 0;
-  my.scrollIndex = 0;
+  my.scrollIndex = 1;
   my.scrollBy = 1;
 }
 
