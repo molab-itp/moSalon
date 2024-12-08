@@ -140,7 +140,9 @@ function received_gallery(data, opts) {
     // let path = val.mediaPathFullRez ?? val.mediaPath;
     // let path = val.mediaPathFullRez || val.mediaPath;
     let path = val.mediaPathFullRez || val.mediaPath;
-    let img = createImg(path, val.authorEmail, '', imageLoaded);
+    let img = createImg(path, val.authorEmail, '', function () {
+      console.log('imageLoaded', path);
+    });
     div.child(img);
 
     let iwidth = my.rwidth;
@@ -151,11 +153,5 @@ function received_gallery(data, opts) {
     img.addClass('center-image');
     my.imgs.push(img);
     // ui_init_update();
-  }
-
-  function imageLoaded(arg) {
-    // !!@ Displaying arg causes error
-    // console.log('imageLoaded', arg);
-    console.log('imageLoaded');
   }
 }

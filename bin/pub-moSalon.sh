@@ -8,7 +8,7 @@ excludes="--exclude-from to-public-exclude.txt"
 delete=--delete
 test=
 verbose=
-test=--dry-run
+# test=--dry-run
 verbose=v
 
 start_time=`date +%s`
