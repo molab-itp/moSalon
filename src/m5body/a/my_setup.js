@@ -6,6 +6,8 @@ function my_init() {
   my.reverseEffectOrder = 1;
   my.scroller_rate = 0.03;
   my.nscrollImages = 69;
+  my.scrollerImagesPath = '../../external_media/images';
+  my.moviesPath = '../../external_media/movies';
 
   // my.scrollByFaster = 15;
   // my.scrollByNormal = 1;
@@ -25,7 +27,7 @@ function my_init() {
 
   my.movieSpecs = [
     {
-      moviePath: '../../external_media/movies/Flaring-Black-Hole-V404-Cygni.mp4',
+      moviePath: my.moviesPath + '/Flaring-Black-Hole-V404-Cygni.mp4',
       scale: 1.0,
       isVisible: 0,
       shouldPlay: 1,
@@ -34,7 +36,7 @@ function my_init() {
       scrollEnabled: 1,
     },
     {
-      moviePath: '../../external_media/movies/Red-Green-Gold-Charles.mp4',
+      moviePath: my.moviesPath + '/Red-Green-Gold-Charles.mp4',
       scale: 0.3,
       isVisible: 0,
       shouldPlay: 0,
@@ -44,7 +46,7 @@ function my_init() {
       loop: 1,
     },
     {
-      moviePath: '../../external_media/movies/marching-Zeshan-B.mp4',
+      moviePath: my.moviesPath + '/marching-Zeshan-B.mp4',
       // scale: 0.333,
       scale: 0.5,
       isVisible: 0,

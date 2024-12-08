@@ -16,7 +16,8 @@ function scroller_init() {
   let n = my.nscrollImages;
   for (let index = 1; index <= n; index++) {
     let authorEmail = '';
-    let mediaPath = `./images/${index}.png`;
+    // let mediaPath = `./images/${index}.png`;
+    let mediaPath = `${my.scrollerImagesPath}/${index}.png`;
     images.push({ mediaPath, authorEmail });
   }
   my.images = images;
