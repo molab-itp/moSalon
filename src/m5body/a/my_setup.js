@@ -1,7 +1,7 @@
 //
 function my_init() {
   // updated to verify change on mobile
-  my.version = '?v=84';
+  my.version = '?v=85';
 
   my.reverseEffectOrder = 1;
   my.scroller_rate = 0.03;
@@ -69,10 +69,10 @@ function my_init() {
   // my.fireb_config = 'jht1493';
   // my.fireb_config = 'jhtitp';
   my.dbase_rootPath = 'm0-@r-@w-';
-  my.mo_app = 'mo-posenet';
-  my.mo_room = 'm1-posenet';
-  my.mo_group = 's0';
-  my.nameDevice = 'posenet';
+  my.mo_app = 'mo-m5body';
+  my.mo_room = 'm5body';
+  my.mo_group = 'm5body';
+  my.nameDevice = 'm5body';
 
   my.photo_index = 0;
   my.photo_max = 64;
@@ -115,7 +115,7 @@ function my_init() {
     my.photo_max = Number.MAX_SAFE_INTEGER;
   }
   my.qrcode_url = () => {
-    return `qrcode/${my.mo_group}.png`;
+    return `qrcode-${my.mo_group}/${my.mo_group}.png`;
   };
   my.showQRCode = (options) => {
     options.hide_footer = 1;
