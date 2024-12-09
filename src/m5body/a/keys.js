@@ -19,6 +19,7 @@ function init_keyActions() {
     r: scroll_previous_action,
     t: scroll_reset_action,
 
+    p: scroll_end_jump,
     '[': scroll_profile_jump,
     ']': scroll_sacrifice_jump,
     '\\': scroll_reset_action,
@@ -38,12 +39,17 @@ function init_keyActions() {
 }
 
 function scroll_profile_jump() {
-  window.scrollTo(0, 69874);
+  window.scrollTo(0, 71988);
   my.scrollBy = 0;
 }
 function scroll_sacrifice_jump() {
   // Thich Quang Duc
-  window.scrollTo(0, 114831);
+  window.scrollTo(0, 116670);
+  my.scrollBy = 0;
+}
+
+function scroll_end_jump() {
+  window.scrollTo(0, 143507);
   my.scrollBy = 0;
 }
 

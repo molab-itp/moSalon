@@ -62,7 +62,7 @@ function draw_video_effects() {
 }
 
 function draw_video_effect({ effect, output, videoBack, video, videoMovieBack }) {
-  console.log('draw_video_effect', effect.label, 'enabled', effect.enabled);
+  // console.log('draw_video_effect', effect.label, 'enabled', effect.enabled);
   if (videoBack) {
     draw_videoBack({ output, video });
   } else if (!my.effTrails) {
