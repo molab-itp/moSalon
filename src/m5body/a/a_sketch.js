@@ -4,9 +4,9 @@
 let my = {};
 let colorPalette = ['red', 'green', 'gold', 'black'];
 
-function preload() {
-  my.fist = loadImage('../assets/power-fist-small-9v2-88x94.png');
-}
+// function preload() {
+//   my.fist = loadImage('../assets/power-fist-small-9v2-88x94.png');
+// }
 
 function setup() {
   // createCanvas(640, 480);
