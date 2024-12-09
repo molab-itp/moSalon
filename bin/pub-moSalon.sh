@@ -9,7 +9,7 @@ delete=--delete
 test=
 verbose=
 # test=--dry-run
-verbose=v
+# verbose=v
 
 start_time=`date +%s`
 
