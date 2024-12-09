@@ -85,8 +85,10 @@ function scroller_reset() {
   my.lastY = 0;
   my.scrollStartTime = 0;
   my.scrollDelayTime = 0;
-  my.scrollIndex = 1;
-  my.scrollBy = 1;
+  // my.scrollIndex = 1;
+  // my.scrollBy = 1;
+  my.scrollIndex = 0;
+  my.scrollBy = 0;
 }
 
 function scrollingStalled() {
