@@ -33,11 +33,12 @@ async function video_setup() {
   let outline = 0;
   for (let video of my.videoCaptures) {
     let effect = init(video.capture, index, outline);
+    effect.label = index;
     my.effects.push(effect);
 
     my.effect = effect;
+    index++;
     // Disable triangle box shape
-    // index++;
     outline = 1;
   }
   //   my.bestill = new eff_bestill({ factor: 10, input: my.output });
@@ -61,6 +62,7 @@ function draw_video_effects() {
 }
 
 function draw_video_effect({ effect, output, videoBack, video, videoMovieBack }) {
+  console.log('draw_video_effect', effect.label, 'enabled', effect.enabled);
   if (videoBack) {
     draw_videoBack({ output, video });
   } else if (!my.effTrails) {

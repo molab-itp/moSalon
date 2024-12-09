@@ -49,6 +49,6 @@ fi
 # fi
 
 echo
-echo install media lapse $(expr `date +%s` - $start_time) 
+echo install external_media lapse $(expr `date +%s` - $start_time) 
 
 
