@@ -73,7 +73,7 @@ function my_init() {
   my.dbase_rootPath = 'm0-@r-@w-';
   my.mo_app = 'mo-m5body';
   my.mo_room = 'm5body';
-  my.mo_group = 'facenesh';
+  my.mo_group = 'facemesh';
   my.nameDevice = 'm5body';
 
   my.photo_index = 0;
