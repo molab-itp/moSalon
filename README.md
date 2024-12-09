@@ -23,6 +23,8 @@
 - [src/m5body](src/m5body/?v=3)
 - [src/m5body m5body qrcode](src/m5body/qrcode-m5body/?v=3&app=mo-m5body&group=m5body)
 - [src/m5body faceMesh qrcode](src/m5body/qrcode-facemesh/?v=3&app=mo-m5body&group=m5body)
+- [jht1493.net m5body qrcode](https://jht1493.net/moSalon/demo/m5body/qrcode-m5body/?v=3&app=mo-m5body&group=m5body)
+- [jht1493.net faceMesh qrcode](https://jht1493.net/moSalon/demo/m5body/qrcode-facemesh/?v=3&app=mo-m5body&group=m5body)
 
 ## How is data synchronized in real time in the examples?
 
