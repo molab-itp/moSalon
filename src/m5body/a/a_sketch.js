@@ -17,6 +17,8 @@ function setup() {
 
   my_init();
 
+  init_playlist();
+
   if (my.dim) {
     // my.canvas = createCanvas(960, 540 - 12);
     console.log('my.dim', my.dim);
@@ -68,6 +70,8 @@ function draw() {
   } else {
     draw_video();
   }
+
+  run_playlist();
 }
 
 function draw_report_time() {

@@ -3,7 +3,8 @@
 function scroller_init() {
   //
   my.scrollIndex = 0;
-  my.scrollSpeeds = [0, 1, 8, 16, 32, 1];
+  my.scrollSpeeds = [0, 1, 2];
+  // my.scrollSpeeds = [0, 1, 8, 16, 32, 1];
   my.scrollDirection = 1;
   my.scrollBy = 0;
 
@@ -14,7 +15,7 @@ function scroller_init() {
 
   let images = [];
   let n = my.nscrollImages;
-  for (let index = 1; index <= n; index++) {
+  for (let index = 0; index <= n; index++) {
     let authorEmail = '';
     // let mediaPath = `./images/${index}.png`;
     let mediaPath = `${my.scrollerImagesPath}/${index}.png`;
@@ -81,7 +82,7 @@ function scroller_update() {
 }
 
 function scroller_reset() {
-  window.scrollTo(0, 0);
+  window.scrollTo(0, 1920);
   my.lastY = 0;
   my.scrollStartTime = 0;
   my.scrollDelayTime = 0;

@@ -35,17 +35,19 @@ function init_keyActions() {
 
     '.': clear_effect2_action,
     '/': toggle_showEffect2_action,
+
+    ' ': toggle_playlist,
   };
 }
 
 function scroll_profile_jump() {
   window.scrollTo(0, 71988);
-  my.scrollBy = 0;
+  // my.scrollBy = 0;
 }
 function scroll_sacrifice_jump() {
   // Thich Quang Duc
   window.scrollTo(0, 116670);
-  my.scrollBy = 0;
+  // my.scrollBy = 0;
 }
 
 function scroll_end_jump() {
@@ -73,6 +75,7 @@ function scroll_reverse_action() {
 }
 
 function reload_action() {
+  window.scrollTo(0, 0);
   window.location.reload();
 }
 
