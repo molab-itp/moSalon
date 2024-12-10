@@ -3,7 +3,7 @@
 function scroller_init() {
   //
   my.scrollIndex = 0;
-  my.scrollSpeeds = [0, 1, 2];
+  my.scrollSpeeds = [0, 1, 2, 3];
   // my.scrollSpeeds = [0, 1, 8, 16, 32, 1];
   my.scrollDirection = 1;
   my.scrollBy = 0;
@@ -82,7 +82,7 @@ function scroller_update() {
 }
 
 function scroller_reset() {
-  window.scrollTo(0, 1920);
+  window.scrollTo(0, 1080);
   my.lastY = 0;
   my.scrollStartTime = 0;
   my.scrollDelayTime = 0;
