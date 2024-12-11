@@ -36,6 +36,7 @@ function init_playlist() {
     movie3_action,
     toggle_play_action,
     set_autoplay_on,
+    set_autoplay_off,
   ];
   let secs = 2;
   my.playlistTimer = new PeriodTimer(secs);
