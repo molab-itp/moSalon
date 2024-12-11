@@ -33,6 +33,7 @@ function init_keyActions() {
 
     b: blast_action,
 
+    ',': change_video_order,
     '.': clear_effect2_action,
     '/': toggle_showEffect2_action,
 

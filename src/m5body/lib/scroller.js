@@ -142,7 +142,7 @@ function received_gallery(data, opts) {
     // let path = val.mediaPathFullRez || val.mediaPath;
     let path = val.mediaPathFullRez || val.mediaPath;
     let img = createImg(path, val.authorEmail, '', function () {
-      console.log('imageLoaded', path);
+      // console.log('imageLoaded', path);
     });
     div.child(img);
 

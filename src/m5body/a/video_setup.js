@@ -34,6 +34,7 @@ async function video_setup() {
   for (let video of my.videoCaptures) {
     let effect = init(video.capture, index, outline);
     effect.label = index;
+    // effect.videoCapture = video;
     my.effects.push(effect);
 
     my.effect = effect;
@@ -43,6 +44,20 @@ async function video_setup() {
   }
   //   my.bestill = new eff_bestill({ factor: 10, input: my.output });
   console.log('video_setup return');
+}
+
+function change_video_order() {
+  my.videoCaptures.reverse();
+  my.effects.reverse();
+  let index = 0;
+  let outline = 0;
+  for (let effect of my.effects) {
+    effect.shapeIndex = index;
+    effect.outline = outline;
+    index++;
+    // Disable triangle box shape
+    outline = 1;
+  }
 }
 
 // { effect, output, videoBack, video}
