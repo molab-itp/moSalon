@@ -36,7 +36,7 @@ function init_keyActions() {
     '.': clear_effect2_action,
     '/': toggle_showEffect2_action,
 
-    ' ': toggle_playlist,
+    ' ': next_playlist,
   };
 }
 
