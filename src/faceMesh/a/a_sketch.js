@@ -36,7 +36,7 @@ function setup_scroll() {
 
   my.scrollBy = 1;
   my.stallMaxTime = 2;
-  scroll_pause();
+  scroller_pause();
 }
 
 function run_scroll() {
@@ -44,10 +44,10 @@ function run_scroll() {
   if (my.face_hidden) {
     scroller_update();
     if (my.scrollTimer.completed()) {
-      if (scroll_isActive() && scrollingStalled()) {
-        scroll_pause();
+      if (scroller_isActive() && scroller_isStalled()) {
+        scroller_pause();
       } else {
-        scroll_resume();
+        scroller_resume();
       }
     }
   }

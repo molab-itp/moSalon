@@ -49,6 +49,7 @@ async function photo_list_remove_entry(entry) {
 
 function photo_list_update() {
   console.log('photo_list_update');
+  scroller_pause();
   my.photo_list_update_pending = 1;
 }
 

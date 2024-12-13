@@ -28,12 +28,15 @@ function scroller_init() {
   }
 }
 
-function scroll_isActive() {
+function scroller_isActive() {
   return my.scrollBy != 0;
 }
 
-function scroll_pause() {
+function scroller_pause() {
   window.scrollTo(0, my.scroll_topLocationY);
+  if (my.scrollTimer) {
+    my.scrollTimer.restart();
+  }
   if (my.scrollBy == 0) {
     return;
   }
@@ -41,23 +44,23 @@ function scroll_pause() {
   my.scrollBy = 0;
 }
 
-function scroll_resume() {
+function scroller_resume() {
   my.scrollBy = my.scrollByPrior;
 }
 
-function scroll_next(dir) {
+function scroller_next(dir) {
   my.scrollDirection = dir;
   my.scrollByPrior = my.scrollBy;
   my.scrollBy = 1080 * dir;
   my.scrollRestorePending = 1;
-  // console.log('scroll_faster scrollBy', my.scrollBy);
+  // console.log('scroller_faster scrollBy', my.scrollBy);
 }
 
-function scroll_faster(dir) {
+function scroller_faster(dir) {
   my.scrollDirection = dir;
   my.scrollIndex = (my.scrollIndex + 1) % my.scrollSpeeds.length;
   my.scrollBy = my.scrollSpeeds[my.scrollIndex];
-  // console.log('scroll_faster dir', my.scrollDirection, 'scrollIndex', my.scrollIndex, 'scrollBy', my.scrollBy);
+  // console.log('scroller_faster dir', my.scrollDirection, 'scrollIndex', my.scrollIndex, 'scrollBy', my.scrollBy);
 }
 
 function scroller_update() {
@@ -82,7 +85,7 @@ function scroller_update() {
   window.scrollBy(0, scrollBy);
   // console.log('scroller_update scrollBy ', scrollBy);
 
-  if (scrollingStalled()) {
+  if (scroller_isStalled()) {
     // when scroll reaches end wait 5 seconds then restart
     //
     if (!my.scrollResetPending) {
@@ -109,7 +112,7 @@ function scroller_reset() {
   // my.scrollBy = 0;
 }
 
-function scrollingStalled() {
+function scroller_isStalled() {
   let now = millis() / 1000.0;
   if (!my.scrollStartTime) my.scrollStartTime = now;
   if (!my.lastY || my.lastY != window.scrollY) {

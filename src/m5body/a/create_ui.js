@@ -217,7 +217,7 @@ function hide_action() {
   id_main.classList.add('hidden');
   if (!my.face_hidden) {
     // Face about to be hidden
-    scroll_pause();
+    scroller_pause();
   }
   my.face_hidden = 1;
 }

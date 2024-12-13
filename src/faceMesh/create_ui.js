@@ -153,7 +153,7 @@ function hide_action_ui() {
 function show_action() {
   id_main.classList.remove('hidden');
   my.face_hidden = 0;
-  scroll_pause();
+  scroller_pause();
 }
 
 function hide_action() {

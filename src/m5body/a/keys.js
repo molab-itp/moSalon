@@ -13,8 +13,8 @@ function init_keyActions() {
     '-': fullScreen_action,
     '=': reload_action,
 
-    q: scroll_faster_action,
-    w: scroll_next_action,
+    q: scroller_faster_action,
+    w: scroller_next_action,
     e: scroll_reverse_action,
     r: scroll_previous_action,
     t: scroll_reset_action,
@@ -64,19 +64,19 @@ function scroll_reset_action() {
   scroller_reset();
 }
 
-function scroll_next_action() {
-  scroll_next(1);
+function scroller_next_action() {
+  scroller_next(1);
 }
 function scroll_previous_action() {
-  scroll_next(-1);
+  scroller_next(-1);
 }
 
-function scroll_faster_action() {
-  scroll_faster(1);
+function scroller_faster_action() {
+  scroller_faster(1);
 }
 
 function scroll_reverse_action() {
-  scroll_faster(-1);
+  scroller_faster(-1);
 }
 
 function reload_action() {

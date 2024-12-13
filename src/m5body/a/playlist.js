@@ -26,11 +26,11 @@ function init_playlist() {
     toggle_showEffect2_action,
     videoBack2_action,
     scroll_reset_action,
-    scroll_next_action,
-    scroll_next_action,
-    scroll_next_action,
-    scroll_next_action,
-    scroll_faster_action,
+    scroller_next_action,
+    scroller_next_action,
+    scroller_next_action,
+    scroller_next_action,
+    scroller_faster_action,
     movie1_action,
     toggle_play_action,
     movie3_action,
@@ -42,7 +42,7 @@ function init_playlist() {
   ];
   let secs = 2;
   my.playlistTimer = new PeriodTimer(secs);
-  my.autoPlayAction = scroll_next_action;
+  my.autoPlayAction = scroller_next_action;
 }
 
 function reset_playlist() {
