@@ -2,7 +2,7 @@
 function create_ui() {
   //
   ui_begin();
-  my.ui_container = createDiv('').id('id_top_bottoms');
+  my.ui_container = createDiv('').id('id_dash_buttons');
   my.ui_container.style('position: fixed; z-index: 100; bottom: 14px');
 
   // z
