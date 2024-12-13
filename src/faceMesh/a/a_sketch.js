@@ -22,6 +22,35 @@ function setup() {
 
   // delay any photo add for 5 secs during startup
   add_action_block(5);
+
+  setup_scroll();
+}
+
+function setup_scroll() {
+  //
+  my.scrollTimer = new PeriodTimer(5);
+  my.nscrollImages = -1;
+  my.scrollTopLocationY = 0;
+
+  scroller_init();
+
+  my.scrollBy = 1;
+  my.stallMaxTime = 2;
+  scroll_pause();
+}
+
+function run_scroll() {
+  //
+  if (my.face_hidden) {
+    scroller_update();
+    if (my.scrollTimer.completed()) {
+      if (scroll_isActive() && scrollingStalled()) {
+        scroll_pause();
+      } else {
+        scroll_resume();
+      }
+    }
+  }
 }
 
 async function video_setup() {
@@ -45,6 +74,8 @@ async function video_setup() {
 
 function draw() {
   //
+  run_scroll();
+
   photo_list_update_poll();
 
   proto_prune_poll();

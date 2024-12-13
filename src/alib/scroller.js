@@ -7,6 +7,7 @@ function scroller_init() {
   // my.scrollSpeeds = [0, 1, 8, 16, 32, 1];
   my.scrollDirection = 1;
   my.scrollBy = 0;
+  my.scrollTopLocationY = 1080;
 
   // my.scrollEnabled = 0;
   my.stallMaxTime = 10.0;
@@ -22,7 +23,26 @@ function scroller_init() {
   }
   my.images = images;
 
-  received_gallery(my.images);
+  if (n > 0) {
+    received_gallery(my.images);
+  }
+}
+
+function scroll_isActive() {
+  return my.scrollBy != 0;
+}
+
+function scroll_pause() {
+  window.scrollTo(0, my.scroll_topLocationY);
+  if (my.scrollBy == 0) {
+    return;
+  }
+  my.scrollByPrior = my.scrollBy;
+  my.scrollBy = 0;
+}
+
+function scroll_resume() {
+  my.scrollBy = my.scrollByPrior;
 }
 
 function scroll_next(dir) {
@@ -81,7 +101,7 @@ function scroller_update() {
 }
 
 function scroller_reset() {
-  window.scrollTo(0, 1080);
+  window.scrollTo(0, my.scroll_topLocationY);
   my.lastY = 0;
   my.scrollStartTime = 0;
   my.scrollDelayTime = 0;
@@ -106,6 +126,8 @@ function scrollingStalled() {
   return false;
 }
 
+// data = [ {path, altText}, ... ]
+//
 function received_gallery(data, opts) {
   window.scrollTo(0, 0);
   let div = ui_div_empty('id_gallery');

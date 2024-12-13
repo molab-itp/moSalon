@@ -26,7 +26,8 @@ async function video_init_capture() {
 
   let mediaDev = my.mediaDevices[0];
 
-  my.video = await mediaDevice_create_capture(mediaDev, { flipped: flipH });
+  let videoCapture = await mediaDevice_create_capture(mediaDev, { flipped: flipH });
+  my.video = videoCapture.capture;
 
   my.video.hide();
 
