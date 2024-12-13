@@ -37,6 +37,8 @@ function init_playlist() {
     toggle_play_action,
     set_autoplay_on,
     set_autoplay_off,
+    set_autoplay_on,
+    set_autoplay_off,
   ];
   let secs = 2;
   my.playlistTimer = new PeriodTimer(secs);
@@ -45,6 +47,10 @@ function init_playlist() {
 
 function reset_playlist() {
   my.playlistIndex = 0;
+}
+
+function toggle_auto_play() {
+  my.autoPlayEnabled = !my.autoPlayEnabled;
 }
 
 function set_autoplay_on() {

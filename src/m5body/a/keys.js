@@ -28,6 +28,10 @@ function init_keyActions() {
     s: rewind_action,
     d: toggle_sound_action,
 
+    "'": toggle_auto_play,
+    ';': set_autoplay_on,
+    l: set_autoplay_off,
+
     z: toggle_showEffect1_action,
     x: clear_effect1_action,
 
