@@ -26,7 +26,9 @@ async function video_init_capture() {
 
   my.videoCaptures = [];
   for (let mediaDev of my.mediaDevices) {
-    let video = await mediaDevice_create_capture(mediaDev, { flipped: my.flipH });
+    let flipped = my.flipH;
+    let audio = false;
+    let video = await mediaDevice_create_capture(mediaDev, { flipped, audio });
     video.capture.hide();
 
     my.videoCaptures.push(video);

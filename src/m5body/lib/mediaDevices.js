@@ -68,7 +68,7 @@ function mediaDevices_enum_promise(resolve, reject) {
     });
 }
 
-// options = { dim, flipped }
+// options = { dim, flipped, audio }
 //    dim = { width, height }
 //
 function mediaDevice_create_capture(mediaDev, options) {
@@ -80,9 +80,9 @@ function mediaDevice_create_capture(mediaDev, options) {
 
 function create_capture_promise(mediaDev, options, resolve, reject) {
   // console.log('mediaDevice_capture_init enter');
-  let { dim, flipped } = options;
+  let { dim, flipped, audio } = options;
   let vcap = {
-    audio: true,
+    audio,
     video: {
       deviceId: { exact: mediaDev.deviceId },
     },
