@@ -16,10 +16,9 @@ function scroller_init() {
   let images = [];
   let n = my.nscrollImages;
   for (let index = 0; index <= n; index++) {
-    let authorEmail = '';
-    // let mediaPath = `./images/${index}.png`;
-    let mediaPath = `${my.scrollerImagesPath}/${index}.png`;
-    images.push({ mediaPath, authorEmail });
+    let path = `${my.scrollerImagesPath}/${index}.png`;
+    let altText = 'image' + index;
+    images.push({ path, altText });
   }
   my.images = images;
 
@@ -113,10 +112,6 @@ function received_gallery(data, opts) {
   if (!data) {
     return;
   }
-  // div.style('width:1080px; display: flex; align-items: center;')
-  // div.style("width:1080px; align-items: center;");
-  // rdata = data;
-  // updateCount += 1;
   my.imgs = [];
 
   // for (key in data) {
@@ -133,23 +128,14 @@ function received_gallery(data, opts) {
   // rarr = [r[0],r[1],r[0],r[2],r[0],r[3],r[0],r[4],r[0],r[5]];
 
   nitems = rarr.length;
-  for (let val of rarr) {
-    // console.log('received_gallery val', val);
-    // let img = createImg( 'https://p5js.org/assets/img/asterisk-01.png', 'the p5 magenta asterisk' );
-    // select full resolution media if available
-    //
-    // let path = val.mediaPathFullRez ?? val.mediaPath;
-    // let path = val.mediaPathFullRez || val.mediaPath;
-    let path = val.mediaPathFullRez || val.mediaPath;
-    let img = createImg(path, val.authorEmail, '', function () {
+  for (let ent of rarr) {
+    // console.log('received_gallery ent', ent);
+    let img = createImg(ent.path, ent.altText, '', function () {
       // console.log('imageLoaded', path);
     });
     div.child(img);
 
     let iwidth = my.rwidth;
-    // if (doSplat) {
-    //   iwidth = random(100, 400);
-    // }
     img.style('width: ' + iwidth + 'px;');
     img.addClass('center-image');
     my.imgs.push(img);
