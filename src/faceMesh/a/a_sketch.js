@@ -28,7 +28,7 @@ function setup() {
 
 function setup_scroll() {
   //
-  my.scrollTimer = new PeriodTimer(5);
+  my.scrollTimer = new PeriodTimer(10);
   my.nscrollImages = -1;
   my.scrollTopLocationY = 0;
 
