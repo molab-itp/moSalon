@@ -77,7 +77,7 @@ function my_init() {
   my.nameDevice = 'm5body';
 
   my.photo_index = 0;
-  my.photo_max = 64;
+  my.photo_max = 512;
   // my.photo_max = 4;
   my.photo_list = [];
 
