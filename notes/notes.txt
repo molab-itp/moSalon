@@ -1,5 +1,9 @@
 notes.txt
 
+# --
+
+bin/git-release.sh 
+
 
 # --
 
