@@ -33,23 +33,7 @@ function setup() {
 function draw() {
   //
   // background(0);
-  {
-    let backgImg = my.backgImg;
-    let iWidth = backgImg.width;
-    let iHeight = backgImg.height;
-    let rr = iHeight / iWidth;
-
-    let cWidth = this.width;
-    let cHeight = floor(cWidth * rr);
-
-    let zWidth = floor(iWidth * this.zoomRatio);
-    // let zHeight = floor(iHeight * this.zoomRatio);
-
-    // let scale = zWidth / cWidth;
-
-    image(backgImg, 0, 0, cWidth, cHeight, 0, 0, iWidth, iHeight);
-    // image(img, dx, dy, dWidth, dHeight, sx, sy, [sWidth], szHeight]
-  }
+  draw_backgImg();
   my.pane1.render();
   my.pane0.render();
   ui_init_update();
@@ -60,6 +44,23 @@ function draw() {
   drawCycleCount();
 
   my.animLoop.step({ action: nextRefAction, loop: my.scanFlag });
+}
+
+function draw_backgImg() {
+  let backgImg = my.backgImg;
+  let iWidth = backgImg.width;
+  let iHeight = backgImg.height;
+  let rr = iHeight / iWidth;
+
+  let cWidth = this.width;
+  let cHeight = floor(cWidth * rr);
+
+  // let zWidth = floor(iWidth * this.zoomRatio);
+  // let zHeight = floor(iHeight * this.zoomRatio);
+  // let scale = zWidth / cWidth;
+
+  image(backgImg, 0, 0, cWidth, cHeight, 0, 0, iWidth, iHeight);
+  // image(img, dx, dy, dWidth, dHeight, sx, sy, [sWidth], szHeight]
 }
 
 function drawCycleCount() {
