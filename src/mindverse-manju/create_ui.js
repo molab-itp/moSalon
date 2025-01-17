@@ -10,6 +10,11 @@ function create_ui() {
     run_action();
     ui_toggleFullScreen();
   });
+
+  let href =
+    'https://en.wikipedia.org/wiki/Mandala#/media/File:Manjuvajramandala_con_43_divinit%C3%A0_-_Unknown_-_Google_Cultural_Institute.jpg';
+  createA(href, 'Thangka painting of Manjuvajra mandala', '_blank');
+
   createElement('br');
   my.scanFlagChk = createCheckbox('run', my.scanFlag).changed(function () {
     my.scanFlag = this.checked();
@@ -116,7 +121,7 @@ function focusAction() {
 
 function updateAction() {
   my.pane0.updateRefEntry(my.mouseXYs);
-  my.pane1.copyRefEntry(0, { z: 4 });
+  my.pane1.copyRefEntry(0, { z: my.defaultZ });
   ui_paneUpdate();
 }
 

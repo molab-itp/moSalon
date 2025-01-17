@@ -39,7 +39,8 @@ function create_pane_secondary() {
   let x0 = 0;
   let y0 = 0;
   let z0 = 1;
-  let height = my.height * my.primaryPortion;
+  let height = my.height;
+  // let height = my.height * my.primaryPortion;
 
   let width = my.width;
   let initCentered = 0;
