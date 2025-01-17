@@ -11,16 +11,16 @@ function preload() {
   //
   my.version = '?v=15';
 
-  my.backgImg = loadImage('../assets/Manju.jpg');
+  my.backImage = loadImage('../assets/Manju.jpg');
 
-  // console.log('preload my.backgImg width', my.backgImg.width, my.backgImg.height);
-  // my.backgImg width 1 1
+  // console.log('preload my.backImage width', my.backImage.width, my.backImage.height);
+  // my.backImage width 1 1
 }
 
 function setup() {
   //
-  console.log('setup my.backgImg width', my.backgImg.width, my.backgImg.height);
-  // setup my.backgImg width 8384 9970
+  console.log('setup my.backImage width', my.backImage.width, my.backImage.height);
+  // setup my.backImage width 8384 9970
 
   my_setup();
 
@@ -33,7 +33,7 @@ function setup() {
 function draw() {
   //
   // background(0);
-  draw_backgImg();
+  draw_backImage();
   my.pane1.render();
   my.pane0.render();
   ui_init_update();
@@ -46,10 +46,10 @@ function draw() {
   my.animLoop.step({ action: nextRefAction, loop: my.scanFlag });
 }
 
-function draw_backgImg() {
-  let backgImg = my.backgImg;
-  let iWidth = backgImg.width;
-  let iHeight = backgImg.height;
+function draw_backImage() {
+  let backImage = my.backImage;
+  let iWidth = backImage.width;
+  let iHeight = backImage.height;
   let rr = iHeight / iWidth;
 
   let cWidth = this.width;
@@ -59,7 +59,7 @@ function draw_backgImg() {
   // let zHeight = floor(iHeight * this.zoomRatio);
   // let scale = zWidth / cWidth;
 
-  image(backgImg, 0, 0, cWidth, cHeight, 0, 0, iWidth, iHeight);
+  image(backImage, 0, 0, cWidth, cHeight, 0, 0, iWidth, iHeight);
   // image(img, dx, dy, dWidth, dHeight, sx, sy, [sWidth], szHeight]
 }
 

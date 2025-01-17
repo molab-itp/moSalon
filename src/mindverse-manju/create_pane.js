@@ -6,7 +6,7 @@ function create_panes() {
 }
 
 function create_pane_primary() {
-  let backgImg = my.backgImg;
+  let backImage = my.backImage;
 
   let x0 = 0;
   let y0 = my.height * my.primaryPortion;
@@ -20,7 +20,7 @@ function create_pane_primary() {
   let focsRect_strokeWeight = 4;
 
   my.pane0 = new Pane({
-    backgImg,
+    backImage,
     x0,
     y0,
     z0,
@@ -34,7 +34,7 @@ function create_pane_primary() {
 }
 
 function create_pane_secondary() {
-  let backgImg = my.backgImg;
+  let backImage = my.backImage;
 
   let x0 = 0;
   let y0 = 0;
@@ -50,7 +50,7 @@ function create_pane_secondary() {
   let focsRect_strokeWeight = 4;
 
   my.pane1 = new Pane({
-    backgImg,
+    backImage,
     x0,
     y0,
     z0,
