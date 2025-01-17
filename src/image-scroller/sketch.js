@@ -307,7 +307,7 @@ function params_query(query) {
 // https://editor.p5js.org/jht1493/sketches/2OYRyVuhx
 // firebase mo-gallery-1
 
-// https://molab-itp.github.io/p5moLibrary/src/demo/mo-gallery-1/?v=15
+// https://molab-itp.github.io/p5moLibrary/src/demo/mo-gallery-1/?v=16
 
 // https://editor.p5js.org/p5name/sketches/8jzqiCbbk
 // https://editor.p5js.org/jht9629-nyu/sketches/VtqUmOlGB
