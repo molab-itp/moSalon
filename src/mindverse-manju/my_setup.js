@@ -40,6 +40,8 @@ function my_setup() {
   setup_dbase();
 }
 
+// !!@ hard to resize since Panes depend on canvas size at init
+
 window.addEventListener('resize', window_resized);
 
 function window_resized() {
