@@ -29,12 +29,27 @@ function scroller_init() {
   }
 }
 
+function scrollerEnabled_toggle() {
+  my.scrollerEnabled = !my.scrollerEnabled;
+  if (my.scrollerEnabled) {
+    if (!scroller_isActive()) {
+      scroller_resume();
+    }
+  } else {
+    if (scroller_isActive()) {
+      scroller_pause();
+    }
+  }
+}
+
 function scroller_isActive() {
   return my.scrollBy != 0;
 }
 
 function scroller_pause() {
-  window.scrollTo(0, my.scroll_topLocationY);
+  if (my.scroll_topLocationY) {
+    window.scrollTo(0, my.scroll_topLocationY);
+  }
   if (my.scrollTimer) {
     my.scrollTimer.restart();
   }

@@ -25,7 +25,7 @@ function create_ui() {
 
   my.scrollBtn = ui_createButton('Scroll');
   my.scrollBtn.mousePressed(() => {
-    my.scrollerEnabled = !my.scrollerEnabled;
+    scrollerEnabled_toggle();
   });
 
   if (my.showButtons) {
