@@ -22,12 +22,13 @@ function create_ui() {
     my.fullScreenBtn = ui_createButton('Full Screen');
     my.fullScreenBtn.mousePressed(fullScreen_action);
   }
-  if (my.showButtons) {
-    my.scrollBtn = ui_createButton('Scroll');
-    my.scrollBtn.mousePressed(() => {
-      my.scrollerEnabled = !my.scrollerEnabled;
-    });
 
+  my.scrollBtn = ui_createButton('Scroll');
+  my.scrollBtn.mousePressed(() => {
+    my.scrollerEnabled = !my.scrollerEnabled;
+  });
+
+  if (my.showButtons) {
     my.showAllBtn = ui_createButton('Show All');
     my.showAllBtn.mousePressed(showAll_action);
 
