@@ -8,6 +8,9 @@ hide / show to setup
 # release to git pages
 bin/git-release.sh 
 
+>> check for git page build complete
+https://github.com/molab-itp/moSalon
+
 https://molab-itp.github.io/moSalon
 
 # release to demo site

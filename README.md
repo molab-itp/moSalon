@@ -1,30 +1,30 @@
-# [github moSalon](https://github.com/molab-itp/moSalon) ?v=18
+# [github moSalon](https://github.com/molab-itp/moSalon) ?v=19
 
 - interactive multi-screen experiences on handheld and large screens
 - what new interactive experiences are possible when sharing is free and easy?
 - enabled by [moLab](https://github.com/molab-itp/moLib) and [firebase cloud services](https://firebase.google.com)
 
-## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=18)
+## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=19)
 
-- [src/let-america-be s0](src/let-america-be/qrcode?v=18&group=s0)
-- [src/let-america-be s1](src/let-america-be/qrcode?v=18&group=s1)
-- [src/let-america-be s2](src/let-america-be/qrcode?v=18&group=s2)
+- [src/let-america-be s0](src/let-america-be/qrcode?v=19&group=s0)
+- [src/let-america-be s1](src/let-america-be/qrcode?v=19&group=s1)
+- [src/let-america-be s2](src/let-america-be/qrcode?v=19&group=s2)
 
-- [src/faceMesh s0](src/faceMesh/qrcode?v=18)
-- [src/faceMesh s1](src/faceMesh/qrcode?v=18&group=s1)
-- [src/faceMesh s2](src/faceMesh/qrcode?v=18&group=s2)
+- [src/faceMesh s0](src/faceMesh/qrcode?v=19)
+- [src/faceMesh s1](src/faceMesh/qrcode?v=19&group=s1)
+- [src/faceMesh s2](src/faceMesh/qrcode?v=19&group=s2)
 
 - [src/mindverse-manju](src/mindverse-manju)
-- [src/vote-no-fascism](src/vote-no-fascism/?v=18)
+- [src/vote-no-fascism](src/vote-no-fascism/?v=19)
 
-- [src/photo-booth s0](src/photo-booth/?v=18)
-- [src/vote s0](src/vote/?v=18)
+- [src/photo-booth s0](src/photo-booth/?v=19)
+- [src/vote s0](src/vote/?v=19)
 
-- [src/m5body](src/m5body/?v=18)
-- [src/m5body m5body qrcode](src/m5body/qrcode-m5body/?v=18&app=mo-m5body&group=m5body)
-- [src/m5body faceMesh qrcode](src/m5body/qrcode-facemesh/?v=18&app=mo-m5body&group=m5body)
-- [jht1493.net m5body qrcode](https://jht1493.net/moSalon/demo/m5body/qrcode-m5body/?v=18&app=mo-m5body&group=m5body)
-- [jht1493.net faceMesh qrcode](https://jht1493.net/moSalon/demo/m5body/qrcode-facemesh/?v=18&app=mo-m5body&group=m5body)
+- [src/m5body](src/m5body/?v=19)
+- [src/m5body m5body qrcode](src/m5body/qrcode-m5body/?v=19&app=mo-m5body&group=m5body)
+- [src/m5body faceMesh qrcode](src/m5body/qrcode-facemesh/?v=19&app=mo-m5body&group=m5body)
+- [jht1493.net m5body qrcode](https://jht1493.net/moSalon/demo/m5body/qrcode-m5body/?v=19&app=mo-m5body&group=m5body)
+- [jht1493.net faceMesh qrcode](https://jht1493.net/moSalon/demo/m5body/qrcode-facemesh/?v=19&app=mo-m5body&group=m5body)
 
 ## How is data synchronized in real time in the examples?
 
