@@ -28,11 +28,13 @@ function setup() {
 
 function setup_scroll() {
   //
+  my.scrollerEnabled = 0;
+
   my.scrollTimer = new PeriodTimer(10);
   my.nscrollImages = -1;
   my.scrollTopLocationY = 0;
 
-  // scroller_init();
+  scroller_init();
 
   my.scrollBy = 1;
   my.stallMaxTime = 2;
@@ -41,6 +43,8 @@ function setup_scroll() {
 
 function run_scroll() {
   //
+  if (!my.scrollerEnabled) return;
+
   if (my.face_hidden) {
     scroller_update();
     if (my.scrollTimer.completed()) {

@@ -2,8 +2,21 @@ notes.txt
 
 # --
 
+# facemesh in garage
+hide / show to setup
+
+# release to git pages
 bin/git-release.sh 
 
+https://molab-itp.github.io/moSalon
+
+# release to demo site
+
+bin/pub-moSalon.sh 
+
+rsync from ../src
+        to jhtitp@jht1493.net:/home/bitnami/htdocs/moSalon/demo
+open https://jht1493.net/moSalon/demo
 
 # --
 

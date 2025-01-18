@@ -23,6 +23,11 @@ function create_ui() {
     my.fullScreenBtn.mousePressed(fullScreen_action);
   }
   if (my.showButtons) {
+    my.scrollBtn = ui_createButton('Scroll');
+    my.scrollBtn.mousePressed(() => {
+      my.scrollerEnabled = !my.scrollerEnabled;
+    });
+
     my.showAllBtn = ui_createButton('Show All');
     my.showAllBtn.mousePressed(showAll_action);
 

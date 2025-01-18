@@ -14,6 +14,7 @@ function scroller_init() {
 
   my.rwidth = 1920;
 
+  // for m5body with installed images
   let images = [];
   let n = my.nscrollImages;
   for (let index = 0; index <= n; index++) {
