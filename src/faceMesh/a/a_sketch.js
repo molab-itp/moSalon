@@ -32,7 +32,7 @@ function setup_scroll() {
   my.nscrollImages = -1;
   my.scrollTopLocationY = 0;
 
-  scroller_init();
+  // scroller_init();
 
   my.scrollBy = 1;
   my.stallMaxTime = 2;
