@@ -89,6 +89,20 @@ function create_ui() {
   }
 }
 
+function addAction() {
+  let n = my.refBox.refs.length;
+  console.log('addAction n', n, 'refIndex', my.refBox.refIndex);
+  if (my.refBox.refIndex + 1 == n) {
+    my.refBox.refIndex = n;
+  } else {
+    // Insert zero to force enry init
+    my.refBox.refs.splice(my.refBox.refIndex, 0, 0);
+  }
+  my.refIndex_input.value(my.refBox.refIndex + 1);
+  my.refLabel_input.value(my.refBox.refLabel);
+  ui_paneUpdate();
+}
+
 function deleteAction() {
   let n = my.refBox.refs.length;
   console.log('deleteAction n', n, 'refIndex', my.refBox.refIndex);
@@ -109,14 +123,6 @@ function run_action() {
     my.animLoop.restart();
   }
   focusAction();
-}
-
-function addAction() {
-  let n = my.refBox.refs.length;
-  my.refBox.refIndex = n;
-  my.refIndex_input.value(my.refBox.refIndex + 1);
-  my.refLabel_input.value(my.refBox.refLabel);
-  ui_paneUpdate();
 }
 
 function downloadAction() {
