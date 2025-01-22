@@ -66,6 +66,9 @@ function create_ui() {
   createButton('update').mousePressed(function () {
     updateAction();
   });
+  createButton('delete').mousePressed(function () {
+    deleteAction();
+  });
   {
     my.refLabel_input = createInput('' + my.refBox.refLabel)
       .id('id_refLabel')
@@ -84,6 +87,19 @@ function create_ui() {
   {
     my.refEntryReport_div = createDiv().id('id_refReport');
   }
+}
+
+function deleteAction() {
+  let n = my.refBox.refs.length;
+  console.log('deleteAction n', n, 'refIndex', my.refBox.refIndex);
+  my.refBox.refs.splice(my.refBox.refIndex, 1);
+  if (my.refBox.refIndex + 1 == n) {
+    my.refBox.refIndex = my.refBox.refs.length - 1;
+    my.refIndex_input.value(my.refBox.refIndex + 1);
+    my.refLabel_input.value(my.refBox.refLabel);
+  }
+  focusAction();
+  // ui_paneUpdate();
 }
 
 function run_action() {

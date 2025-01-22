@@ -14,7 +14,7 @@
 - [src/faceMesh s1](src/faceMesh/qrcode?v=19&group=s1)
 - [src/faceMesh s2](src/faceMesh/qrcode?v=19&group=s2)
 
-- [src/mindverse-manju](src/mindverse-manju)
+- [src/manju-mandala](src/manju-mandala)
 - [src/vote-no-fascism](src/vote-no-fascism/?v=19)
 
 - [src/photo-booth s0](src/photo-booth/?v=19)
