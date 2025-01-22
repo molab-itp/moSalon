@@ -128,11 +128,6 @@ function run_action() {
   focusAction();
 }
 
-function downloadAction() {
-  let str = 'let refBox_init = ' + JSON.stringify(my.refBox, undefined, 2);
-  downloadToFile('refBox_init.js', str);
-}
-
 function focusAction() {
   clearMouseXY();
   if (my.scanFlag) {
@@ -228,6 +223,27 @@ function ui_init_update() {
 
 function ui_present() {
   return select('#id_panX');
+}
+
+function downloadAction() {
+  patchRefbox();
+  let str = 'let refBox_init = ' + JSON.stringify(my.refBox, undefined, 2);
+  downloadToFile('refBox_init.js', str);
+}
+
+function patchRefbox() {
+  let refBox = my.refBox;
+  let count = 0;
+  for (let index = 0; index < refBox.refs.length; index++) {
+    let ent = refBox.refs[index];
+    ent.i = index + 1;
+    if (ent.regions[1].z !== 1 && ent.regions[1].z !== 5) {
+      ent.regions[1].z = 5;
+      count++;
+    }
+  }
+  console.log('patchRefbox count', count);
+  refBox.save_localStorage();
 }
 
 // https://stackoverflow.com/questions/3665115/how-to-create-a-file-in-memory-for-user-to-download-but-not-through-server
