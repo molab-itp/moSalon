@@ -95,8 +95,8 @@ function addAction() {
   if (my.refBox.refIndex + 1 == n) {
     my.refBox.refIndex = n;
   } else {
-    // Insert zero to force enry init
-    my.refBox.refs.splice(my.refBox.refIndex, 0, 0);
+    // Insert zero to force entry init
+    my.refBox.refs.splice(my.refBox.refIndex + 1, 0, 0);
   }
   my.refIndex_input.value(my.refBox.refIndex + 1);
   my.refLabel_input.value(my.refBox.refLabel);
