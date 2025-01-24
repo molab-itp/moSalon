@@ -6,6 +6,9 @@
 
 ## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=22)
 
+- [src/mandala/manju](src/mandala/manju)
+- [src/mandala/taizokai](src/mandala/taizokai)
+
 - [src/let-america-be s0](src/let-america-be/qrcode?v=22&group=s0)
 - [src/let-america-be s1](src/let-america-be/qrcode?v=22&group=s1)
 - [src/let-america-be s2](src/let-america-be/qrcode?v=22&group=s2)
@@ -14,7 +17,6 @@
 - [src/faceMesh s1](src/faceMesh/qrcode?v=22&group=s1)
 - [src/faceMesh s2](src/faceMesh/qrcode?v=22&group=s2)
 
-- [src/manju-mandala](src/manju-mandala)
 - [src/vote-no-fascism](src/vote-no-fascism/?v=22)
 
 - [src/photo-booth s0](src/photo-booth/?v=22)
