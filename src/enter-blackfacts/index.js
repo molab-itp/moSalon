@@ -8,11 +8,8 @@ document.addEventListener('DOMContentLoaded', document_loaded);
 
 window.addEventListener('resize', resize_window);
 
-// id_rewind_btn.addEventListener('click', rewind_action);
-// id_full_read_btn.addEventListener('click', full_read_action);
-// id_next_btn.addEventListener('click', next_action);
-// id_previous_btn.addEventListener('click', previous_action);
-// id_continue_btn.addEventListener('click', continue_action);
+id_link.addEventListener('click', lick_click_action, { passive: true });
+id_button_enter.addEventListener('click', enter_click_action);
 
 function document_loaded() {
   console.log('document_loaded');
@@ -37,16 +34,20 @@ async function setup_dbase() {
     // if (line) {
     //   console.log('line', line);
     //   id_lineNum.innerText = `(${line.num})`;
-    //   id_lineText.innerText = line.text; // `(${line.num}) ${line.text}`;
-    //   id_lineText.style.backgroundColor = line.color;
     // }
   }
 }
 
-// next | previous | continue
-function next_action() {
-  console.log('next_action');
-  dbase_issue_action('action_next', 'item');
+function enter_click_action(event) {
+  console.log('enter_click_action event.target', event.target);
+  console.log('id_link.href', id_link.href);
+  console.log('id_email', id_email.value);
+  console.log('id_comment', id_comment.value);
+  window.open(id_link.href);
+}
+
+function lick_click_action(event) {
+  console.log('lick_click_action event.target', event.target);
 }
 
 function resize_window() {

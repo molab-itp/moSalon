@@ -22,6 +22,11 @@ button {
   font-size: 10vw;
 }
 
+.float_right {
+  float: right;
+  margin-right: 5px;
+}
+
 .textInput {
   width: 80%;
   padding: 10px;
