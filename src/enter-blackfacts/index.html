@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enter Blackfacts ?v=23</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div>
+      <h1 id="id_title">Welcome to enter-blackfacts ?v=6</h1>
+      By entering this site you agree to have anonymous user data stored
+      <br />
+      <br />
+      Optional:
+      <div>
+        <label>
+          email or name:
+          <input id="id_email" type="text" class="textInput" />
+        </label>
+        <br />
+        <label>
+          comment:
+          <input id="id_comment" type="text" class="textInput" />
+        </label>
+      </div>
+      <h3>enter the site to control the big screen!</h3>
+      <h2>
+        <a href="https://molab-itp.github.io/p5moLibrary/src/demo/mo-blackfacts/index.html?v=6" id="id_link"
+          >Enter mo-blackfacts
+        </a>
+      </h2>
+    </div>
+
+    <div id="id_footer" class="fixed-footer">
+      ?v=23 powered by
+      <a href="https://molab-itp.github.io/moSalon/" target="moSalon"> moSalon</a>
+      <!-- <a href="https://github.com/molab-itp/moSalon" target="moSalon"> moSalon</a> -->
+      created by
+      <a href="https://jht1493.net" target="jht"> JHT </a>
+    </div>
+
+    <script>
+      let str = window.location.search;
+      if (str) {
+        str = '&' + str.substring(1);
+        id_link.href += str;
+        id_title.innerHTML = id_title.innerHTML + str;
+      } else {
+        str = '';
+      }
+    </script>
+  </body>
+
+  <script src="https://unpkg.com/itp-molib@0.1.30/dist/moLib.umd.js?v=23"></script>
+
+  <script src="my_setup.js?v=23"></script>
+  <script src="index.js?v=23"></script>
+</html>
