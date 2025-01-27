@@ -113,3 +113,11 @@ function draw_crossHairs() {
 // https://en.wikipedia.org/wiki/Mandala#/media/File:Manjuvajramandala_con_43_divinit%C3%A0_-_Unknown_-_Google_Cultural_Institute.jpg
 // https://en.wikipedia.org/wiki/File:Manjuvajramandala_con_43_divinit%C3%A0_-_Unknown_-_Google_Cultural_Institute.jpg
 // Original file (8,384 × 9,970 pixels, file size: 46.81 MB, MIME type: image/jpeg)
+
+/*
+
+Manjuvajramandala with 43 deities, from Tibet. Tempera on cotton. 
+Measures 71 by 85 centimetres (28 in × 33 in). 
+Held at the Museo d'Arte Orientale.
+
+*/

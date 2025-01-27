@@ -100,7 +100,8 @@ async function photo_list_render() {
 
 function proto_prune_poll() {
   if (my.photo_prune_pending) {
-    my.photo_prune_pending = photo_list_prune();
+    my.photo_prune_pending = 0;
+    photo_list_prune();
   }
 }
 function photo_list_prune() {
