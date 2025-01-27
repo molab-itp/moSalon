@@ -16,27 +16,27 @@ function my_setup() {
   my.nameDevice = 'device?v=6';
   my.pingTime = 1;
 
-  // my.isRemote = window.innerHeight > window.innerWidth;
-  my.isRemote = !params.qrcode;
+  my.isRemote = !query.qrcode;
+  // my.isRemote = !params.qrcode;
 
   // idevice param renamed to group
   // however, still present in qr code
-  my.idevice = params.idevice;
-  console.log('my_setup my.idevice', my.idevice);
-  if (my.idevice) {
-    my.group = 's' + my.idevice;
-  }
-  if (params.group) {
-    my.group = params.group;
-  }
-  if (!my.group) {
-    my.group = 's0';
-  }
-  console.log('my_setup my.group', my.group);
-  if (my.group) {
-    id_title.innerHTML += ' (' + my.group + ')';
-  }
-  if (params.room) {
-    my.roomName = params.room;
-  }
+  // my.idevice = params.idevice;
+  // console.log('my_setup my.idevice', my.idevice);
+  // if (my.idevice) {
+  //   my.group = 's' + my.idevice;
+  // }
+  // if (params.group) {
+  //   my.group = params.group;
+  // }
+  // if (!my.group) {
+  //   my.group = 's0';
+  // }
+  // console.log('my_setup my.group', my.group);
+  // if (my.group) {
+  //   id_title.innerHTML += ' (' + my.group + ')';
+  // }
+  // if (params.room) {
+  //   my.roomName = params.room;
+  // }
 }

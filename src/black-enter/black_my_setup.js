@@ -25,7 +25,7 @@ function black_my_setup() {
   }
 
   my.qrcode_url = () => {
-    return `qrcode/${my.mo_group}.png`;
+    return `../black-enter/qrcode/${my.mo_group}.png`;
   };
   my.showQRCode = () => {
     // qrCode is only shown for screen width greater than 800

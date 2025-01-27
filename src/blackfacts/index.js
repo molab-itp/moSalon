@@ -51,7 +51,7 @@ async function setup_dbase() {
 
 function update_blackfacts_index_dbase(index) {
   ui_log('update_blackfacts_index_dbase index', index, 'my.group', my.group);
-  dbase_update_item({ index });
+  dbase_update_item({ index }, 'meta');
 }
 
 function pingAction() {
