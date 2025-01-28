@@ -48,7 +48,8 @@ function new_entry() {
   let comment = id_comment.value;
   let createdAt = new Date().toISOString();
   let index = my.comment_count + 1;
-  return { name, comment, createdAt, index };
+  let uid = my.uid;
+  return { name, comment, createdAt, index, uid };
 }
 
 async function add_action() {
@@ -66,5 +67,24 @@ async function add_action() {
     dbase_update_item({ comment_count: dbase_increment(1) }, 'meta');
   } catch (err) {
     console.log('take_action err', err);
+  }
+}
+
+async function remove_all_action() {
+  let response = confirm('remove all my comments');
+  if (response) {
+    remove_all_action_confirmed();
+  }
+}
+
+async function remove_all_action_confirmed() {
+  //
+  for (let key in my.comment_store) {
+    let entry = my.comment_store[key];
+    if (entry.uid != my.uid) {
+      console.log('remove skipping', entry.uid);
+      continue;
+    }
+    await dbase_remove_key('comment_store', key);
   }
 }
