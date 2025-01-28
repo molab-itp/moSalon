@@ -13,7 +13,7 @@ function my_setup() {
   my.blackfacts_index = -1;
   my.stepCount = 0;
   my.animTime = 7;
-  my.nameDevice = 'device?v=25';
+  my.nameDevice = 'device?v=26';
   my.pingTime = 1;
 
   my.isRemote = !my.query.qrcode;
