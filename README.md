@@ -6,8 +6,11 @@
 
 ## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=25)
 
-- [src/mandala/manju](src/mandala/manju)
-- [src/mandala/taizokai](src/mandala/taizokai)
+- [src/black-enter s0](src/black-enter/?v=25&group=s0)
+- [src/black-enter s1](src/black-enter/?v=25&group=s1)
+
+- [src/mandala/manju](src/mandala/manju?v=25)
+- [src/mandala/taizokai](src/mandala/taizokai?v=25)
 
 - [src/let-america-be s0](src/let-america-be/qrcode?v=25&group=s0)
 - [src/let-america-be s1](src/let-america-be/qrcode?v=25&group=s1)
