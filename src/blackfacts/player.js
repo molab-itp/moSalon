@@ -99,6 +99,10 @@ function video_play_index(index) {
   my.execRemoteTrigger = 1;
 
   let entry = dateFactForIndex(index);
+  if (!entry) {
+    console.log('video_play_index no entry for index', index);
+    return;
+  }
   videoKey = entry.videoKey;
   // console.log('video_play_index index', index, 'entry', entry);
   console.log('video_play_index videoKey', videoKey, 'index', index);

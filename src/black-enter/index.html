@@ -12,12 +12,6 @@
       By entering this site you agree to have anonymous user data stored
       <br />
       <br />
-      Add a message to the big screen for MLK week:
-      <div>
-        <input id="id_email" type="text" class="textInput" placeholder="email or name" />
-        <br />
-        <input id="id_comment" type="text" class="textInput" placeholder="comment" />
-      </div>
       <h3>enter the site to control the big screen!</h3>
       <h2>
         <a
@@ -28,6 +22,14 @@
         </a>
         <button id="id_button_enter">Enter mo-blackfacts</button>
       </h2>
+      Add a message to the big screen for MLK week:
+      <div>
+        <input id="id_name" type="text" class="textInput" placeholder="name" style="width: 50%" />
+        <button id="id_button_add" style="font-size: 3vw">Add Comment</button>
+        <br />
+        <input id="id_comment" type="text" class="textInput" placeholder="comment" />
+        <ol id="id_comments_ol"></ol>
+      </div>
     </div>
 
     <div id="id_footer" class="fixed-footer">
@@ -50,9 +52,10 @@
     </script>
   </body>
 
-  <script src="https://unpkg.com/itp-molib@0.1.30/dist/moLib.umd.js?v=24"></script>
+  <script src="https://unpkg.com/itp-molib@0.1.33/dist/moLib.umd.js?v=24"></script>
 
   <script src="black_my_setup.js?v=24"></script>
   <script src="black_setup_dbase.js?v=24"></script>
+  <script src="frame.js?v=24"></script>
   <script src="index.js?v=24"></script>
 </html>

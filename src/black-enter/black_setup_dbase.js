@@ -1,5 +1,7 @@
 async function black_setup_dbase() {
   //
+  my.comment_count = 0;
+
   await dbase_app_init(my);
 
   observe_meta();
@@ -14,6 +16,9 @@ function observe_meta() {
     console.log('observed_item item.blackfacts_index', item.blackfacts_index);
     if (item.blackfacts_index != undefined) {
       my.blackfacts_index = item.blackfacts_index;
+    }
+    if (item.comment_count != undefined) {
+      my.comment_count = item.comment_count;
     }
     my.index_update_pending = 1;
   }
@@ -35,5 +40,31 @@ function observe_comment_store() {
         break;
     }
     my.comment_update_pending = 1;
+  }
+}
+
+function new_entry() {
+  let name = id_name.value;
+  let comment = id_comment.value;
+  let createdAt = new Date().toISOString();
+  let index = my.comment_count + 1;
+  return { name, comment, createdAt, index };
+}
+
+async function add_action() {
+  console.log('add_action ');
+  let entry = new_entry();
+  console.log('add_action entry', entry);
+  if (!entry.name && !entry.comment) {
+    console.log('add_action empty');
+    return;
+  }
+  let key = await dbase_add_key('comment_store', entry);
+  console.log('add_action key', key);
+  entry.key = key;
+  try {
+    dbase_update_item({ comment_count: dbase_increment(1) }, 'meta');
+  } catch (err) {
+    console.log('take_action err', err);
   }
 }

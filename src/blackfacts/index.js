@@ -7,7 +7,7 @@ let my = {};
 document.addEventListener('DOMContentLoaded', document_loaded);
 // console.log('addEventListener document_loaded');
 
-window.addEventListener('resize', position_bottom);
+// window.addEventListener('resize', position_bottom);
 
 function document_loaded() {
   // console.log('document_loaded');
@@ -16,7 +16,7 @@ function document_loaded() {
 
   init_ui();
 
-  setup_dbase();
+  black_setup_dbase();
 
   // Sometimes in non-remote description does not appear
   setTimeout(update_blackfacts_num_ui, 1000);
@@ -30,33 +30,33 @@ function document_loaded() {
   setup_animationFrame();
 }
 
-async function setup_dbase() {
-  //
-  await dbase_app_init(my);
+// async function setup_dbase() {
+//   //
+//   await dbase_app_init(my);
 
-  dbase_app_observe({ observed_item });
+//   dbase_app_observe({ observed_item });
 
-  function observed_item(item) {
-    let index = item.index;
-    if (index != null && index != my.blackfacts_index) {
-      update_blackfacts_index(index);
-    }
-    let echo_delay = item.echo_delay;
-    if (echo_delay != null && my.echo_delay != echo_delay) {
-      my.echo_delay = echo_delay;
-      video_play_index(my.blackfacts_index);
-    }
-  }
-}
+//   function observed_item(item) {
+//     let index = item.index;
+//     if (index != null && index != my.blackfacts_index) {
+//       update_blackfacts_index(index);
+//     }
+//     let echo_delay = item.echo_delay;
+//     if (echo_delay != null && my.echo_delay != echo_delay) {
+//       my.echo_delay = echo_delay;
+//       video_play_index(my.blackfacts_index);
+//     }
+//   }
+// }
 
-function update_blackfacts_index_dbase(index) {
-  ui_log('update_blackfacts_index_dbase index', index, 'my.group', my.group);
-  dbase_update_item({ index }, 'meta');
+function update_blackfacts_index_dbase(blackfacts_index) {
+  console.log('update_blackfacts_index_dbase blackfacts_index', blackfacts_index, 'mo_group', my.mo_group);
+  dbase_update_item({ blackfacts_index }, 'meta');
 }
 
 function pingAction() {
   let portrait = my.isRemote ? 1 : 0;
-  let group = my.group;
+  let group = my.mo_group;
   dbase_site_updates({ portrait, group });
 }
 

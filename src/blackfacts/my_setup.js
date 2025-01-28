@@ -8,7 +8,7 @@ function my_setup() {
   // my.mo_app = 'mo-blackfacts';
   // my.roomName = 'room0';
   // // my.roomName = 'room1';
-  my_setup_black();
+  black_my_setup();
 
   my.blackfacts_index = -1;
   my.stepCount = 0;
@@ -16,7 +16,7 @@ function my_setup() {
   my.nameDevice = 'device?v=6';
   my.pingTime = 1;
 
-  my.isRemote = !query.qrcode;
+  my.isRemote = !my.query.qrcode;
   // my.isRemote = !params.qrcode;
 
   // idevice param renamed to group

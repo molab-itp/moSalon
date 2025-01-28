@@ -17,11 +17,10 @@ button {
   text-align: left;
   z-index: 1000;
 }
-#id_lineNum {
-  font-size: 2vw;
-}
-#id_lineText {
-  font-size: 10vw;
+
+#id_comments_ol {
+  background-color: black;
+  color: white;
 }
 
 .float_right {

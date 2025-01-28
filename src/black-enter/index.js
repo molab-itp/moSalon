@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', document_loaded);
 
 window.addEventListener('resize', resize_window);
 
-id_link.addEventListener('click', lick_click_action, { passive: true });
+id_link.addEventListener('click', link_click_action, { passive: true });
+id_button_add.addEventListener('click', add_click_action);
 id_button_enter.addEventListener('click', enter_click_action);
 
 function document_loaded() {
@@ -18,35 +19,39 @@ function document_loaded() {
 
   black_setup_dbase();
 
+  setup_animationFrame();
+
   id_footer.innerHTML = my.mo_group + ' ' + id_footer.innerHTML;
 }
 
-// async function setup_dbase() {
-//   //
-//   await dbase_app_init(my);
+function show_comments() {
+  let items = [];
+  for (let prop in my.comment_store) {
+    let entry = my.comment_store[prop];
+    items.push(`<li>${entry.name}: ${entry.comment}</li>`);
+  }
+  items.reverse();
+  id_comments_ol.innerHTML = items.join('');
+}
 
-//   dbase_app_observe({ observed_item }, 'item');
-
-//   function observed_item(item) {
-//     console.log('observed_item item', item);
-
-//     // let line = item.line;
-//     // if (line) {
-//     //   console.log('line', line);
-//     //   id_lineNum.innerText = `(${line.num})`;
-//     // }
-//   }
-// }
+function add_click_action() {
+  add_action();
+  id_name.value = '';
+  id_comment.value = '';
+}
 
 function enter_click_action(event) {
   console.log('enter_click_action event.target', event.target);
   console.log('id_link.href', id_link.href);
-  console.log('id_email', id_email.value);
+  console.log('id_name', id_name.value);
   console.log('id_comment', id_comment.value);
+
+  add_action();
+
   window.open(id_link.href);
 }
 
-function lick_click_action(event) {
+function link_click_action(event) {
   console.log('lick_click_action event.target', event.target);
 }
 
@@ -56,12 +61,12 @@ function resize_window() {
 
 function ui_log(...args) {
   // enter blackfacts ui_log
-  console.log(...args);
+  // console.log(...args);
 }
 
 function ui_logv(...args) {
   // enter blackfacts ui_logv
-  console.log(...args);
+  // console.log(...args);
 }
 
 function ui_error(...args) {

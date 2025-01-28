@@ -12,18 +12,22 @@ function animationFrame_callback(timeStamp) {
   // console.log('step_animation timeStamp', timeStamp);
   window.requestAnimationFrame(animationFrame_callback);
 
-  if (my.blackfacts_player_inited) {
-    record_startup_time(timeSecs);
+  if (my.comment_update_pending) {
+    my.comment_update_pending = 0;
+    show_comments();
   }
-  if (my.animLoop) {
-    my.animLoop.step({ action: stepAction, loop: my.playClip });
-    let lapse = '';
-    if (my.playClip) lapse = my.animLoop.lapse() + ' ' + my.stepCount;
-    id_lapse_report.innerHTML = lapse;
-  }
-  if (my.pingLoop) {
-    my.pingLoop.step({ loop: 1 });
-  }
+  // if (my.blackfacts_player_inited) {
+  //   record_startup_time(timeSecs);
+  // }
+  // if (my.animLoop) {
+  //   my.animLoop.step({ action: stepAction, loop: my.playClip });
+  //   let lapse = '';
+  //   if (my.playClip) lapse = my.animLoop.lapse() + ' ' + my.stepCount;
+  //   id_lapse_report.innerHTML = lapse;
+  // }
+  // if (my.pingLoop) {
+  //   my.pingLoop.step({ loop: 1 });
+  // }
 }
 
 function record_startup_time(timeSecs) {
@@ -32,22 +36,4 @@ function record_startup_time(timeSecs) {
     my.blackfacts_player_startup_time = timeSecs;
     dbase_update_props({ startup_time: timeSecs });
   }
-}
-
-// if the video player does not startup within a few seconds
-// we log a startup stall and reload the page
-// hoping for player to start
-//
-function player_startup_stalled() {
-  if (my.stalled_report) {
-    return;
-  }
-  my.stalled_report = 1;
-
-  let { increment } = fireb_.fbase;
-  dbase_update_props({ startup_stall: increment(1) });
-
-  setTimeout(function () {
-    window.location.reload();
-  }, 5.0 * 1000); // !!@ my. candidate
 }

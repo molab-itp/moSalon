@@ -1,6 +1,6 @@
 //
 function init_ui() {
-  show_qrcode_top_right();
+  // show_qrcode_top_right();
   if (params.playlist) {
     // id_message_pane.classList.add('hidden');
     id_dashboard.classList.add('hidden');
@@ -40,7 +40,7 @@ function create_controlled_view() {
   // show qrcode, hide dashboard
   //
   id_dashboard.classList.add('hidden');
-  show_qrcode_top_right();
+  // show_qrcode_top_right();
 }
 
 // function show_qrcode_top_right() {
