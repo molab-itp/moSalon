@@ -46,18 +46,18 @@ function add_click_action() {
 }
 
 function enter_click_action(event) {
-  console.log('enter_click_action event.target', event.target);
-  console.log('id_link.href', id_link.href);
-  console.log('id_name', id_name.value);
-  console.log('id_comment', id_comment.value);
+  // console.log('enter_click_action event.target', event.target);
+  // console.log('id_link.href', id_link.href);
+  // console.log('id_name', id_name.value);
+  // console.log('id_comment', id_comment.value);
 
-  add_action();
+  add_click_action();
 
   window.open(id_link.href);
 }
 
 function link_click_action(event) {
-  console.log('lick_click_action event.target', event.target);
+  console.log('link_click_action event.target', event.target);
 }
 
 function resize_window() {
