@@ -1,7 +1,7 @@
 //
 function my_setup() {
   //
-  my.version = '?v=32';
+  my.version = '?v=33';
 
   my.defaultZ = 15;
   my.focus_animated_cut_time = 10;
