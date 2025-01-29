@@ -13,10 +13,11 @@ function my_setup() {
   my.blackfacts_index = -1;
   my.stepCount = 0;
   my.animTime = 7;
-  my.nameDevice = 'device?v=34';
+  my.nameDevice = 'device?v=35';
   my.pingTime = 1;
 
-  my.isRemote = !my.query.qrcode;
+  my.isRemote = !my.showQRCode();
+  // my.isRemote = !my.query.qrcode;
   // my.isRemote = !params.qrcode;
 
   // idevice param renamed to group
