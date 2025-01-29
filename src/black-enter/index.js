@@ -26,7 +26,7 @@ function document_loaded() {
 }
 
 function remove_click_action() {
-  remove_all_action();
+  remove_action();
 }
 
 function show_comments() {

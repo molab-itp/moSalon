@@ -70,14 +70,14 @@ async function add_action() {
   }
 }
 
-async function remove_all_action() {
-  let response = confirm('remove all my comments');
+async function remove_action() {
+  let response = confirm('remove my comment');
   if (response) {
-    remove_all_action_confirmed();
+    remove_action_confirmed();
   }
 }
 
-async function remove_all_action_confirmed() {
+async function remove_action_confirmed() {
   //
   for (let key in my.comment_store) {
     let entry = my.comment_store[key];
@@ -86,5 +86,6 @@ async function remove_all_action_confirmed() {
       continue;
     }
     await dbase_remove_key('comment_store', key);
+    break;
   }
 }
