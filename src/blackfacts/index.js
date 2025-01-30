@@ -32,12 +32,29 @@ function document_loaded() {
 
 function update_blackfacts_index_dbase(blackfacts_index) {
   console.log('update_blackfacts_index_dbase blackfacts_index', blackfacts_index, 'mo_group', my.mo_group);
+  //
+  // mo-blackfacts / m0-blackfacts / a_group / s0 / meta / blackfacts_index
+  //
   dbase_update_item({ blackfacts_index }, 'meta');
 }
 
 function pingAction() {
   let portrait = my.isRemote ? 1 : 0;
   let group = my.mo_group;
+  //
+  // blackfacts / a_device / uid / { portrait, group }
+  //
+  // !!@ rename and func break out
+  // dbase_site_updates --> dbase_info_update
+  // group all per device info uner a_info
+  // !!@ --> blackfacts / a_device / uid / a_info / { portrait, group }
+  //
+  // function dbase_update_device(props) {
+  //  dbase_app_update( { a_info: props })
+  //
+  // dbase_site_updates({ portrait, group });
+  // --> dbase_info_update({ portrait, group } )
+  //
   dbase_site_updates({ portrait, group });
 }
 

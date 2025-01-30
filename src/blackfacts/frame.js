@@ -91,6 +91,9 @@ function record_startup_time(timeSecs) {
   if (!my.blackfacts_player_startup_time) {
     // console.log('record_startup_time timeSecs', timeSecs);
     my.blackfacts_player_startup_time = timeSecs;
+    //
+    // mo-blackfacts / m0-blackfacts / a_device / uid / startup_time
+    //
     dbase_update_props({ startup_time: timeSecs });
   }
 }
