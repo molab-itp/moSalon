@@ -63,19 +63,3 @@ function link_click_action(event) {
 function resize_window() {
   // console.log('resize_window');
 }
-
-function ui_log(...args) {
-  // enter blackfacts ui_log
-  // console.log(...args);
-}
-
-function ui_logv(...args) {
-  // enter blackfacts ui_logv
-  // console.log(...args);
-}
-
-function ui_error(...args) {
-  // enter blackfacts ui_error
-  ui_log(...args);
-  alert(...args);
-}

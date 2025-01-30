@@ -89,3 +89,19 @@ async function remove_action_confirmed() {
     break;
   }
 }
+
+function ui_log(...args) {
+  // enter blackfacts ui_log
+  console.log(...args);
+}
+
+function ui_logv(...args) {
+  // enter blackfacts ui_logv
+  // console.log(...args);
+}
+
+function ui_error(...args) {
+  // enter blackfacts ui_error
+  ui_log(...args);
+  alert(...args);
+}

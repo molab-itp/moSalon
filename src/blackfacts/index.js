@@ -42,20 +42,12 @@ function pingAction() {
   let portrait = my.isRemote ? 1 : 0;
   let group = my.mo_group;
   //
-  // blackfacts / a_device / uid / { portrait, group }
-  //
-  // !!@ rename and func break out
-  // dbase_site_updates --> dbase_info_update
-  // group all per device info uner a_info
-  // !!@ --> blackfacts / a_device / uid / a_info / { portrait, group }
-  //
-  // function dbase_update_device(props) {
-  //  dbase_app_update( { a_info: props })
+  // blackfacts / a_device / uid / a_info/ { portrait, group }
   //
   // dbase_site_updates({ portrait, group });
   // --> dbase_info_update({ portrait, group } )
   //
-  dbase_site_updates({ portrait, group });
+  dbase_info_update({ portrait, group });
 }
 
 function update_blackfacts_index(newValue) {
@@ -102,13 +94,4 @@ function show_message_id(msg) {
 function mo_blackfacts_qccode_value(newValue) {
   // console.log('mo_blackfacts_qccode_value newValue', newValue);
   my.blackfacts_qrcode = newValue;
-}
-
-function ui_log(...args) {
-  console.log(...args);
-}
-
-function ui_error(...args) {
-  ui_log(...args);
-  alert(...args);
 }
