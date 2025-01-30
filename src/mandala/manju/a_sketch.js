@@ -9,7 +9,7 @@ let my = {};
 
 function preload() {
   //
-  my.version = '?v=38';
+  my.version = '?v=39';
 
   my.backImage = loadImage('../../assets/Manju.jpg');
 
