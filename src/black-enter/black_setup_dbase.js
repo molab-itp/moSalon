@@ -10,7 +10,7 @@ async function black_setup_dbase() {
 }
 
 function observe_meta() {
-  dbase_app_observe({ observed_item }, 'meta');
+  dbase_app_observe({ observed_item }, 'item');
   function observed_item(item) {
     console.log('observed_item item', item);
     console.log('observed_item item.blackfacts_index', item.blackfacts_index);
@@ -64,7 +64,7 @@ async function add_action() {
   console.log('add_action key', key);
   entry.key = key;
   try {
-    dbase_update_item({ comment_count: dbase_increment(1) }, 'meta');
+    dbase_update_item({ comment_count: dbase_increment(1) }, 'item');
   } catch (err) {
     console.log('take_action err', err);
   }

@@ -54,7 +54,7 @@ async function photo_list_add(entry) {
     await photo_list_trim(newList);
   }
   // Change to photo_list send to cloud
-  dbase_update_item({ photo_list: newList }, 'meta');
+  dbase_update_item({ photo_list: newList }, 'item');
 }
 
 // !!@ Not used

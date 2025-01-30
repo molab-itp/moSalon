@@ -35,7 +35,7 @@ function update_blackfacts_index_dbase(blackfacts_index) {
   //
   // mo-blackfacts / m0-blackfacts / a_group / s0 / meta / blackfacts_index
   //
-  dbase_update_item({ blackfacts_index }, 'meta');
+  dbase_update_item({ blackfacts_index }, 'item');
 }
 
 function pingAction() {

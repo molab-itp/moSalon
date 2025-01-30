@@ -14,7 +14,7 @@ async function setup_dbase() {
 }
 
 function observe_meta() {
-  dbase_app_observe({ observed_item }, 'meta');
+  dbase_app_observe({ observed_item }, 'item');
   function observed_item(item) {
     // console.log('observed_item item', item);
     // console.log('observed_item item.photo_index', item.photo_index);

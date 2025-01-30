@@ -135,7 +135,7 @@ async function add_action() {
 
   try {
     await fstorage_upload({ path, layer, imageQuality });
-    dbase_update_item({ photo_index: dbase_increment(1) }, 'meta');
+    dbase_update_item({ photo_index: dbase_increment(1) }, 'item');
   } catch (err) {
     console.log('take_action err', err);
   }
@@ -160,7 +160,7 @@ async function remove_action_confirmed() {
   if (n < 1) {
     // No more images in the cloud
     //  zero out photo_index
-    dbase_update_item({ photo_index: 0 }, 'meta');
+    dbase_update_item({ photo_index: 0 }, 'item');
     return;
   }
   startLoader();
@@ -189,7 +189,7 @@ async function remove_all_action_confirmed() {
     await photo_list_remove_entry(photo);
   }
   // zero out photo_index
-  dbase_update_item({ photo_index: 0 }, 'meta');
+  dbase_update_item({ photo_index: 0 }, 'item');
 
   stopLoader();
 
