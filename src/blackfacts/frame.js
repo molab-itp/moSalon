@@ -7,10 +7,10 @@ function animationFrame_callback(timeStamp) {
   // console.log('step_animation timeStamp', timeStamp);
   window.requestAnimationFrame(animationFrame_callback);
 
-  if (!my.qrcodeInited && my.qrcodeElement) {
-    my.qrcodeInited = 1;
-    my.qrcodeElement.addEventListener('click', qrcode_click_action);
-  }
+  // if (!my.qrcodeInited && my.qrcodeElement) {
+  //   my.qrcodeInited = 1;
+  //   my.qrcodeElement.addEventListener('click', qrcode_click_action);
+  // }
 
   if (my.index_update_pending) {
     console.log('step_animation index_update_pending my.blackfacts_index', my.blackfacts_index);

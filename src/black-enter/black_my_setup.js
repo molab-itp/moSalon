@@ -4,7 +4,7 @@ function black_my_setup() {
   console.log('my_setup_black');
 
   my.appTitle = 'Blackfacts';
-  my.version = '?v=39';
+  my.version = '?v=40';
 
   my.fireb_config = 'jht9629';
   // my.fireb_config = 'jht1493';
@@ -25,10 +25,10 @@ function black_my_setup() {
     my.mo_room = 'm0-blackfacts';
   }
 
-  my.qrcode_url = () => {
+  my.qrcode_url = function () {
     return `../black-enter/qrcode/${my.mo_group}.png`;
   };
-  my.showQRCode = () => {
+  my.showQRCode = function () {
     // qrCode is only shown for screen width greater than 800
     return window.innerWidth > 800;
   };
