@@ -21,7 +21,7 @@ function my_setup() {
   }
 
   my.photo_index = 0;
-  my.photo_max = 4;
+  my.photo_max = 8;
   my.photo_list = [];
   my.slit_scan = 0;
 
