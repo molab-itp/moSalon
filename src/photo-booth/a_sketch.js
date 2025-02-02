@@ -78,13 +78,13 @@ function draw_scan() {
 function draw_video() {
   // background(0);
   image(my.videoImg, 0, 0);
-  // Draw circle on video
+
+  // Draw vertical strip on the video
   noStroke();
   let index = my.photo_index + 1;
   let acolor = my.colors[index % my.colors.length];
   acolor[3] = 160; // alpha
   fill(acolor);
-
   // circle(my.x, my.y, my.radius);
   rect(my.x, 0, my.radius, height);
 }
