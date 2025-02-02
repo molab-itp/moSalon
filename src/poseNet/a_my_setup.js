@@ -1,7 +1,7 @@
 //
 function my_init() {
   // updated to verify change on mobile
-  my.version = '?v=40';
+  my.version = '?v=41';
   // my.moviePath = '../../moRelease/media/IMG_2772-2m33s.mov';
   my.moviePath = '../../moRelease/media/IMG_2772-6m53s.mov';
   my.appTitle = 'Posenet';

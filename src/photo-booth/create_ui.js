@@ -1,6 +1,8 @@
 //
 function create_ui() {
   //
+  ui_span(0, my.version);
+
   my.effectBtn = ui_createButton('Effect');
   my.effectBtn.mousePressed(effect_action);
 
@@ -60,6 +62,7 @@ function find_img(key) {
     img.id(id);
     // console.log('find_img createImg', img);
 
+    // my.gallery_div.elt.append(img.elt);
     // Add image as first child to see most recent first
     my.gallery_div.elt.prepend(img.elt);
 

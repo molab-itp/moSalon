@@ -1,7 +1,7 @@
 //
 function my_setup() {
   // updated to verify change on mobile
-  my.version = '?v=40';
+  my.version = '?v=41';
   my.isRemote = 1;
   my.videoFlag = 1;
   // show detailed log
@@ -19,4 +19,16 @@ function my_setup() {
     my.width = windowWidth;
     my.height = windowHeight;
   }
+
+  my.photo_index = 0;
+  my.photo_max = 4;
+  my.photo_list = [];
+  my.slit_scan = 0;
+
+  // my.imageQuality = 1;
+  my.imageQuality = 0.1;
+  my.imageExt = '.jpg';
+  // my.imageExt = '.png';
+  // my.thumbWidth = my.vwidth / 2;
+  my.thumbWidth = my.vwidth * 0.25;
 }

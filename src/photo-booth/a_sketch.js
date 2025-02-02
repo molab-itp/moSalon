@@ -11,19 +11,7 @@ function setup() {
   //
   my_setup();
 
-  my.photo_index = 0;
-  my.photo_max = 4;
-  my.photo_list = [];
-  my.slit_scan = 0;
-
-  // my.imageQuality = 1;
-  my.imageQuality = 0.1;
-  my.imageExt = '.jpg';
-  // my.imageExt = '.png';
-  // my.thumbWidth = my.vwidth / 2;
-  my.thumbWidth = my.vwidth;
-
-  // Lowest pixel density for small uploads
+  // Lowest pixel density for smaller uploads
   pixelDensity(1);
 
   my.colorGold = [187, 165, 61];
@@ -154,8 +142,6 @@ function ui_log(...args) {
 function ui_verbose(...args) {
   // console.log(...args);
 }
-
-console.log('ui_log', ui_log);
 
 // https://editor.p5js.org/jht9629-nyu/sketches/twgS6eWRZ
 // pixel-grid

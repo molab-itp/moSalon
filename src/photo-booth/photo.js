@@ -1,28 +1,21 @@
 //
 
-function photo_name(index) {
-  return index.toString().padStart(3, '0');
-}
-
 function photo_list_entry(index) {
-  let name = photo_name(index);
+  let name = index.toString().padStart(3, '0');
   let uid = my.uid;
-  let date = new Date().toISOString();
+  let createdAt = new Date().toISOString();
   let ext = my.imageExt;
-  return { name, ext, index, uid, date };
+  return { name, ext, index, uid, createdAt };
 }
 
 function photo_path_entry(entry, key) {
   if (!key) key = entry.key;
-  return entry.uid + '/' + entry.name + '_' + key + entry.ext;
+  return `${entry.uid}/${entry.name}_${key}${entry.ext}`;
 }
 
 async function photo_list_trim() {
-  //
   // remove the first entry in photo_list
-  //
   console.log('photo_list_trim my.photo_list', my.photo_list);
-
   let first = my.photo_list.shift();
   await photo_list_remove_entry(first);
 }
@@ -36,7 +29,6 @@ async function take_action() {
 }
 
 async function photo_list_display() {
-  //
   // console.log('photo_list_display my.photo_list', my.photo_list);
   for (let entry of my.photo_list) {
     try {
@@ -58,12 +50,28 @@ function photo_index_increment() {
 }
 
 function check_photo_store_changed() {
-  if (!my.photo_store_changed) return;
-  if (!my.photo_store) return;
+  if (!my.photo_store_changed || !my.photo_store) return;
   my.photo_store_changed = 0;
 
   my.photo_list = Object.values(my.photo_store);
   // !!@ should sort by date
 
+  // Remove entries that a beyond my max
+  let myCount = 0;
+  //
+  // traverse backwards
+  // will show most recent first in find_img / prepend
+  //
+  // for (let entry of my.photo_list) {
+  for (let index = my.photo_list.length - 1; index >= 0; index--) {
+    let entry = my.photo_list[index];
+    let isMine = entry.uid == my.uid;
+    if (isMine) {
+      myCount++;
+    }
+    if (myCount > my.photo_max && isMine) {
+      photo_list_remove_entry(entry);
+    }
+  }
   photo_list_display();
 }
