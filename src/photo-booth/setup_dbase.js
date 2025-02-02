@@ -62,8 +62,11 @@ async function add_action() {
   let entry = photo_list_entry(my.photo_index + 1);
 
   let key = await my.dbase.add_key('photo_store', entry);
+  entry.key = key;
 
-  let path = photo_path_entry(entry, key);
+  let path = photo_path_entry(entry);
+  my.dbase.update_item('photo_store/' + key, { path });
+
   let layer = my.canvas;
   let imageQuality = my.imageQuality;
   try {

@@ -4,13 +4,12 @@ function photo_list_entry(index) {
   let name = index.toString().padStart(3, '0');
   let uid = my.uid;
   let createdAt = new Date().toISOString();
-  let ext = my.imageExt;
-  return { name, ext, index, uid, createdAt };
+  // let ext = my.imageExt;
+  return { name, index, uid, createdAt };
 }
 
-function photo_path_entry(entry, key) {
-  if (!key) key = entry.key;
-  return `${entry.uid}/${entry.name}_${key}${entry.ext}`;
+function photo_path_entry(entry) {
+  return `${entry.uid}/${entry.name}_${entry.key}${my.imageExt}`;
 }
 
 async function photo_list_trim() {
@@ -62,15 +61,14 @@ function check_photo_store_changed() {
   // traverse backwards
   // will show most recent first in find_img / prepend
   //
-  // for (let entry of my.photo_list) {
   for (let index = my.photo_list.length - 1; index >= 0; index--) {
     let entry = my.photo_list[index];
     let isMine = entry.uid == my.uid;
     if (isMine) {
       myCount++;
-    }
-    if (myCount > my.photo_max && isMine) {
-      photo_list_remove_entry(entry);
+      if (myCount > my.photo_max) {
+        photo_list_remove_entry(entry);
+      }
     }
   }
   photo_list_display();
