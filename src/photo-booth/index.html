@@ -6,22 +6,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script> -->
 
-    <link rel="stylesheet" type="text/css" href="https://molab-itp.github.io/p5moRelease/lib/66/style.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="../../../p5moLibrary/src/lib/style.css?v=41" /> -->
-
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
     <style></style>
   </head>
   <body>
     <main></main>
 
-    <script src="https://unpkg.com/itp-molib@0.1.15/dist/moLib.umd.js?v=41"></script>
-    <!-- <script type="module" src="../../moLib/src/lib/a_lib.js"></script> -->
-    <!-- <script type="module" src="https://molab-itp.github.io/p5moRelease/lib/83/a_lib.js"></script> -->
+    <!-- [ moLib -->
+    <!-- uncomment to test out pre-publish molib   -->
+    <!-- <script type="importmap">
+      {
+        "imports": {
+          "firebase/app": "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js",
+          "firebase/auth": "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js",
+          "firebase/database": "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js",
+          "firebase/storage": "https://www.gstatic.com/firebasejs/11.2.0/firebase-storage.js"
+        }
+      }
+    </script>
+    <script type="module" src="../../moLib/src/lib/a_lib.js"></script> -->
+    <!-- entry point of molib code -->
+    <!-- moLib ] -->
 
-    <script src="a_my_setup.js?v=41"></script>
-    <script src="create_ui.js?v=41"></script>
-    <script src="photo.js?v=41"></script>
-    <script src="a_sketch.js?v=41"></script>
-    <!-- ?v=41 included to force into the cache -->
+    <script type="module" src="https://unpkg.com/itp-molib@0.2.7/dist/moLib.esm.js?v=41"></script>
+
+    <script src="a_my_setup.js?v=40"></script>
+    <script src="create_ui.js?v=40"></script>
+    <script src="photo.js?v=40"></script>
+    <script src="a_sketch.js?v=40"></script>
+    <!-- ?v=40 included to force into the cache -->
   </body>
 </html>

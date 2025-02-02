@@ -11,19 +11,7 @@ function setup() {
   //
   my_setup();
 
-  my.photo_index = 0;
-  my.photo_max = 4;
-  my.photo_list = [];
-  my.slit_scan = 0;
-
-  // my.imageQuality = 1;
-  my.imageQuality = 0.1;
-  my.imageExt = '.jpg';
-  // my.imageExt = '.png';
-  // my.thumbWidth = my.vwidth / 2;
-  my.thumbWidth = my.vwidth;
-
-  // Lowest pixel density for small uploads
+  // Lowest pixel density for smaller uploads
   pixelDensity(1);
 
   my.colorGold = [187, 165, 61];
@@ -38,6 +26,8 @@ function setup() {
 
   video_create();
 
+  console.log('calling setup_dbase');
+
   setup_dbase();
 
   // for moving circle or video scan line
@@ -48,6 +38,9 @@ function setup() {
 }
 
 function draw() {
+  //
+  check_photo_store_changed();
+
   draw_frame();
   // Must display the next photo_index
   // so that image that will be saved in sync
@@ -140,6 +133,14 @@ function windowResized() {
   }
   resizeCanvas(windowWidth, windowHeight);
   // console.log('windowResized width', width, 'height', height);
+}
+
+function ui_log(...args) {
+  console.log(...args);
+}
+
+function ui_verbose(...args) {
+  // console.log(...args);
 }
 
 // https://editor.p5js.org/jht9629-nyu/sketches/twgS6eWRZ
