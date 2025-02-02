@@ -56,6 +56,9 @@ function observe_photo_store() {
 }
 
 async function add_action() {
+  //
+  next_color();
+
   // { name, index, uid, date }
   let entry = photo_list_entry(my.photo_index + 1);
 

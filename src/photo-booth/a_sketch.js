@@ -37,6 +37,7 @@ function setup() {
   my.ystep = 0;
   my.radius = int(my.width / 10);
   my.xscan = 0;
+  my.colorIndex = 0;
 }
 
 function draw() {
@@ -87,8 +88,7 @@ function draw_video() {
 function draw_cross() {
   // Draw vertical strip on the video
   noStroke();
-  let index = my.photo_index + 1;
-  let acolor = my.colors[index % my.colors.length];
+  let acolor = my.colors[my.colorIndex];
   acolor[3] = 160; // alpha
   fill(acolor);
   // circle(my.x, my.y, my.radius);
@@ -101,16 +101,24 @@ function draw_cross() {
 function step_cross() {
   my.x += my.xstep;
   if (my.x > width) {
-    my.x = 0;
+    my.x = random(width);
+    my.y = 0;
     my.xstep = 0;
     my.ystep = 1;
+    next_color();
   }
   my.y += my.ystep;
   if (my.y > height) {
-    my.y = 0;
+    my.y = random(height);
+    my.x = 0;
     my.xstep = 1;
     my.ystep = 0;
+    next_color();
   }
+}
+
+function next_color() {
+  my.colorIndex = (my.colorIndex + 1) % my.colors.length;
 }
 
 function draw_number(n) {
