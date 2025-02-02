@@ -39,7 +39,7 @@ function setup() {
 
 function draw() {
   //
-  check_photo_store_changed();
+  photo_store_changed_poll();
 
   draw_frame();
   // Must display the next photo_index

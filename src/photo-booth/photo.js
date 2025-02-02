@@ -48,7 +48,7 @@ function photo_index_increment() {
   my.dbase.update_item('item', { photo_index: my.dbase.increment(1) });
 }
 
-function check_photo_store_changed() {
+function photo_store_changed_poll() {
   if (!my.photo_store_changed || !my.photo_store) return;
   my.photo_store_changed = 0;
 

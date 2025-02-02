@@ -6,7 +6,6 @@ async function setup_dbase() {
   // my.fireb_config = 'jht1493';
   // my.fireb_config = 'jhtitp';
 
-  my.dbase_rootPath = 'm0-@r-@w-';
   my.mo_app = 'mo-photo';
   my.mo_room = 'm0-photo';
   my.mo_group = 's0';
@@ -27,19 +26,18 @@ async function setup_dbase() {
 }
 
 function observe_item() {
-  my.dbase.app_observe('item', { observed_item });
+  my.dbase.observe('item', { observed_item });
   function observed_item(item) {
     console.log('observed_item item', item);
     if (item.photo_index != undefined) {
       my.photo_index = item.photo_index;
     }
-    // photo_list_display();
   }
 }
 
 function observe_photo_store() {
   my.photo_store = {};
-  my.dbase.app_observe('photo_store', { observed_event });
+  my.dbase.observe('photo_store', { observed_event });
   function observed_event(event, key, item) {
     console.log('observed_event ', event, key, item);
     switch (event) {
