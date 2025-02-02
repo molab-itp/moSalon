@@ -38,11 +38,11 @@ function img_remove_all() {
   }
 }
 
-function remove_img_index(index) {
-  // console.log('remove_img_index index', index);
-  let id = 'id_img_' + index;
+function remove_img(key) {
+  // console.log('remove_img index', index);
+  let id = 'id_img_' + key;
   let img = select('#' + id);
-  // console.log('remove_img_index img', img);
+  // console.log('remove_img img', img);
   if (img) {
     img.remove();
   }
@@ -51,8 +51,8 @@ function remove_img_index(index) {
 // Create image element for an index
 //  or return if already present
 //
-function find_img(index) {
-  let id = 'id_img_' + index;
+function find_img(key) {
+  let id = 'id_img_' + key;
   let img = select('#' + id);
   if (!img) {
     // console.log('find_img id', id);
