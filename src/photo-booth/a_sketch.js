@@ -81,8 +81,12 @@ function draw_video() {
   // Draw circle on video
   noStroke();
   let index = my.photo_index + 1;
-  fill(my.colors[index % my.colors.length]);
-  circle(my.x, my.y, my.radius);
+  let acolor = my.colors[index % my.colors.length];
+  acolor[3] = 160; // alpha
+  fill(acolor);
+
+  // circle(my.x, my.y, my.radius);
+  rect(my.x, 0, my.radius, height);
 }
 
 function draw_number(n) {
