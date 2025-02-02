@@ -9,6 +9,7 @@ function photo_list_entry(index) {
 }
 
 function photo_path_entry(entry) {
+  if (entry.path) return entry.path;
   return `${entry.uid}/${entry.name}_${entry.key}${my.imageExt}`;
 }
 

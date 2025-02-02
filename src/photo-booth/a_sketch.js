@@ -34,7 +34,9 @@ function setup() {
   my.x = 0;
   my.y = my.height / 2;
   my.xstep = 1;
+  my.ystep = 0;
   my.radius = int(my.width / 10);
+  my.xscan = 0;
 }
 
 function draw() {
@@ -61,8 +63,8 @@ function draw_frame() {
     draw_scan();
   } else {
     draw_video();
+    draw_cross();
   }
-  my.x = (my.x + my.xstep) % my.width;
 
   let str = my.photo_list.length + ' ' + my.photo_index;
   my.photo_count_span.html(str);
@@ -72,13 +74,17 @@ function draw_scan() {
   // my.videoImg.loadPixels();
   let w = my.videoImg.width;
   let h = my.videoImg.height;
-  copy(my.videoImg, w / 2, 0, 1, h, my.x, 0, 1, h);
+  copy(my.videoImg, w / 2, 0, 1, h, my.xscan, 0, 1, h);
+
+  my.xscan = (my.xscan + 1) % width;
 }
 
 function draw_video() {
   // background(0);
   image(my.videoImg, 0, 0);
+}
 
+function draw_cross() {
   // Draw vertical strip on the video
   noStroke();
   let index = my.photo_index + 1;
@@ -87,6 +93,24 @@ function draw_video() {
   fill(acolor);
   // circle(my.x, my.y, my.radius);
   rect(my.x, 0, my.radius, height);
+  rect(0, my.y, width, my.radius);
+
+  step_cross();
+}
+
+function step_cross() {
+  my.x += my.xstep;
+  if (my.x > width) {
+    my.x = 0;
+    my.xstep = 0;
+    my.ystep = 1;
+  }
+  my.y += my.ystep;
+  if (my.y > height) {
+    my.y = 0;
+    my.xstep = 1;
+    my.ystep = 0;
+  }
 }
 
 function draw_number(n) {

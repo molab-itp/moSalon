@@ -80,7 +80,17 @@ async function add_action() {
 
 async function photo_list_remove_entry(entry) {
   console.log('photo_list_remove_entry entry', entry);
+
+  // delete getting issued twice -- try to avoid repeated delete
+  if (!my.delete_photos) {
+    my.delete_photos = {};
+  }
   let path = photo_path_entry(entry);
+  if (my.delete_photos[path]) {
+    console.log('photo_list_remove_entry repeated delete path', path);
+    return;
+  }
+  my.delete_photos[path] = 1;
   try {
     await my.dbase.fstorage_remove({ path });
     remove_img(entry.key);
