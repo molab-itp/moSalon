@@ -21,12 +21,12 @@ function setup() {
   setup_dbase();
 }
 
-let eff_bestill_mo_activitySum = 0;
+globalThis.eff_bestill_mo_activitySum = 0;
 
 function draw() {
   videoKit.draw();
   if (eff_bestill_mo_activitySum > 0) {
-    console.log('eff_bestill_mo_activitySum', eff_bestill_mo_activitySum);
+    console.log('draw eff_bestill_mo_activitySum', eff_bestill_mo_activitySum, frameCount);
   }
 }
 
@@ -102,8 +102,10 @@ let aSettings = {
       },
       eff_props: {
         factor: 10,
-        mirror: 0,
-        report: 1,
+        mirror: 1,
+        report: 0,
+        frameCountMod: 20,
+        activitySumLevel: 1,
       },
     },
     {

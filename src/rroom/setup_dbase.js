@@ -2,8 +2,8 @@
 
 async function setup_dbase() {
   //
-  // my.imageQuality = 1;
-  my.imageQuality = 0.1;
+  my.imageQuality = 1;
+  // my.imageQuality = 0.1;
   my.imageExt = '.jpg';
 
   my.fireb_config = 'jht9629';
