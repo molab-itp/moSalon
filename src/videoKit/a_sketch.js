@@ -1,5 +1,5 @@
 // https://editor.p5js.org/jht9629-gmail/sketches/u_Blv5bOK
-// p5moExamples video 370a
+// p5moExamples videoKit 409
 
 let videoKit; // home for library routines
 
@@ -17,7 +17,12 @@ function setup() {
   //
   // must call createCanvas before new p5videoKit
 
-  videoKit = new p5videoKit(a_config);
+  // videoKit = new p5videoKit(a_config);
+
+  videoKit = p5videoKit_init(a_config);
+
+  // videoKit.save_canvas_handler = save_canvas_handler;
+  // setup_dbase();
 }
 
 function draw() {
