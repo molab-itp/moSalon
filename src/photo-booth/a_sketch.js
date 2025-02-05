@@ -93,6 +93,11 @@ function draw_cross() {
   fill(acolor);
   // circle(my.x, my.y, my.radius);
   rect(my.x, 0, my.radius, height);
+
+  let nextColorIndex = (my.colorIndex + 1) % my.colors.length;
+  acolor = my.colors[nextColorIndex];
+  acolor[3] = 160; // alpha
+  fill(acolor);
   rect(0, my.y, width, my.radius);
 
   step_cross();
@@ -100,20 +105,30 @@ function draw_cross() {
 
 function step_cross() {
   my.x += my.xstep;
-  if (my.x > width) {
-    my.x = random(width);
+  if (my.x > width - my.radius) {
+    my.x = random(width - my.radius);
     my.y = 0;
     my.xstep = 0;
     my.ystep = 1;
     next_color();
   }
   my.y += my.ystep;
-  if (my.y > height) {
-    my.y = random(height);
+  if (my.y > height - my.radius) {
+    my.y = random(height - my.radius);
     my.x = 0;
     my.xstep = 1;
     my.ystep = 0;
     next_color();
+  }
+}
+
+function toggle_cross_direction() {
+  next_color();
+  if (my.xstep) {
+    my.x = width;
+  }
+  if (my.ystep) {
+    my.y = height;
   }
 }
 

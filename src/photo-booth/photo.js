@@ -31,6 +31,9 @@ async function take_action() {
 async function photo_list_display() {
   // console.log('photo_list_display my.photo_list', my.photo_list);
   for (let entry of my.photo_list) {
+    if (!entry.uploadedAt) {
+      console.log('photo_list_display skipping item', entry);
+    }
     try {
       let url = await photo_download_url(entry);
       url_result(url, entry.key);
