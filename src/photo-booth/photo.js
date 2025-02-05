@@ -33,6 +33,7 @@ async function photo_list_display() {
   for (let entry of my.photo_list) {
     if (!entry.uploadedAt) {
       console.log('photo_list_display skipping item', entry);
+      continue;
     }
     try {
       let url = await photo_download_url(entry);
