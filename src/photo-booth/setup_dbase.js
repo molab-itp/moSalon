@@ -74,6 +74,9 @@ async function add_action() {
     //
     await my.dbase.fstorage_upload({ path, layer, imageQuality });
 
+    let uploadedAt = new Date().toISOString();
+    my.dbase.update_item('photo_store/' + key, { uploadedAt });
+
     photo_index_increment();
     //
   } catch (err) {

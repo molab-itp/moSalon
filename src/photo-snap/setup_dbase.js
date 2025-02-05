@@ -1,5 +1,7 @@
 //
 
+import { start_download } from './start_download.js';
+
 let my = {};
 let dbase;
 
@@ -19,12 +21,13 @@ export async function setup_dbase() {
   if (!globalThis.window) my.nameDevice += '-node';
 
   dbase = await mo_dbase_init(my);
+  my.dbase = dbase;
 
   observe_item();
 
   observe_photo_store();
 
-  observe_devices();
+  // observe_devices();
 
   console.log('setup_dbase done');
 }
@@ -61,7 +64,7 @@ function observe_photo_store() {
         my.comment_store[key] = item;
 
         item.key = key;
-        test_download(item);
+        start_download(my, item);
 
         break;
       case 'remove':
@@ -88,53 +91,4 @@ function observe_devices() {
   function observed_item(item) {
     console.log('observe_devices observed_item', item);
   }
-}
-
-import axios from 'axios';
-import { createWriteStream } from 'fs';
-
-async function downloadFile(url, outputPath) {
-  const writer = createWriteStream(outputPath);
-
-  const response = await axios({
-    method: 'get',
-    url: url,
-    responseType: 'stream',
-  });
-
-  response.data.pipe(writer);
-
-  return new Promise((resolve, reject) => {
-    writer.on('finish', resolve);
-    writer.on('error', reject);
-  });
-}
-
-async function test_download(item) {
-  console.log('test_download item', item);
-  if (!item.path) return;
-
-  let url;
-  try {
-    let path = item.path;
-    console.log('test_download path', path);
-    url = await dbase.fstorage_download_url({ path });
-  } catch (err) {
-    // console.log('test_download err', err);
-    console.log('test_download err return');
-    setTimeout(() => {
-      test_download(item);
-    }, 3000);
-  }
-
-  console.log('test_download url', url);
-  if (!url) return;
-
-  // path yGt3ZocTRxWpZQu9bMymjI8zku32/001_-OI78nU3Ys1-VyJVmZTt.jpg
-  //
-  let outputPath = `${my.savePath}/${item.uid}_${item.name}_${item.key}.jpg`;
-
-  downloadFile(url, outputPath)
-    .then(() => console.log('Download complete'))
-    .catch((err) => console.error('Download failed', err));
 }
