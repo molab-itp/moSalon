@@ -2,9 +2,11 @@
 
 async function setup_dbase() {
   //
-  my.imageQuality = 1;
-  // my.imageQuality = 0.1;
+  // my.imageQuality = 1;
+  my.imageQuality = 0.1;
   my.imageExt = '.jpg';
+
+  my.maxPhotos = 4;
 
   my.fireb_config = 'jht9629';
   // my.fireb_config = 'jht1493';
@@ -27,6 +29,8 @@ async function setup_dbase() {
   my.photo_index = 0;
 
   observe_item(my);
+
+  observe_photo_store();
 }
 
 function observe_item(my) {
@@ -39,10 +43,37 @@ function observe_item(my) {
   }
 }
 
+function observe_photo_store() {
+  my.photo_store = {};
+  my.dbase.observe('photo_store', { observed_event });
+  function observed_event(event, key, item) {
+    console.log('observed_event ', event, key, item);
+    switch (event) {
+      case 'add':
+      case 'change':
+        item.key = key;
+        my.photo_store[key] = item;
+        break;
+      case 'remove':
+        delete my.photo_store[key];
+        break;
+    }
+    my.photo_store_changed = 1;
+  }
+}
+
 async function save_canvas_handler() {
   console.log('save_canvas_handler my.canvas', my.canvas);
   let layer = my.canvas;
   await add_photo(layer);
+
+  my.photo_list = Object.values(my.photo_store);
+
+  if (my.photo_list.length > my.maxPhotos) {
+    // Remove old test photo
+    let entry = my.photo_list[0];
+    photo_list_remove_entry(entry);
+  }
 }
 
 async function add_photo(layer) {
@@ -89,6 +120,28 @@ function photo_path_entry(entry) {
 
 function photo_index_increment() {
   my.dbase.update_item('item', { photo_index: my.dbase.increment(1) });
+}
+
+async function photo_list_remove_entry(entry) {
+  console.log('photo_list_remove_entry entry', entry);
+
+  // delete getting issued twice -- try to avoid repeated delete
+  if (!my.delete_photos) {
+    my.delete_photos = {};
+  }
+  let path = photo_path_entry(entry);
+  if (my.delete_photos[path]) {
+    console.log('photo_list_remove_entry repeated delete path', path);
+    return;
+  }
+  my.delete_photos[path] = 1;
+  try {
+    await my.dbase.fstorage_remove({ path });
+    // remove_img(entry.key);
+    await my.dbase.remove_key('photo_store', entry.key);
+  } catch (err) {
+    console.log('photo_list_remove_entry err', err);
+  }
 }
 
 //
