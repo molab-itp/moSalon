@@ -130,6 +130,7 @@ function createQRCode() {
 
   console.log('createQRCode my.qrcodeElement', my.qrcodeElement);
 }
+globalThis.createQRCode = createQRCode;
 
 // function position_qrcode() {
 //   // console.log('position_bottom');
