@@ -1,7 +1,7 @@
 //
 function my_init() {
   // updated to verify change on mobile
-  my.version = '?v=44';
+  my.version = '?v=45';
 
   my.reverseEffectOrder = 0;
   my.scroller_rate = 0.03;
