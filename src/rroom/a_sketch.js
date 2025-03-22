@@ -1,6 +1,9 @@
 // https://editor.p5js.org/jht9629-gmail/sketches/xxx
 // moSalon room-record
 
+// !!@ not ready for use yet.
+// ref: moLib/src/rroom/index.html
+
 let videoKit; // home for library routines
 let my = {};
 
