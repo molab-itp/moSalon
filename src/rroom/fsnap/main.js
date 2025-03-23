@@ -13,9 +13,16 @@ console.log('in main.js');
 
 /*
 
+src/room-record/fsnap
+
 !!@ import 'itp-molib';
 fails to get any observed events
 
-src/room-record/fsnap
+!!@ fails with undefined ref to XMLHttpRequest
+>> work around to explicitly set globalThis.XMLHttpRequest
+no error, but no save triggered
+// import 'itp-molib';
+// import { XMLHttpRequest } from 'xmlhttprequest';
+// globalThis.XMLHttpRequest = XMLHttpRequest;
 
 */
