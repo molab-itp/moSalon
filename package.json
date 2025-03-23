@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "axios": "^1.7.9",
-    "itp-molib": "^0.2.16"
+    "itp-molib": "^0.2.44",
+    "firebase": "^11.2.0",
+    "axios": "^1.8.2"
   }
 }

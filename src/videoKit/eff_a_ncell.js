@@ -9,7 +9,7 @@ class eff_a_ncell {
   ];
   constructor(props) {
     console.log('eff_ncell');
-    console.log('eff_ncell props', props);
+    // console.log('eff_ncell props', props);
     Object.assign(this, props);
     this.init();
   }
@@ -47,7 +47,7 @@ class eff_a_ncell {
       let eff_label = eff_labels[index % eff_labels.length];
       let props = {};
       let eff = await videoKit.createEffect({ eff_label, imedia, urect, props });
-      console.log('eff_ncell index', index, 'eff', eff);
+      // console.log('eff_ncell index', index, 'eff', eff);
       this.effs.push(eff);
       x0 += xstep;
       if (x0 >= uw) {
