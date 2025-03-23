@@ -2,8 +2,8 @@
 
 async function setup_dbase() {
   //
-  // my.imageQuality = 1;
-  my.imageQuality = 0.1;
+  my.imageQuality = 1;
+  // my.imageQuality = 0.1;
   my.imageExt = '.jpg';
 
   my.maxPhotos = 4;
@@ -64,6 +64,7 @@ function observe_photo_store() {
 
 async function save_canvas_handler() {
   console.log('save_canvas_handler my.canvas', my.canvas);
+
   let layer = my.canvas;
   await add_photo(layer);
 
