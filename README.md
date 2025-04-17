@@ -56,9 +56,11 @@ The functions that include Firebase setup are in [moLab](https://github.com/mola
 
 - TODO
 
-## the course
+## the courses
 
-- [Interactive multi-screen experiences](https://github.com/p5videoKit/IM-Screens-2024-03-ima)
+<!-- - [Interactive multi-screen experiences](https://github.com/p5videoKit/IM-Screens-2024-03-ima) -->
+
+- [IM-Screens courses](https://github.com/orgs/p5videoKit/repositories?q=IM-Screens+sort%3Aname-asc)
 
 ## --
 
