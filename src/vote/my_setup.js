@@ -3,11 +3,11 @@ function my_setup() {
   //
   // change to your firebase app
   my.fireb_config = 'jht9629';
-  // my.fireb_config = 'jht1493';
-  // my.fireb_config = 'jhtitp';
+
   my.dbase_rootPath = 'm0-@r-@w-';
   my.mo_room = 'm1-vote';
   my.mo_app = 'mo-vote';
+  my.mo_group = 's0';
   my.nameDevice = 'mo-vote-device';
 
   // set group for all devices to share item values
