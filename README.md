@@ -9,12 +9,11 @@
 
 ### demo examples
 
+- [src/comments s0](src/comments/?v=49)
+  -- save comments to server - using moLib + html/css/js
+
 - [src/photo-booth s0](src/photo-booth/?v=49)
-
-  - canvas saved to firebase backend
-
-- [src/vote s0](src/vote/?v=49)
-  - basic sharing of action between devices
+  -- save p5 canvas to server
 
 ## How is data synchronized in real time in the examples?
 

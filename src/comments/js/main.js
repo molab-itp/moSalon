@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', document_loaded);
 
 // window.addEventListener('resize', resize_window);
 
-id_link.addEventListener('click', link_click_action, { passive: true });
+// id_link.addEventListener('click', link_click_action, { passive: true });
 id_button_add.addEventListener('click', add_click_action);
 id_button_remove.addEventListener('click', remove_click_action);
-id_button_enter.addEventListener('click', enter_click_action);
+// id_button_enter.addEventListener('click', enter_click_action);
 
 function document_loaded() {
   console.log('document_loaded');
