@@ -1,18 +1,18 @@
-# [github moSalon](https://github.com/molab-itp/moSalon) ?v=49
+# [github moSalon](https://github.com/molab-itp/moSalon) ?v=50
 
 - interactive multi-screen experiences on handheld and large screens
 - what new interactive experiences are possible when sharing is free and easy?
 - enabled by [moLab](https://github.com/molab-itp/moLib)
   - and [firebase cloud services](https://firebase.google.com)
 
-## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=49)
+## [github.io versions of examples](https://molab-itp.github.io/moSalon?v=50)
 
 ### demo examples
 
-- [src/comments s0](src/comments/?v=49)
+- [src/comments s0](src/comments/?v=50)
   -- save comments to server - using moLib + html/css/js
 
-- [src/photo-booth s0](src/photo-booth/?v=49)
+- [src/photo-booth s0](src/photo-booth/?v=50)
   -- save p5 canvas to server
 
 ## How is data synchronized in real time in the examples?
@@ -30,27 +30,27 @@ The functions that include Firebase setup are in [moLab](https://github.com/mola
 - [videoplayer - A Moment in Eternity (A Mixed Reality Experience) - Trailer](src/videoplayer?playlist=s1mo4k4bvEg)
 - [videoplayer - WEB DuBois: A Biography In Four Voices by Louis Massiah](src/videoplayer?playlist=xIGJd4nP_f4)
 
-- [src/black-enter s0](src/black-enter/?v=49&group=s0)
-- [src/black-enter s1](src/black-enter/?v=49&group=s1)
+- [src/black-enter s0](src/black-enter/?v=50&group=s0)
+- [src/black-enter s1](src/black-enter/?v=50&group=s1)
 
-- [src/mandala/manju](src/mandala/manju?v=49)
-- [src/mandala/taizokai](src/mandala/taizokai?v=49)
+- [src/mandala/manju](src/mandala/manju?v=50)
+- [src/mandala/taizokai](src/mandala/taizokai?v=50)
 
-- [src/let-america-be s0](src/let-america-be/qrcode?v=49&group=s0)
-- [src/let-america-be s1](src/let-america-be/qrcode?v=49&group=s1)
-- [src/let-america-be s2](src/let-america-be/qrcode?v=49&group=s2)
+- [src/let-america-be s0](src/let-america-be/qrcode?v=50&group=s0)
+- [src/let-america-be s1](src/let-america-be/qrcode?v=50&group=s1)
+- [src/let-america-be s2](src/let-america-be/qrcode?v=50&group=s2)
 
-- [src/faceMesh s0](src/faceMesh/qrcode?v=49)
-- [src/faceMesh s1](src/faceMesh/qrcode?v=49&group=s1)
-- [src/faceMesh s2](src/faceMesh/qrcode?v=49&group=s2)
+- [src/faceMesh s0](src/faceMesh/qrcode?v=50)
+- [src/faceMesh s1](src/faceMesh/qrcode?v=50&group=s1)
+- [src/faceMesh s2](src/faceMesh/qrcode?v=50&group=s2)
 
-- [src/vote-no-fascism](src/vote-no-fascism/?v=49)
+- [src/vote-no-fascism](src/vote-no-fascism/?v=50)
 
-- [src/m5body](src/m5body/?v=49)
-- [src/m5body m5body qrcode](src/m5body/qrcode-m5body/?v=49&app=mo-m5body&group=m5body)
-- [src/m5body faceMesh qrcode](src/m5body/qrcode-facemesh/?v=49&app=mo-m5body&group=m5body)
-- [jht1493.net m5body qrcode](https://jht1493.net/moSalon/demo/m5body/qrcode-m5body/?v=49&app=mo-m5body&group=m5body)
-- [jht1493.net faceMesh qrcode](https://jht1493.net/moSalon/demo/m5body/qrcode-facemesh/?v=49&app=mo-m5body&group=m5body)
+- [src/m5body](src/m5body/?v=50)
+- [src/m5body m5body qrcode](src/m5body/qrcode-m5body/?v=50&app=mo-m5body&group=m5body)
+- [src/m5body faceMesh qrcode](src/m5body/qrcode-facemesh/?v=50&app=mo-m5body&group=m5body)
+- [jht1493.net m5body qrcode](https://jht1493.net/moSalon/demo/m5body/qrcode-m5body/?v=50&app=mo-m5body&group=m5body)
+- [jht1493.net faceMesh qrcode](https://jht1493.net/moSalon/demo/m5body/qrcode-facemesh/?v=50&app=mo-m5body&group=m5body)
 
 ## p5js versions of examples
 

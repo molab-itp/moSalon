@@ -4,7 +4,7 @@ function black_my_setup() {
   console.log('my_setup_black');
 
   my.appTitle = 'Blackfacts';
-  my.version = '?v=49';
+  my.version = '?v=50';
 
   // my.fireb_config = 'jht9629';
   my.fireb_config = 'jhtitp';
