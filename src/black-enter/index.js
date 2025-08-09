@@ -53,7 +53,9 @@ function enter_click_action(event) {
 
   add_click_action();
 
-  window.open(id_link.href);
+  window.location = id_link.href;
+  // !!@ Fails in WebView iOS app
+  // window.open(id_link.href);
 }
 
 function link_click_action(event) {

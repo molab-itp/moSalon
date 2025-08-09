@@ -1,7 +1,7 @@
 //
 
 function my_setup() {
-  my.version = '?v=51';
+  my.version = '?v=52';
   // console.log('my_setup ');
   my.fireb_config = 'jht9629';
   // my.fireb_config = 'jhtitp';
