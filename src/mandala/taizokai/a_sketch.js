@@ -9,7 +9,7 @@ let my = {};
 
 function preload() {
   //
-  my.version = '?v=53';
+  my.version = '?v=54';
 
   my.backImage = loadImage('../../assets/Taizokai.jpg');
 
