@@ -91,6 +91,8 @@ function create_index_buttons() {
       update_blackfacts_index_dbase(index);
     });
   }
+  // Buttons begin hidden
+  toggle_365_panes();
 }
 
 // function qrcode_hide() {
