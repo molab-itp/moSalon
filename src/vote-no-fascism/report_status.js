@@ -3,7 +3,8 @@
 if (globalThis.window) {
   window.addEventListener('resize', () => {
     console.log('report_status resize');
-    dbase_report_status({});
+    dbase_report_status({ msg: new Date().toISOString() });
+    // dbase_report_status({});
   });
 }
 
