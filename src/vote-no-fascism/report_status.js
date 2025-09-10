@@ -3,9 +3,12 @@
 if (globalThis.window) {
   window.addEventListener('resize', () => {
     console.log('report_status resize');
-    dbase_report_status({ msg: new Date().toISOString() });
-    // dbase_report_status({});
+    dbase_report_status_version();
   });
+}
+
+function dbase_report_status_version() {
+  dbase_report_status({ msg: '?v=57 ' + new Date().toISOString() });
 }
 
 function dbase_report_status(props) {

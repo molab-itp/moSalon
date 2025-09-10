@@ -59,14 +59,7 @@ function setup() {
     return window.innerWidth > 800;
   };
 
-  dbase_report_status({ msg: new Date().toISOString() });
-
-  // Set a timeout for 24 hours (24 hours * 60 minutes * 60 seconds * 1000 milliseconds)
-  // let period = 24 * 60 * 60 * 1000;
-  // // let period = 2 * 1000;
-  // setTimeout(() => {
-  //   location.reload();
-  // }, period);
+  dbase_report_status_version();
 
   check_doScroll(1);
 }
