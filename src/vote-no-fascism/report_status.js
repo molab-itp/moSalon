@@ -8,7 +8,7 @@ if (globalThis.window) {
 }
 
 function dbase_report_status_version() {
-  dbase_report_status({ msg: '?v=57 ' + new Date().toISOString() });
+  dbase_report_status({ msg: '?v=58 ' + new Date().toISOString() });
 }
 
 function dbase_report_status(props) {
