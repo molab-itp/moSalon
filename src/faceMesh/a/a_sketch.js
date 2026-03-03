@@ -69,6 +69,7 @@ async function video_setup() {
 
   my.input = my.video;
 
+  ml5.setBackend('webgl'); // !!@ ml5@1.2.0 patch
   faceMesh_init();
 
   my.bestill = new eff_bestill({ factor: 10, input: my.output });
