@@ -200,7 +200,6 @@ class eff_bodyPose {
     let y1 = elbow.y * r1 + py0;
     let hh = h / 2;
     y2 += hh;
-    // circle(x2, y2, h);
     let dx = x2 - x1;
     let dy = y2 - y1;
     let r = hh;
