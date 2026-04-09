@@ -32,9 +32,13 @@ function black_my_setup() {
     // qrCode is only shown for screen width greater than 800
     return window.innerWidth > 800;
   };
-
-  my.footerHeight = '288px';
-  my.qrCodeWidth = '25%';
+  if (window.innerWidth > window.innerHeight) {
+    my.footerHeight = '210px';
+    my.qrCodeWidth = '12%';
+  } else {
+    my.footerHeight = '288px';
+    my.qrCodeWidth = '25%';
+  }
 
   console.log('my_setup_black my.mo_app', my.mo_app, 'my.mo_room', my.mo_room, 'my.mo_group', my.mo_group);
 }
